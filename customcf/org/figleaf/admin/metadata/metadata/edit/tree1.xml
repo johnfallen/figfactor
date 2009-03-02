@@ -1,0 +1,44 @@
+<node>
+	<node label="Mail" data="m">
+		<node label="INBOX" data="i"/>
+		<node label="Personal Folder" data="pf">
+			<node label="Business" data="b" isBranch="true" />
+			<node label="Demo" data="d" isBranch="true" /> 
+			<node label="Personal" data="p" isBranch="true" /> 
+			<node label="Saved Mail" data="s" isBranch="true" /> 
+			<node label="bar" data="bar" isBranch="true" />
+		</node>
+		<node label="Sent" data="st" isBranch="true" />
+		<node label="Trash" data="t"/>
+		<node label="INBOX" data="i"/>
+		<node label="Personal Folder" data="pf">
+			<node label="Business" data="b" isBranch="true" />
+			<node label="Demo" data="d" isBranch="true" /> 
+			<node label="Personal" data="p" isBranch="true" /> 
+			<node label="Saved Mail" data="s" isBranch="true" /> 
+			<node label="bar" data="bar" isBranch="true" />
+		</node>
+		<node label="Sent" data="st" isBranch="true" />
+		<node label="Trash" data="t"/>
+		<node label="INBOX" data="i"/>
+		<node label="Personal Folder" data="pf">
+			<node label="Business" data="b" isBranch="true" />
+			<node label="Demo" data="d" isBranch="true" /> 
+			<node label="Personal" data="p" isBranch="true" /> 
+			<node label="Saved Mail" data="s" isBranch="true" /> 
+			<node label="bar" data="bar" isBranch="true" />
+		</node>
+		<node label="Sent" data="st" isBranch="true" />
+		<node label="Trash" data="t"/>
+		<node label="INBOX" data="i"/>
+		<node label="Personal Folder" data="pf">
+			<node label="Business" data="b" isBranch="true" />
+			<node label="Demo" data="d" isBranch="true" /> 
+			<node label="Personal" data="p" isBranch="true" /> 
+			<node label="Saved Mail" data="s" isBranch="true" /> 
+			<node label="bar" data="bar" isBranch="true" />
+		</node>
+		<node label="Sent" data="st" isBranch="true" />
+		<node label="Trash" data="t"/>
+	</node>
+</node>

@@ -1,0 +1,539 @@
+<cffunction name="init" access="public" returntype="transfer.com.TransferObject" default="transfer.com.TransferObject" hint="Constructor for Transfer class gallery.Item" output="false">
+<cfargument name="transfer" type="transfer.com.Transfer" required="true" hint="The Transfer library">
+<cfargument name="utility" type="transfer.com.util.Utility" required="true" hint="The Utility object">
+<cfargument name="nullable" type="transfer.com.sql.Nullable" required="true" hint="The Nullable lookup object">
+<cfargument name="thisObject" type="transfer.com.TransferObject" required="true" hint="What is determined to be the base 'this' object for this TransferObject">
+<cfscript>
+instance = StructNew();
+setThisObject(arguments.thisObject);
+setTransfer(arguments.transfer);
+setUtility(arguments.utility);
+setSystem(createObject("java", "java.lang.System"));
+setNullable(arguments.nullable);
+setClassName("gallery.Item");
+setIsDirty(true);
+setIsPersisted(false);
+setIsClone(false);
+setIDItem(getNullable().getNullNumeric(getClassName(), "IDItem"));
+setItemOrder(0);
+setLoaded(StructNew());
+setMediaisLoaded(true);
+setParentGalleryisLoaded(true);
+if(StructKeyExists(this, "configure") OR StructKeyExists(variables, "configure"))
+{
+configure();
+}
+return this;
+</cfscript>
+</cffunction>
+
+<cffunction name="equalsTransfer" access="public" returntype="boolean" default="boolean" hint="If an object is persisted, returns true if they are of the same class and same id. If not, returns true if they are the same object." output="false">
+<cfargument name="transfer" type="transfer.com.TransferObject" required="true" hint="The TransferObject to test against">
+<cfscript>
+if(getIsPersisted())
+{
+if(getClassName() neq arguments.transfer.getClassName())
+{
+return false;
+}
+return (getIDItem() eq arguments.transfer.getIDItem());
+}
+else
+{
+return sameTransfer(arguments.transfer);
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="getIDItem" access="public" returntype="numeric" default="numeric" hint="Accessor for property IDItem" output="false">
+<cfscript>
+return instance.IDItem;
+</cfscript>
+</cffunction>
+
+<cffunction name="setIDItem" access="public" returntype="void" default="void" hint="Mutator for property IDItem" output="false">
+<cfargument name="IDItem" type="numeric" required="true" hint="The value to set IDItem to">
+<cfscript>
+if(NOT StructKeyExists(instance, "IDItem") OR getIDItem() neq arguments.IDItem)
+{
+instance.IDItem = getUtility().trimZero(arguments.IDItem);
+setIsDirty(true);
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="getItemOrder" access="public" returntype="numeric" default="numeric" hint="Accessor for property ItemOrder" output="false">
+<cfscript>
+return instance.ItemOrder;
+</cfscript>
+</cffunction>
+
+<cffunction name="setItemOrder" access="public" returntype="void" default="void" hint="Mutator for property ItemOrder" output="false">
+<cfargument name="ItemOrder" type="numeric" required="true" hint="The value to set ItemOrder to">
+<cfscript>
+if(NOT StructKeyExists(instance, "ItemOrder") OR getItemOrder() neq arguments.ItemOrder)
+{
+instance.ItemOrder = getUtility().trimZero(arguments.ItemOrder);
+setIsDirty(true);
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="getMediaisLoaded" access="public" returntype="boolean" default="boolean" hint="Whether or not the composition 'Media' has been loaded yet" output="false">
+<cfscript>
+if(NOT StructKeyExists(getLoaded(), "Media"))
+{
+setMediaisLoaded(false);
+}
+return StructFind(getLoaded(), "Media");
+</cfscript>
+</cffunction>
+
+<cffunction name="setMediaisLoaded" access="private" returntype="void" default="void" hint="Set the loaded state of composition 'arguments.name'" output="false">
+<cfargument name="loaded" type="boolean" required="true" hint="Whether or not this composition has been loaded">
+<cfscript>
+StructInsert(getLoaded(), "Media", arguments.loaded, true);
+</cfscript>
+</cffunction>
+
+<cffunction name="loadMedia" access="package" returntype="void" default="void" hint="Lazy load composition 'Media'" output="false">
+<cfif NOT getMediaisLoaded()>
+<cflock name="transfer.load.gallery.Item.Media.#getSystem().identityHashCode(this)#" timeout="60">
+<cfif NOT getMediaisLoaded()>
+<cfscript>
+getTransfer().loadManyToOne(getThisObject(), "Media");
+</cfscript>
+</cfif>
+</cflock>
+</cfif>
+</cffunction>
+
+<cffunction name="unLoadMedia" access="private" returntype="void" default="void" hint="unload lazy load composition 'Media'" output="false">
+<cfif getMediaisLoaded()>
+<cflock name="transfer.load.gallery.Item.Media.#getSystem().identityHashCode(this)#" timeout="60">
+<cfif getMediaisLoaded()>
+<cfscript>
+setMediaisLoaded(false);
+StructDelete(instance, "Media");
+</cfscript>
+</cfif>
+</cflock>
+</cfif>
+</cffunction>
+
+<cffunction name="getParentGalleryisLoaded" access="public" returntype="boolean" default="boolean" hint="Whether or not the composition 'ParentGallery' has been loaded yet" output="false">
+<cfscript>
+if(NOT StructKeyExists(getLoaded(), "ParentGallery"))
+{
+setParentGalleryisLoaded(false);
+}
+return StructFind(getLoaded(), "ParentGallery");
+</cfscript>
+</cffunction>
+
+<cffunction name="setParentGalleryisLoaded" access="private" returntype="void" default="void" hint="Set the loaded state of composition 'arguments.name'" output="false">
+<cfargument name="loaded" type="boolean" required="true" hint="Whether or not this composition has been loaded">
+<cfscript>
+StructInsert(getLoaded(), "ParentGallery", arguments.loaded, true);
+</cfscript>
+</cffunction>
+
+<cffunction name="loadParentGallery" access="package" returntype="void" default="void" hint="Lazy load composition 'ParentGallery'" output="false">
+<cfif NOT getParentGalleryisLoaded()>
+<cflock name="transfer.load.gallery.Item.ParentGallery.#getSystem().identityHashCode(this)#" timeout="60">
+<cfif NOT getParentGalleryisLoaded()>
+<cfscript>
+getTransfer().loadParentOneToMany(getThisObject(), "ParentGallery");
+</cfscript>
+</cfif>
+</cflock>
+</cfif>
+</cffunction>
+
+<cffunction name="unLoadParentGallery" access="private" returntype="void" default="void" hint="unload lazy load composition 'ParentGallery'" output="false">
+<cfif getParentGalleryisLoaded()>
+<cflock name="transfer.load.gallery.Item.ParentGallery.#getSystem().identityHashCode(this)#" timeout="60">
+<cfif getParentGalleryisLoaded()>
+<cfscript>
+setParentGalleryisLoaded(false);
+StructDelete(instance, "ParentGallery");
+</cfscript>
+</cfif>
+</cflock>
+</cfif>
+</cffunction>
+
+<cffunction name="setMemento" access="public" returntype="void" default="void" hint="set the state of this object from a memento" output="false">
+<cfargument name="memento" type="struct" required="true" hint="the memento to set the state with">
+<cfscript>
+var composite = 0;
+if(NOT getIsPersisted())
+{
+setIDItem(StructFind(arguments.memento, "IDItem"));
+}
+setPropertyMemento(arguments.memento);
+setMediaisLoaded(false);
+if(StructKeyExists(arguments.memento, "Media"))
+{
+composite = StructFind(arguments.memento, "Media");
+}
+else
+{
+composite = StructNew();
+}
+setMediaMemento(composite);
+setParentGalleryisLoaded(false);
+setParentGalleryMemento(memento,false);
+</cfscript>
+</cffunction>
+
+<cffunction name="setPropertyMemento" access="public" returntype="void" default="void" hint="set the Property state of this object with a memento" output="false">
+<cfargument name="memento" type="struct" required="true" hint="the memento to set the state with">
+<cfscript>
+setItemOrder(StructFind(arguments.memento, "ItemOrder"));
+</cfscript>
+</cffunction>
+
+<cffunction name="setParentGalleryMemento" access="public" returntype="void" default="void" hint="set the state of composition parent onetomany 'ParentGallery'" output="false">
+<cfargument name="memento" type="struct" required="true" hint="the memento to set the state with">
+<cfargument name="retrieveParent" type="boolean" required="false" hint="Whether or not to force retrieval of the parent" default="true">
+<cfscript>
+var composite = 0;
+if(StructKeyExists(arguments.memento, "parentGallery_transferObject"))
+{
+setParentGallery(StructFind(arguments.memento, "parentGallery_transferObject"), false, true);
+}
+else if(arguments.retrieveParent)
+{
+if(StructKeyExists(arguments.memento, "parentGallery_IDGallery"))
+{
+composite = getTransfer().get("gallery.Gallery", StructFind(arguments.memento, "parentGallery_IDGallery"));
+if(getIsClone() AND composite.getIsPersisted())
+{
+composite = composite.clone();
+}
+setParentGalleryisLoaded(true);
+if(composite.getIsPersisted())
+{
+setParentGallery(composite, false, true);
+}
+else
+{
+removeParentGallery();
+}
+}
+else
+{
+removeParentGallery();
+}
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="setMediaMemento" access="public" returntype="void" default="void" hint="set the state of composition manytoone 'Media'" output="false">
+<cfargument name="memento" type="struct" required="true" hint="the memento to set the state with">
+<cfscript>
+var composite = 0;
+if(StructIsEmpty(arguments.memento))
+{
+removeMedia();
+}
+else
+{
+composite = getComposite("media.Media", arguments.memento, "IDMedia");
+setMedia(composite);
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="getMemento" access="public" returntype="struct" default="struct" hint="Returns the memento for all non-lazy members of this object" output="false">
+<cfscript>
+var memento = createObject("java", "java.util.HashMap").init();
+StructInsert(memento, "IDItem", getIDItem());
+StructInsert(memento, "transfer_isDirty", getIsDirty());
+StructInsert(memento, "transfer_isPersisted", getIsPersisted());
+StructInsert(memento, "transfer_isProxied", false);
+StructAppend(memento, getPropertyMemento());
+StructInsert(memento, "Media", getMediaMemento());
+return memento;
+</cfscript>
+</cffunction>
+
+<cffunction name="getPropertyMemento" access="public" returntype="struct" default="struct" hint="returns the memento for properties" output="false">
+<cfscript>
+var memento = createObject("java", "java.util.HashMap").init();
+StructInsert(memento, "ItemOrder", getItemOrder());
+return memento;
+</cfscript>
+</cffunction>
+
+<cffunction name="getParentGalleryMemento" access="public" returntype="struct" default="struct" hint="returns the memento for the parent onetomany gallery.Gallery" output="false">
+<cfscript>
+var memento = createObject("java", "java.util.HashMap").init();
+if(hasParentGallery())
+{
+StructInsert(memento, "parentGallery_IDGallery", getParentGallery().getIDGallery());
+}
+return memento;
+</cfscript>
+</cffunction>
+
+<cffunction name="getMediaMemento" access="public" returntype="struct" default="struct" hint="returns the memento for manytoone Media" output="false">
+<cfscript>
+var memento = createObject("java", "java.util.HashMap").init();
+if(hasMedia())
+{
+memento = getMedia().getMemento();
+}
+return memento;
+</cfscript>
+</cffunction>
+
+<cffunction name="copyValuesTo" access="public" returntype="void" default="void" hint="Copies the values of this object to one of the same class" output="false">
+<cfargument name="transfer" type="transfer.com.TransferObject" required="true" hint="The object to copy values to">
+<cfscript>
+if(arguments.transfer.getClassName() neq "gallery.Item")
+{
+throw("InvalidTransferClassException","The supplied Transfer class was not the one specified in the configuration file ","The Transfer class of '#arguments.transfer.getClassName()#' does not match the expected class of 'gallery.Item'");
+}
+arguments.transfer.setMemento(getMemento());
+if(getParentGalleryisLoaded() AND getIsDirty())
+{
+arguments.transfer.setParentGalleryMemento(getParentGalleryMemento(), true);
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="getMedia" access="public" returntype="any" default="any" hint="Accessor for Media, media.Media" output="false">
+<cfscript>
+if(NOT getMediaisLoaded())
+{
+loadMedia();
+}
+if(NOT structKeyExists(instance, "Media"))
+{
+if(CGI.CONTENT_TYPE eq "application/x-amf")
+{
+return;
+}
+throw("ManyToOneNotSetException","A ManyToOne TransferObject has not been initialised.","In TransferObject 'gallery.Item' manytoone 'media.Media' does not exist, when calling getMedia()");
+}
+return instance.Media;
+</cfscript>
+</cffunction>
+
+<cffunction name="setMedia" access="public" returntype="void" default="void" hint="Mutator for Media, media.Media" output="false">
+<cfargument name="transfer" type="transfer.com.TransferObject" required="true" hint="The media.Media to set">
+<cfscript>
+if(arguments.transfer.getClassName() neq "media.Media")
+{
+throw("InvalidTransferClassException","The supplied Transfer class was not the one specified in the configuration file ","The Transfer class of '#arguments.transfer.getClassName()#' does not match the expected class of 'media.Media'");
+}
+if((NOT getMediaisLoaded()) OR (NOT (StructKeyExists(instance, "Media") AND getMedia().equalsTransfer(arguments.transfer))))
+{
+instance.Media = arguments.transfer;
+setIsDirty(true);
+setMediaisLoaded(true);
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="hasMedia" access="public" returntype="boolean" default="boolean" hint="Whether or not this object contains a media.Media" output="false">
+<cfscript>
+if(NOT getMediaisLoaded())
+{
+loadMedia();
+}
+return StructKeyExists(instance,"Media");
+</cfscript>
+</cffunction>
+
+<cffunction name="removeMedia" access="public" returntype="void" default="void" hint="remove the instance of media.Media" output="false">
+<cfscript>
+if(NOT getMediaisLoaded() OR hasMedia())
+{
+StructDelete(instance,"Media");
+setIsDirty(true);
+setMediaisLoaded(true);
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="getParentGallery" access="public" returntype="transfer.com.TransferObject" default="transfer.com.TransferObject" hint="Access for parent gallery.Item" output="false">
+<cfscript>
+if(NOT getParentGalleryisLoaded())
+{
+loadParentGallery();
+}
+if(NOT structKeyExists(instance, "Gallery"))
+{
+throw("OneToManyParentNotSetException","A OneToMany Parent TransferObject has not been initialised.","In TransferObject 'gallery.Item' onetomany parent 'gallery.Gallery' does not exist, when calling getParentGallery()");
+}
+return instance.Gallery;
+</cfscript>
+</cffunction>
+
+<cffunction name="setParentGallery" access="public" returntype="void" default="void" hint="Mutator for parent gallery.Item" output="false">
+<cfargument name="transfer" type="transfer.com.TransferObject" required="true" hint="the object to set as parent">
+<cfargument name="loadChildren" type="boolean" required="false" hint="Expert/Transfer use only: whether or not to load the children." default="true">
+<cfargument name="loadingFromMemento" type="boolean" required="false" hint="Expert/Transfer use only: if this is loading from a memento or not" default="false">
+<cfscript>
+if(arguments.transfer.getClassName() neq "gallery.Gallery")
+{
+throw("InvalidTransferClassException","The supplied Transfer class was not the one specified in the configuration file ","The Transfer class of '#arguments.transfer.getClassName()#' does not match the expected class of 'gallery.Gallery'");
+}
+if(NOT getParentGalleryIsLoaded() OR NOT hasParentGallery() OR NOT getParentGallery().equalsTransfer(arguments.transfer))
+{
+if(getParentGalleryIsLoaded() AND hasParentGallery())
+{
+removeParentGallery();
+}
+instance.Gallery = arguments.transfer;
+setParentGalleryisLoaded(true);
+setIsDirty(true);
+}
+else if(NOT getParentGallery().sameTransfer(arguments.transfer))
+{
+instance.Gallery = arguments.transfer;
+}
+if(arguments.loadChildren AND NOT getParentGallery().getOriginalTransferObject().getItemIsLoaded())
+{
+getParentGallery().getOriginalTransferObject().loadItem();
+}
+if(getParentGallery().getOriginalTransferObject().getItemIsLoaded()AND NOT getParentGallery().getOriginalTransferObject().containsItem(getThisObject(), arguments.loadingFromMemento))
+{
+getParentGallery().getOriginalTransferObject().addItem(getThisObject());
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="hasParentGallery" access="public" returntype="boolean" default="boolean" hint="Whether or not this object has a parent gallery.Item" output="false">
+<cfscript>
+if(NOT getParentGalleryisLoaded())
+{
+loadParentGallery();
+}
+return StructKeyExists(instance,"Gallery");
+</cfscript>
+</cffunction>
+
+<cffunction name="removeParentGallery" access="public" returntype="void" default="void" hint="Remove the parent gallery.Item from this object" output="false">
+<cfscript>
+if(getParentGalleryisLoaded() AND hasParentGallery())
+{
+getParentGallery().getOriginalTransferObject().removeItem(getThisObject());
+}
+else if(StructKeyExists(instance, "Gallery"))
+{
+instance.Gallery.getOriginalTransferObject().removeItem(getThisObject());
+}
+setIsDirty(true);
+StructDelete(instance,"Gallery");
+setParentGalleryisLoaded(true);
+</cfscript>
+</cffunction>
+
+<cffunction name="validateCacheState" access="package" returntype="boolean" default="boolean" hint="if this object is cached, then validate that all it's composites are cached too" output="false">
+<cfscript>
+var iterator = 0;
+var item = 0;
+if(getIsPersisted() AND NOT getTransfer().validateIsCached(getThisObject()))
+{
+if(getParentGalleryisLoaded() AND hasParentGallery())
+{
+if(getIsClone() AND getParentGallery().getIsClone())
+{
+return true;
+}
+return false;
+}
+return true;
+}
+if(getMediaisLoaded() AND hasMedia())
+{
+item = getMedia();
+if(item.getIsClone() OR NOT getTransfer().validateIsCached(item))
+{
+return false;
+}
+}
+if(getParentGalleryisLoaded() AND hasParentGallery())
+{
+item = getParentGallery();
+if(item.getIsClone() OR NOT getTransfer().validateIsCached(item))
+{
+return false;
+}
+}
+return true;
+</cfscript>
+</cffunction>
+
+<cffunction name="actionAfterCreateTransferEvent" access="public" returntype="void" default="void" hint="Observer action method for when creates occur" output="false">
+<cfargument name="event" type="transfer.com.events.TransferEvent" required="true" hint="The Transfer Event Object">
+<cfscript>
+var className = arguments.event.getTransferObject().getClassName();
+</cfscript>
+</cffunction>
+
+<cffunction name="actionAfterDeleteTransferEvent" access="public" returntype="void" default="void" hint="Observer action method for when deletes occur" output="false">
+<cfargument name="event" type="transfer.com.events.TransferEvent" required="true" hint="The Transfer Event Object">
+<cfscript>
+var className = arguments.event.getTransferObject().getClassName();
+if(className eq "gallery.Gallery")
+{
+if(hasParentGallery() AND arguments.event.getTransferObject().equalsTransfer(getParentGallery()))
+{
+removeParentGallery();
+}
+}
+if(className eq "media.Media")
+{
+if(getMediaIsLoaded() AND hasMedia() AND getMedia().equalsTransfer(arguments.event.getTransferObject()))
+{
+removeMedia(arguments.event.getTransferObject());
+}
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="actionAfterUpdateTransferEvent" access="public" returntype="void" default="void" hint="Observer method action for when updates occur" output="false">
+<cfargument name="event" type="transfer.com.events.TransferEvent" required="true" hint="The Transfer Event Object">
+<cfscript>
+var className = arguments.event.getTransferObject().getClassName();
+</cfscript>
+</cffunction>
+
+<cffunction name="actionAfterDiscardTransferEvent" access="public" returntype="void" default="void" hint="Observer action method for when discards occur" output="false">
+<cfargument name="event" type="transfer.com.events.TransferEvent" required="true" hint="The Transfer Event Object">
+<cfscript>
+var discard = false;
+var className = arguments.event.getTransferObject().getClassName();
+if(className eq "media.Media")
+{
+if(getMediaIsLoaded() AND hasMedia() AND getMedia().equalsTransfer(arguments.event.getTransferObject()))
+{
+if(getMediaisLoaded())
+{
+unloadMedia();
+}
+}
+}
+if(className eq "gallery.Gallery")
+{
+if(getParentGalleryisLoaded() AND hasParentGallery() AND arguments.event.getTransferObject().equalsTransfer(getParentGallery()))
+{
+if(getParentGalleryisLoaded())
+{
+unloadParentGallery();
+}
+}
+}
+if(discard)
+{
+getTransfer().discard(getThisObject());
+}
+</cfscript>
+</cffunction>
+
+

@@ -1,0 +1,38 @@
+body,div,ul,table,tr,td,input,form {margin:0; padding:0; font-family:"verdana";}
+body table {width:98%;}
+ol li {margin-left:40px;}
+ul, ol {margin-bottom:20px;}
+body {margin:10px;}
+li {margin-left:35px; line-height:1.5em;}
+		input {display:block; margin:6px 0px 15px 0px; font-size:.70em;}
+		h4 {border:solid 1px gray; background-color:#EFE2D1; padding:4px; color:black; font-size:1.2em;}
+h1 {padding-top:0; margin-top:0;}
+h2 {padding-top:0; margin-top:0;}
+hr {margin-top:30px;}
+#meta-nav {
+	width:200px;
+	float:right; 
+	clear:both;
+	border-top:solid 1px silver; 
+	border-right:solid 2px black; 
+	border-bottom:solid 2px black; 
+	border-left:solid 1px silver;
+	padding:10px 10px 10px 10px;
+	margin:0px 0px 20px 40px;
+	font-size:.80em;
+	background-color:black;
+	color:white;
+	font-weight:bold;
+	line-height:1.5em;
+	}
+#meta-nav a:link {color:#fff}
+#meta-nav a:visited {color:#fff}
+#meta-nav a:hover {color:#f0f}
+
+#page-wrapper {
+padding:5px;
+border-top:solid 1px silver;
+border-right:solid 2px black;
+border-bottom:solid 2px black;
+border-left:solid 1px silver;
+min-height:400px;}

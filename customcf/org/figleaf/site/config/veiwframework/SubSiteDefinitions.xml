@@ -1,0 +1,4 @@
+<ViewFrameworkSubSiteDefinitions>
+	<ou name="Foo" displayName="Foo - Cool Cool Foo" type="foo" />
+	<ou name="Bar" displayName="Bar - Rocks The Foo" type="bar" />
+</ViewFrameworkSubSiteDefinitions>

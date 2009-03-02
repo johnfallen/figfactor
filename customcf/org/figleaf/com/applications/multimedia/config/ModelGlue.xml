@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ModelGlue [
+	<!ENTITY fileMapping "/viewframework/customcf/org/figleaf/com/applications/multimedia">
+	<!ENTITY applicationMapping "viewframework.customcf.org.figleaf.com.applications.multimedia.">]>
+<modelglue>
+
+<controllers>
+	<controller id="Controller" type="&applicationMapping;controller.Controller">
+		<message-listener message="OnRequestStart" function="OnRequestStart" />
+		
+		<message-listener message="addMediaToGallery" function="addMediaToGallery" />
+		<message-listener message="createSession" function="createSession" />
+		<message-listener message="deleteMedia" function="deleteMedia" />
+		<message-listener message="editMedia" function="editMedia" />
+		<message-listener message="getMedia" function="getMedia" />
+		<message-listener message="updateGallery" function="updateGallery" />
+		<message-listener message="updateMedia" function="updateMedia" />
+		<message-listener message="updatePageChildren" function="updatePageChildren" />
+
+		<message-listener message="OnQueueComplete" function="OnQueueComplete" />
+		<message-listener message="OnRequestEnd" function="OnRequestEnd" />
+	</controller>
+</controllers>
+	
+<event-handlers>
+	
+	<!-- *********************************
+		public
+	********************************* -->
+
+	<!-- 
+		add.to.gallery 
+	-->
+	<event-handler name="add.to.gallery">
+		<broadcasts>
+			<message name="addMediaToGallery" />
+		</broadcasts>
+		<results>
+			<result do="browse.media" />
+		</results>
+	</event-handler>
+
+
+	<!-- 
+		ajax.load.media 
+	-->
+	<event-handler name="ajax.load.media">
+		<broadcasts>
+			<message name="getMedia" />
+		</broadcasts>
+		<results>
+			<result do="template.ajax" />
+		</results>
+		<views>
+			<include name="body" template="pages/inc_media_preview.cfm" />
+		</views>
+	</event-handler>
+
+
+	<!--
+		browse.media
+	-->
+	<event-handler name="browse.media">
+		<results>
+			<result do="template.media.management" />
+		</results>
+		<views>
+			<include name="body" template="pages/browse_media.cfm">
+				<value name="xe.ajaxLoadMedia" value="ajax.load.media" />
+				<value name="xe.addToGallery" value="add.to.gallery" />
+				<value name="bind.link" value="&applicationMapping;model.MultiMediaAjaxFacade.listMedia" />
+			</include>
+		</views>
+	</event-handler>
+
+
+	<!--
+		commonspot.customfield.entry.point
+	-->
+	<event-handler name="commonspot.customfield.entry.point">
+		<broadcasts>
+			<message name="createSession" />
+		</broadcasts>
+		<views>
+			<include name="body" template="pages/commonspot_entry.cfm">
+				<value name="xe.previewPage" value="preview.page" />
+				<value name="xe.browseMedia" value="browse.media" />
+			</include>
+		</views>
+	</event-handler>
+
+
+	<!-- 
+		delete.media 
+	-->
+	<event-handler name="delete.media">
+		<broadcasts>
+			<message name="deleteMedia" />
+		</broadcasts>
+		<results>
+			<result do="my.media" />
+		</results>
+	</event-handler>
+
+
+	<!-- 
+		edit.media 
+	-->
+	<event-handler name="edit.media">
+		<broadcasts>
+			<message name="editMedia" />
+		</broadcasts>
+		<results>
+			<result do="template.media.management" />
+		</results>
+		<views>
+			<include name="body" template="pages/edit_media.cfm">
+				<value name="xe.saveMedia" value="save.media" />
+				<value name="xe.deleteMedia" value="delete.media" />
+			</include>
+		</views>
+	</event-handler>
+
+
+	<!-- 
+		gallery.order 
+	-->
+	<event-handler name="gallery.order">
+		<results>
+			<result do="template.media.management" />
+		</results>
+		<views>
+			<include name="body" template="pages/gallery_order.cfm">
+				<value name="xe.saveGallery" value="save.gallery" />
+			</include>
+		</views>
+	</event-handler>
+
+
+	<!-- 
+		my.media 
+		NOTE: not currently used. Only managers can edit media.
+	-->
+	<event-handler name="my.media">
+		<broadcasts>
+			<message name="myMedia" />
+		</broadcasts>
+		<results>
+			<result do="template.media.management" />
+		</results>
+		<views>
+			<include name="body" template="pages/my_media.cfm">
+				<value name="xe.editMedia" value="edit.media" />
+				<value name="xe.createMedia" value="create.media" />
+				<value name="bind.link" value="&applicationMapping;model.MultiMediaAjaxFacade.listUserMedia" />
+			</include>
+		</views>
+	</event-handler>
+
+	
+	<!-- 
+		manage.media 
+	-->
+	<event-handler name="manage.media">
+		<broadcasts>
+			<message name="manageMedia" />
+		</broadcasts>
+		<results>
+			<result do="template.media.management" />
+		</results>
+		<views>
+			<include name="body" template="pages/manage_media.cfm">
+				<value name="xe.editMedia" value="edit.media" />
+				<value name="xe.createMedia" value="create.media" />
+				<value name="bind.link" value="&applicationMapping;model.MultiMediaAjaxFacade.listMedia" />
+			</include>
+		</views>
+	</event-handler>
+	
+
+
+	<!-- 
+		page.error 
+	-->
+	<event-handler name="page.error">
+		<broadcasts />
+		<results>
+			<result do="template.ajax" />
+		</results>
+		<views>
+			<include name="body" template="pages/exception.cfm" />
+		</views>
+	</event-handler>
+
+
+	<!-- 
+		page.missing (404 missing event handler)
+	-->
+	<event-handler name="page.missing">
+		<broadcasts />
+		<results>
+			<result do="template.media.management" />
+		</results>
+		<views>
+			<include name="body" template="pages/missing_event.cfm" />
+		</views>
+	</event-handler>
+
+
+	<!--
+		preview.page
+	-->
+	<event-handler name="preview.page">
+		<results>
+			<result do="template.media.management" />
+		</results>
+		<views>
+			<include name="body" template="pages/preview_media.cfm">
+				<value name="xe.borwseMedia" value="browse.media" />
+				<value name="xe.savePage" value="save.page" />
+			</include>
+		</views>
+	</event-handler>
+	
+	
+	<!--
+		save.gallery
+	-->
+	<event-handler name="save.gallery">
+		<broadcasts>
+			<message name="updateGallery" />
+		</broadcasts>
+		<results>
+			<result do="gallery.order" />
+		</results>
+	</event-handler>
+
+
+	<!--
+		save.media
+	-->
+	<event-handler name="save.media">
+		<broadcasts>
+			<message name="updateMedia" />
+		</broadcasts>
+		<results>
+			<result do="manage.Media" />
+		</results>
+	</event-handler>
+
+	
+	<!--
+		save.page
+	-->
+	<event-handler name="save.page">
+		<broadcasts>
+			<message name="updatePageChildren" />
+		</broadcasts>
+		<results>
+			<result do="preview.page" />
+		</results>
+	</event-handler>
+
+
+	<!--
+		scribble
+	-->
+	<event-handler name="scribble">
+		<results>
+			<result do="template.media.management" />
+		</results>
+		<views>
+			<include name="body" template="pages/scribble.cfm" />
+		</views>
+	</event-handler>
+
+
+	<!-- *********************************
+		private
+	********************************* -->
+	<!--
+		template.ajax
+	-->
+	<event-handler access="private" name="template.ajax">
+		<views>
+			<include name="main" template="templates/template_ajax.cfm" />
+		</views>
+	</event-handler>
+
+
+	<!--
+		template.commonspot.entry
+	-->
+	<event-handler access="private" name="template.commonspot.entry">
+		<views>
+			<include name="main" template="templates/template_commonspot_entry.cfm" />
+		</views>
+	</event-handler>
+
+
+	<!--
+		template.media.management
+	-->
+	<event-handler access="private" name="template.media.management">
+		<views>
+			<include name="navigation" template="navigation/edit_media_top_navigation.cfm">
+				<value name="xe.previewPage" value="preview.page" />
+				<value name="xe.browseMedia" value="browse.media" />
+				<value name="xe.galleryOrder" value="gallery.order" />
+				<value name="xe.manageMedia" value="manage.media" />
+			</include>
+			<include name="main" template="templates/template_main_media_management.cfm" />
+		</views>
+	</event-handler>
+</event-handlers>
+</modelglue>

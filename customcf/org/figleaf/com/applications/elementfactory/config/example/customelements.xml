@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions>
+	<customelements renderhandlerdirectory="/renderhandlers">
+
+		<!-- Blank Page -->
+		<customelement name="Blank Page" useDataService="true" useCache="true" CSSClass="blank-page">
+			<method name="getReleatedPages" resultName="ReleatedPages" />
+			<method name="getRemoteData" resultName="RemoteData" />
+			<method name="getFakeMetaData" resultName="FakeMetaData" />
+		</customelement>
+
+		<!-- News Item -->
+		<customelement name="News Item" useDataService="true" useCache="true" CSSClass="news-item">
+			<method name="getRemoteData" resultName="RemoteData" />
+		</customelement>	
+	</customelements>
+</definitions>

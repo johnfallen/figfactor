@@ -1,0 +1,295 @@
+<cffunction name="init" access="public" returntype="transfer.com.TransferObject" default="transfer.com.TransferObject" hint="Constructor for Transfer class layout.Layout" output="false">
+<cfargument name="transfer" type="transfer.com.Transfer" required="true" hint="The Transfer library">
+<cfargument name="utility" type="transfer.com.util.Utility" required="true" hint="The Utility object">
+<cfargument name="nullable" type="transfer.com.sql.Nullable" required="true" hint="The Nullable lookup object">
+<cfargument name="thisObject" type="transfer.com.TransferObject" required="true" hint="What is determined to be the base 'this' object for this TransferObject">
+<cfscript>
+instance = StructNew();
+setThisObject(arguments.thisObject);
+setTransfer(arguments.transfer);
+setUtility(arguments.utility);
+setSystem(createObject("java", "java.lang.System"));
+setNullable(arguments.nullable);
+setClassName("layout.Layout");
+setIsDirty(true);
+setIsPersisted(false);
+setIsClone(false);
+setIDLayout(getNullable().getNullNumeric(getClassName(), "IDLayout"));
+setName("");
+setDescription("");
+setAvaiable(0);
+setJSModuleDirectory("");
+setIsGallery(0);
+setIsMixedMedia(0);
+setIDParentType(0);
+setLoaded(StructNew());
+if(StructKeyExists(this, "configure") OR StructKeyExists(variables, "configure"))
+{
+configure();
+}
+return this;
+</cfscript>
+</cffunction>
+
+<cffunction name="equalsTransfer" access="public" returntype="boolean" default="boolean" hint="If an object is persisted, returns true if they are of the same class and same id. If not, returns true if they are the same object." output="false">
+<cfargument name="transfer" type="transfer.com.TransferObject" required="true" hint="The TransferObject to test against">
+<cfscript>
+if(getIsPersisted())
+{
+if(getClassName() neq arguments.transfer.getClassName())
+{
+return false;
+}
+return (getIDLayout() eq arguments.transfer.getIDLayout());
+}
+else
+{
+return sameTransfer(arguments.transfer);
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="getIDLayout" access="public" returntype="numeric" default="numeric" hint="Accessor for property IDLayout" output="false">
+<cfscript>
+return instance.IDLayout;
+</cfscript>
+</cffunction>
+
+<cffunction name="setIDLayout" access="public" returntype="void" default="void" hint="Mutator for property IDLayout" output="false">
+<cfargument name="IDLayout" type="numeric" required="true" hint="The value to set IDLayout to">
+<cfscript>
+if(NOT StructKeyExists(instance, "IDLayout") OR getIDLayout() neq arguments.IDLayout)
+{
+instance.IDLayout = getUtility().trimZero(arguments.IDLayout);
+setIsDirty(true);
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="getName" access="public" returntype="string" default="string" hint="Accessor for property Name" output="false">
+<cfscript>
+return instance.Name;
+</cfscript>
+</cffunction>
+
+<cffunction name="setName" access="public" returntype="void" default="void" hint="Mutator for property Name" output="false">
+<cfargument name="Name" type="string" required="true" hint="The value to set Name to">
+<cfscript>
+if(NOT StructKeyExists(instance, "Name") OR Compare(getName(), arguments.Name) neq 0)
+{
+instance.Name = (arguments.Name);
+setIsDirty(true);
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="getDescription" access="public" returntype="string" default="string" hint="Accessor for property Description" output="false">
+<cfscript>
+return instance.Description;
+</cfscript>
+</cffunction>
+
+<cffunction name="setDescription" access="public" returntype="void" default="void" hint="Mutator for property Description" output="false">
+<cfargument name="Description" type="string" required="true" hint="The value to set Description to">
+<cfscript>
+if(NOT StructKeyExists(instance, "Description") OR Compare(getDescription(), arguments.Description) neq 0)
+{
+instance.Description = (arguments.Description);
+setIsDirty(true);
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="getAvaiable" access="public" returntype="numeric" default="numeric" hint="Accessor for property Avaiable" output="false">
+<cfscript>
+return instance.Avaiable;
+</cfscript>
+</cffunction>
+
+<cffunction name="setAvaiable" access="public" returntype="void" default="void" hint="Mutator for property Avaiable" output="false">
+<cfargument name="Avaiable" type="numeric" required="true" hint="The value to set Avaiable to">
+<cfscript>
+if(NOT StructKeyExists(instance, "Avaiable") OR getAvaiable() neq arguments.Avaiable)
+{
+instance.Avaiable = getUtility().trimZero(arguments.Avaiable);
+setIsDirty(true);
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="getJSModuleDirectory" access="public" returntype="string" default="string" hint="Accessor for property JSModuleDirectory" output="false">
+<cfscript>
+return instance.JSModuleDirectory;
+</cfscript>
+</cffunction>
+
+<cffunction name="setJSModuleDirectory" access="public" returntype="void" default="void" hint="Mutator for property JSModuleDirectory" output="false">
+<cfargument name="JSModuleDirectory" type="string" required="true" hint="The value to set JSModuleDirectory to">
+<cfscript>
+if(NOT StructKeyExists(instance, "JSModuleDirectory") OR Compare(getJSModuleDirectory(), arguments.JSModuleDirectory) neq 0)
+{
+instance.JSModuleDirectory = (arguments.JSModuleDirectory);
+setIsDirty(true);
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="getIsGallery" access="public" returntype="numeric" default="numeric" hint="Accessor for property IsGallery" output="false">
+<cfscript>
+return instance.IsGallery;
+</cfscript>
+</cffunction>
+
+<cffunction name="setIsGallery" access="public" returntype="void" default="void" hint="Mutator for property IsGallery" output="false">
+<cfargument name="IsGallery" type="numeric" required="true" hint="The value to set IsGallery to">
+<cfscript>
+if(NOT StructKeyExists(instance, "IsGallery") OR getIsGallery() neq arguments.IsGallery)
+{
+instance.IsGallery = getUtility().trimZero(arguments.IsGallery);
+setIsDirty(true);
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="getIsMixedMedia" access="public" returntype="numeric" default="numeric" hint="Accessor for property IsMixedMedia" output="false">
+<cfscript>
+return instance.IsMixedMedia;
+</cfscript>
+</cffunction>
+
+<cffunction name="setIsMixedMedia" access="public" returntype="void" default="void" hint="Mutator for property IsMixedMedia" output="false">
+<cfargument name="IsMixedMedia" type="numeric" required="true" hint="The value to set IsMixedMedia to">
+<cfscript>
+if(NOT StructKeyExists(instance, "IsMixedMedia") OR getIsMixedMedia() neq arguments.IsMixedMedia)
+{
+instance.IsMixedMedia = getUtility().trimZero(arguments.IsMixedMedia);
+setIsDirty(true);
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="getIDParentType" access="public" returntype="numeric" default="numeric" hint="Accessor for property IDParentType" output="false">
+<cfscript>
+return instance.IDParentType;
+</cfscript>
+</cffunction>
+
+<cffunction name="setIDParentType" access="public" returntype="void" default="void" hint="Mutator for property IDParentType" output="false">
+<cfargument name="IDParentType" type="numeric" required="true" hint="The value to set IDParentType to">
+<cfscript>
+if(NOT StructKeyExists(instance, "IDParentType") OR getIDParentType() neq arguments.IDParentType)
+{
+instance.IDParentType = getUtility().trimZero(arguments.IDParentType);
+setIsDirty(true);
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="setMemento" access="public" returntype="void" default="void" hint="set the state of this object from a memento" output="false">
+<cfargument name="memento" type="struct" required="true" hint="the memento to set the state with">
+<cfscript>
+var composite = 0;
+if(NOT getIsPersisted())
+{
+setIDLayout(StructFind(arguments.memento, "IDLayout"));
+}
+setPropertyMemento(arguments.memento);
+</cfscript>
+</cffunction>
+
+<cffunction name="setPropertyMemento" access="public" returntype="void" default="void" hint="set the Property state of this object with a memento" output="false">
+<cfargument name="memento" type="struct" required="true" hint="the memento to set the state with">
+<cfscript>
+setName(StructFind(arguments.memento, "Name"));
+setDescription(StructFind(arguments.memento, "Description"));
+setAvaiable(StructFind(arguments.memento, "Avaiable"));
+setJSModuleDirectory(StructFind(arguments.memento, "JSModuleDirectory"));
+setIsGallery(StructFind(arguments.memento, "IsGallery"));
+setIsMixedMedia(StructFind(arguments.memento, "IsMixedMedia"));
+setIDParentType(StructFind(arguments.memento, "IDParentType"));
+</cfscript>
+</cffunction>
+
+<cffunction name="getMemento" access="public" returntype="struct" default="struct" hint="Returns the memento for all non-lazy members of this object" output="false">
+<cfscript>
+var memento = createObject("java", "java.util.HashMap").init();
+StructInsert(memento, "IDLayout", getIDLayout());
+StructInsert(memento, "transfer_isDirty", getIsDirty());
+StructInsert(memento, "transfer_isPersisted", getIsPersisted());
+StructInsert(memento, "transfer_isProxied", false);
+StructAppend(memento, getPropertyMemento());
+return memento;
+</cfscript>
+</cffunction>
+
+<cffunction name="getPropertyMemento" access="public" returntype="struct" default="struct" hint="returns the memento for properties" output="false">
+<cfscript>
+var memento = createObject("java", "java.util.HashMap").init();
+StructInsert(memento, "Name", getName());
+StructInsert(memento, "Description", getDescription());
+StructInsert(memento, "Avaiable", getAvaiable());
+StructInsert(memento, "JSModuleDirectory", getJSModuleDirectory());
+StructInsert(memento, "IsGallery", getIsGallery());
+StructInsert(memento, "IsMixedMedia", getIsMixedMedia());
+StructInsert(memento, "IDParentType", getIDParentType());
+return memento;
+</cfscript>
+</cffunction>
+
+<cffunction name="copyValuesTo" access="public" returntype="void" default="void" hint="Copies the values of this object to one of the same class" output="false">
+<cfargument name="transfer" type="transfer.com.TransferObject" required="true" hint="The object to copy values to">
+<cfscript>
+if(arguments.transfer.getClassName() neq "layout.Layout")
+{
+throw("InvalidTransferClassException","The supplied Transfer class was not the one specified in the configuration file ","The Transfer class of '#arguments.transfer.getClassName()#' does not match the expected class of 'layout.Layout'");
+}
+arguments.transfer.setMemento(getMemento());
+</cfscript>
+</cffunction>
+
+<cffunction name="validateCacheState" access="package" returntype="boolean" default="boolean" hint="if this object is cached, then validate that all it's composites are cached too" output="false">
+<cfscript>
+var iterator = 0;
+var item = 0;
+if(getIsPersisted() AND NOT getTransfer().validateIsCached(getThisObject()))
+{
+return true;
+}
+return true;
+</cfscript>
+</cffunction>
+
+<cffunction name="actionAfterCreateTransferEvent" access="public" returntype="void" default="void" hint="Observer action method for when creates occur" output="false">
+<cfargument name="event" type="transfer.com.events.TransferEvent" required="true" hint="The Transfer Event Object">
+<cfscript>
+var className = arguments.event.getTransferObject().getClassName();
+</cfscript>
+</cffunction>
+
+<cffunction name="actionAfterDeleteTransferEvent" access="public" returntype="void" default="void" hint="Observer action method for when deletes occur" output="false">
+<cfargument name="event" type="transfer.com.events.TransferEvent" required="true" hint="The Transfer Event Object">
+<cfscript>
+var className = arguments.event.getTransferObject().getClassName();
+</cfscript>
+</cffunction>
+
+<cffunction name="actionAfterUpdateTransferEvent" access="public" returntype="void" default="void" hint="Observer method action for when updates occur" output="false">
+<cfargument name="event" type="transfer.com.events.TransferEvent" required="true" hint="The Transfer Event Object">
+<cfscript>
+var className = arguments.event.getTransferObject().getClassName();
+</cfscript>
+</cffunction>
+
+<cffunction name="actionAfterDiscardTransferEvent" access="public" returntype="void" default="void" hint="Observer action method for when discards occur" output="false">
+<cfargument name="event" type="transfer.com.events.TransferEvent" required="true" hint="The Transfer Event Object">
+<cfscript>
+var discard = false;
+var className = arguments.event.getTransferObject().getClassName();
+if(discard)
+{
+getTransfer().discard(getThisObject());
+}
+</cfscript>
+</cffunction>
+
+

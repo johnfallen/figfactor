@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forbiddenstrings>
+	<entry><![CDATA[%3C%2Fscript]]></entry>
+	<entry><![CDATA[%3CScript]]></entry>
+	<entry><![CDATA[%3C%2F]]></entry>
+	<entry><![CDATA[ciMg+SrC]]></entry>
+	<entry><![CDATA[<%2Fscript]]></entry>
+	<entry><![CDATA[</script]]></entry>
+	<entry><![CDATA[%3c%53%43%52%49%50%54%3e%61%6c%65%72%]]></entry>
+	<entry><![CDATA[%3c%2500SCRIPT%3e]]></entry>
+</forbiddenstrings>

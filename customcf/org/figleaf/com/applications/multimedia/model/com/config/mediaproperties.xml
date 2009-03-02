@@ -1,0 +1,19 @@
+<objects>
+	<audio>
+		<property name="copyright" value="" resourceBundleKey="Copywright" />
+		<property name="publisher" value="" resourceBundleKey="Publisher"  />
+		<property name="sourcelink" value="" resourceBundleKey="SourceLink"  />	
+	</audio>
+	<image type="image">
+		<property name="copyright" value=""  resourceBundleKey="Copywright"  />
+		<property name="publisher" value=""  resourceBundleKey="Publisher"  />
+		<property name="photographer" value="" resourceBundleKey="Photographer"  />	
+		<property name="cameraModel" value="" resourceBundleKey="CameraModel"  />	
+	</image>
+	<video type="video">
+		<property name="copyright" value="" resourceBundleKey="Copywright" />
+		<property name="publisher" value="" resourceBundleKey="Publisher"/>
+		<property name="editor" value="" resourceBundleKey="Editor"/>
+		<property name="producer" value="" resourceBundleKey="Producer"/>
+	</video>
+</objects>
