@@ -1,0 +1,378 @@
+<cffunction name="init" access="public" returntype="transfer.com.TransferObject" default="transfer.com.TransferObject" hint="Constructor for Transfer class keyword.Keyword" output="false">
+<cfargument name="transfer" type="transfer.com.Transfer" required="true" hint="The Transfer library">
+<cfargument name="utility" type="transfer.com.util.Utility" required="true" hint="The Utility object">
+<cfargument name="nullable" type="transfer.com.sql.Nullable" required="true" hint="The Nullable lookup object">
+<cfargument name="thisObject" type="transfer.com.TransferObject" required="true" hint="What is determined to be the base 'this' object for this TransferObject">
+<cfscript>
+instance = StructNew();
+setThisObject(arguments.thisObject);
+setTransfer(arguments.transfer);
+setUtility(arguments.utility);
+setSystem(createObject("java", "java.lang.System"));
+setNullable(arguments.nullable);
+setClassName("keyword.Keyword");
+setIsDirty(true);
+setIsPersisted(false);
+setIsClone(false);
+setIDLocal(getNullable().getNullNumeric(getClassName(), "IDLocal"));
+setIDMetadata(0);
+setLoaded(StructNew());
+setParentMediaisLoaded(true);
+if(StructKeyExists(this, "configure") OR StructKeyExists(variables, "configure"))
+{
+configure();
+}
+return this;
+</cfscript>
+</cffunction>
+
+<cffunction name="equalsTransfer" access="public" returntype="boolean" default="boolean" hint="If an object is persisted, returns true if they are of the same class and same id. If not, returns true if they are the same object." output="false">
+<cfargument name="transfer" type="transfer.com.TransferObject" required="true" hint="The TransferObject to test against">
+<cfscript>
+if(getIsPersisted())
+{
+if(getClassName() neq arguments.transfer.getClassName())
+{
+return false;
+}
+return (getIDLocal() eq arguments.transfer.getIDLocal());
+}
+else
+{
+return sameTransfer(arguments.transfer);
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="getIDLocal" access="public" returntype="numeric" default="numeric" hint="Accessor for property IDLocal" output="false">
+<cfscript>
+return instance.IDLocal;
+</cfscript>
+</cffunction>
+
+<cffunction name="setIDLocal" access="public" returntype="void" default="void" hint="Mutator for property IDLocal" output="false">
+<cfargument name="IDLocal" type="numeric" required="true" hint="The value to set IDLocal to">
+<cfscript>
+if(NOT StructKeyExists(instance, "IDLocal") OR getIDLocal() neq arguments.IDLocal)
+{
+instance.IDLocal = getUtility().trimZero(arguments.IDLocal);
+setIsDirty(true);
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="getIDMetadata" access="public" returntype="numeric" default="numeric" hint="Accessor for property IDMetadata" output="false">
+<cfscript>
+return instance.IDMetadata;
+</cfscript>
+</cffunction>
+
+<cffunction name="setIDMetadata" access="public" returntype="void" default="void" hint="Mutator for property IDMetadata" output="false">
+<cfargument name="IDMetadata" type="numeric" required="true" hint="The value to set IDMetadata to">
+<cfscript>
+if(NOT StructKeyExists(instance, "IDMetadata") OR getIDMetadata() neq arguments.IDMetadata)
+{
+instance.IDMetadata = getUtility().trimZero(arguments.IDMetadata);
+setIsDirty(true);
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="getParentMediaisLoaded" access="public" returntype="boolean" default="boolean" hint="Whether or not the composition 'ParentMedia' has been loaded yet" output="false">
+<cfscript>
+if(NOT StructKeyExists(getLoaded(), "ParentMedia"))
+{
+setParentMediaisLoaded(false);
+}
+return StructFind(getLoaded(), "ParentMedia");
+</cfscript>
+</cffunction>
+
+<cffunction name="setParentMediaisLoaded" access="private" returntype="void" default="void" hint="Set the loaded state of composition 'arguments.name'" output="false">
+<cfargument name="loaded" type="boolean" required="true" hint="Whether or not this composition has been loaded">
+<cfscript>
+StructInsert(getLoaded(), "ParentMedia", arguments.loaded, true);
+</cfscript>
+</cffunction>
+
+<cffunction name="loadParentMedia" access="package" returntype="void" default="void" hint="Lazy load composition 'ParentMedia'" output="false">
+<cfif NOT getParentMediaisLoaded()>
+<cflock name="transfer.load.keyword.Keyword.ParentMedia.#getSystem().identityHashCode(this)#" timeout="60">
+<cfif NOT getParentMediaisLoaded()>
+<cfscript>
+getTransfer().loadParentOneToMany(getThisObject(), "ParentMedia");
+</cfscript>
+</cfif>
+</cflock>
+</cfif>
+</cffunction>
+
+<cffunction name="unLoadParentMedia" access="private" returntype="void" default="void" hint="unload lazy load composition 'ParentMedia'" output="false">
+<cfif getParentMediaisLoaded()>
+<cflock name="transfer.load.keyword.Keyword.ParentMedia.#getSystem().identityHashCode(this)#" timeout="60">
+<cfif getParentMediaisLoaded()>
+<cfscript>
+setParentMediaisLoaded(false);
+StructDelete(instance, "ParentMedia");
+</cfscript>
+</cfif>
+</cflock>
+</cfif>
+</cffunction>
+
+<cffunction name="setMemento" access="public" returntype="void" default="void" hint="set the state of this object from a memento" output="false">
+<cfargument name="memento" type="struct" required="true" hint="the memento to set the state with">
+<cfscript>
+var composite = 0;
+if(NOT getIsPersisted())
+{
+setIDLocal(StructFind(arguments.memento, "IDLocal"));
+}
+setPropertyMemento(arguments.memento);
+setParentMediaisLoaded(false);
+setParentMediaMemento(memento,false);
+</cfscript>
+</cffunction>
+
+<cffunction name="setPropertyMemento" access="public" returntype="void" default="void" hint="set the Property state of this object with a memento" output="false">
+<cfargument name="memento" type="struct" required="true" hint="the memento to set the state with">
+<cfscript>
+setIDMetadata(StructFind(arguments.memento, "IDMetadata"));
+</cfscript>
+</cffunction>
+
+<cffunction name="setParentMediaMemento" access="public" returntype="void" default="void" hint="set the state of composition parent onetomany 'ParentMedia'" output="false">
+<cfargument name="memento" type="struct" required="true" hint="the memento to set the state with">
+<cfargument name="retrieveParent" type="boolean" required="false" hint="Whether or not to force retrieval of the parent" default="true">
+<cfscript>
+var composite = 0;
+if(StructKeyExists(arguments.memento, "parentMedia_transferObject"))
+{
+setParentMedia(StructFind(arguments.memento, "parentMedia_transferObject"), false, true);
+}
+else if(arguments.retrieveParent)
+{
+if(StructKeyExists(arguments.memento, "parentMedia_IDMedia"))
+{
+composite = getTransfer().get("media.Media", StructFind(arguments.memento, "parentMedia_IDMedia"));
+if(getIsClone() AND composite.getIsPersisted())
+{
+composite = composite.clone();
+}
+setParentMediaisLoaded(true);
+if(composite.getIsPersisted())
+{
+setParentMedia(composite, false, true);
+}
+else
+{
+removeParentMedia();
+}
+}
+else
+{
+removeParentMedia();
+}
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="getMemento" access="public" returntype="struct" default="struct" hint="Returns the memento for all non-lazy members of this object" output="false">
+<cfscript>
+var memento = createObject("java", "java.util.HashMap").init();
+StructInsert(memento, "IDLocal", getIDLocal());
+StructInsert(memento, "transfer_isDirty", getIsDirty());
+StructInsert(memento, "transfer_isPersisted", getIsPersisted());
+StructInsert(memento, "transfer_isProxied", false);
+StructAppend(memento, getPropertyMemento());
+return memento;
+</cfscript>
+</cffunction>
+
+<cffunction name="getPropertyMemento" access="public" returntype="struct" default="struct" hint="returns the memento for properties" output="false">
+<cfscript>
+var memento = createObject("java", "java.util.HashMap").init();
+StructInsert(memento, "IDMetadata", getIDMetadata());
+return memento;
+</cfscript>
+</cffunction>
+
+<cffunction name="getParentMediaMemento" access="public" returntype="struct" default="struct" hint="returns the memento for the parent onetomany media.Media" output="false">
+<cfscript>
+var memento = createObject("java", "java.util.HashMap").init();
+if(hasParentMedia())
+{
+StructInsert(memento, "parentMedia_IDMedia", getParentMedia().getIDMedia());
+}
+return memento;
+</cfscript>
+</cffunction>
+
+<cffunction name="copyValuesTo" access="public" returntype="void" default="void" hint="Copies the values of this object to one of the same class" output="false">
+<cfargument name="transfer" type="transfer.com.TransferObject" required="true" hint="The object to copy values to">
+<cfscript>
+if(arguments.transfer.getClassName() neq "keyword.Keyword")
+{
+throw("InvalidTransferClassException","The supplied Transfer class was not the one specified in the configuration file ","The Transfer class of '#arguments.transfer.getClassName()#' does not match the expected class of 'keyword.Keyword'");
+}
+arguments.transfer.setMemento(getMemento());
+if(getParentMediaisLoaded() AND getIsDirty())
+{
+arguments.transfer.setParentMediaMemento(getParentMediaMemento(), true);
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="getParentMedia" access="public" returntype="transfer.com.TransferObject" default="transfer.com.TransferObject" hint="Access for parent keyword.Keyword" output="false">
+<cfscript>
+if(NOT getParentMediaisLoaded())
+{
+loadParentMedia();
+}
+if(NOT structKeyExists(instance, "Media"))
+{
+throw("OneToManyParentNotSetException","A OneToMany Parent TransferObject has not been initialised.","In TransferObject 'keyword.Keyword' onetomany parent 'media.Media' does not exist, when calling getParentMedia()");
+}
+return instance.Media;
+</cfscript>
+</cffunction>
+
+<cffunction name="setParentMedia" access="public" returntype="void" default="void" hint="Mutator for parent keyword.Keyword" output="false">
+<cfargument name="transfer" type="transfer.com.TransferObject" required="true" hint="the object to set as parent">
+<cfargument name="loadChildren" type="boolean" required="false" hint="Expert/Transfer use only: whether or not to load the children." default="true">
+<cfargument name="loadingFromMemento" type="boolean" required="false" hint="Expert/Transfer use only: if this is loading from a memento or not" default="false">
+<cfscript>
+if(arguments.transfer.getClassName() neq "media.Media")
+{
+throw("InvalidTransferClassException","The supplied Transfer class was not the one specified in the configuration file ","The Transfer class of '#arguments.transfer.getClassName()#' does not match the expected class of 'media.Media'");
+}
+if(NOT getParentMediaIsLoaded() OR NOT hasParentMedia() OR NOT getParentMedia().equalsTransfer(arguments.transfer))
+{
+if(getParentMediaIsLoaded() AND hasParentMedia())
+{
+removeParentMedia();
+}
+instance.Media = arguments.transfer;
+setParentMediaisLoaded(true);
+setIsDirty(true);
+}
+else if(NOT getParentMedia().sameTransfer(arguments.transfer))
+{
+instance.Media = arguments.transfer;
+}
+if(arguments.loadChildren AND NOT getParentMedia().getOriginalTransferObject().getKeywordIsLoaded())
+{
+getParentMedia().getOriginalTransferObject().loadKeyword();
+}
+if(getParentMedia().getOriginalTransferObject().getKeywordIsLoaded()AND NOT getParentMedia().getOriginalTransferObject().containsKeyword(getThisObject(), arguments.loadingFromMemento))
+{
+getParentMedia().getOriginalTransferObject().addKeyword(getThisObject());
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="hasParentMedia" access="public" returntype="boolean" default="boolean" hint="Whether or not this object has a parent keyword.Keyword" output="false">
+<cfscript>
+if(NOT getParentMediaisLoaded())
+{
+loadParentMedia();
+}
+return StructKeyExists(instance,"Media");
+</cfscript>
+</cffunction>
+
+<cffunction name="removeParentMedia" access="public" returntype="void" default="void" hint="Remove the parent keyword.Keyword from this object" output="false">
+<cfscript>
+if(getParentMediaisLoaded() AND hasParentMedia())
+{
+getParentMedia().getOriginalTransferObject().removeKeyword(getThisObject());
+}
+else if(StructKeyExists(instance, "Media"))
+{
+instance.Media.getOriginalTransferObject().removeKeyword(getThisObject());
+}
+setIsDirty(true);
+StructDelete(instance,"Media");
+setParentMediaisLoaded(true);
+</cfscript>
+</cffunction>
+
+<cffunction name="validateCacheState" access="package" returntype="boolean" default="boolean" hint="if this object is cached, then validate that all it's composites are cached too" output="false">
+<cfscript>
+var iterator = 0;
+var item = 0;
+if(getIsPersisted() AND NOT getTransfer().validateIsCached(getThisObject()))
+{
+if(getParentMediaisLoaded() AND hasParentMedia())
+{
+if(getIsClone() AND getParentMedia().getIsClone())
+{
+return true;
+}
+return false;
+}
+return true;
+}
+if(getParentMediaisLoaded() AND hasParentMedia())
+{
+item = getParentMedia();
+if(item.getIsClone() OR NOT getTransfer().validateIsCached(item))
+{
+return false;
+}
+}
+return true;
+</cfscript>
+</cffunction>
+
+<cffunction name="actionAfterCreateTransferEvent" access="public" returntype="void" default="void" hint="Observer action method for when creates occur" output="false">
+<cfargument name="event" type="transfer.com.events.TransferEvent" required="true" hint="The Transfer Event Object">
+<cfscript>
+var className = arguments.event.getTransferObject().getClassName();
+</cfscript>
+</cffunction>
+
+<cffunction name="actionAfterDeleteTransferEvent" access="public" returntype="void" default="void" hint="Observer action method for when deletes occur" output="false">
+<cfargument name="event" type="transfer.com.events.TransferEvent" required="true" hint="The Transfer Event Object">
+<cfscript>
+var className = arguments.event.getTransferObject().getClassName();
+if(className eq "media.Media")
+{
+if(hasParentMedia() AND arguments.event.getTransferObject().equalsTransfer(getParentMedia()))
+{
+removeParentMedia();
+}
+}
+</cfscript>
+</cffunction>
+
+<cffunction name="actionAfterUpdateTransferEvent" access="public" returntype="void" default="void" hint="Observer method action for when updates occur" output="false">
+<cfargument name="event" type="transfer.com.events.TransferEvent" required="true" hint="The Transfer Event Object">
+<cfscript>
+var className = arguments.event.getTransferObject().getClassName();
+</cfscript>
+</cffunction>
+
+<cffunction name="actionAfterDiscardTransferEvent" access="public" returntype="void" default="void" hint="Observer action method for when discards occur" output="false">
+<cfargument name="event" type="transfer.com.events.TransferEvent" required="true" hint="The Transfer Event Object">
+<cfscript>
+var discard = false;
+var className = arguments.event.getTransferObject().getClassName();
+if(className eq "media.Media")
+{
+if(getParentMediaisLoaded() AND hasParentMedia() AND arguments.event.getTransferObject().equalsTransfer(getParentMedia()))
+{
+if(getParentMediaisLoaded())
+{
+unloadParentMedia();
+}
+}
+}
+if(discard)
+{
+getTransfer().discard(getThisObject());
+}
+</cfscript>
+</cffunction>
+
+

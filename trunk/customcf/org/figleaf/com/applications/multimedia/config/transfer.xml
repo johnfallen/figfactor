@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transfer xsi:noNamespaceSchemaLocation="xsd/transfer.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<!-- Transfer objects -->
+<objectDefinitions>
+
+<!-- page.Page -->
+<package name="page">	
+	<object name="Page" table="tbl_page">
+		<id name="IDPage" type="numeric" />
+		<property name="CreateDate" type="date" column="page_create_date" />
+		
+		<!-- Pages can have many galleries -->
+		<onetomany name="Gallery" lazy="true" proxied="true">
+			<link to="gallery.Gallery" column="link_IDPage"/>
+			<collection type="array">
+				<order property="Name" order="asc"/>
+			</collection>
+		</onetomany>
+	</object>
+</package>
+
+
+
+<!-- gallery.Gallery and gallery.Items -->
+<package name="gallery">
+	<object name="Gallery" table="tbl_gallery">
+		<id name="IDGallery" type="numeric" />
+		<property name="Name" type="string" column="gallery_name"/>
+		<property name="Description" type="string" column="gallery_description"/>
+		<property name="UpdateDate" type="date" column="gallery_update_date" />
+		
+		
+		<!-- galleries have a layout -->
+		<manytoone name="Layout">
+  			<link to="layout.Layout" column="link_IDLayout"/>
+  		</manytoone>
+		
+		<!-- 
+			Galleries have many items. Using this approach (sort of proxing each 
+			piece of media) makes ordering easer using transfer, cause you can't 
+			have anything else in a look up/linking table but the two forign keys.
+		-->
+		<onetomany name="Item" lazy="true" proxied="true">
+			<link to="gallery.Item" column="link_IDGallery"/>
+			<collection type="array">
+				<order property="ItemOrder" order="asc"/>
+			</collection>
+		</onetomany>
+	</object>
+
+	<!-- gallery.Item -->
+	<object name="Item" table="tbl_item">
+		<id name="IDItem" type="numeric" />
+		<property name="ItemOrder" type="numeric" column="item_order" />
+		
+		<!-- an Item is always a media object -->
+		<manytoone name="Media" proxied="true">
+  			<link to="media.Media" column="link_IDMedia"/>
+  		</manytoone>
+	</object>
+</package>	
+
+
+
+<!-- layout.Layout -->
+<package name="layout">
+	<object name="Layout" table="tbl_layout">
+		<id name="IDLayout" type="numeric" />
+		<property name="Name" type="string" column="layout_name" />
+		<property name="Description" type="string" column="layout_description" />
+		<property name="Avaiable" type="numeric" column="layout_avaiable" />
+		<property name="JSModuleDirectory" type="string" column="layout_js_module_directory" />
+		<property name="IsGallery" type="numeric" column="layout_is_gallery" />
+		<property name="IsMixedMedia" type="numeric" column="layout_is_mixed_media" />
+		<property name="IDParentType" type="numeric" column="IDParentTypeIfApplicable" />
+	</object>
+</package>
+
+
+
+<!-- user.User -->
+<package name="user">
+	<object name="User" table="tbl_user">
+		<id name="IDUser" type="string" />
+		<property name="LastLoggedIn" type="date" column="user_last_logged_in"/>
+		
+		<!-- Users have many pages -->
+		<onetomany name="Page" lazy="true" proxied="true">
+			<link to="page.Page" column="link_IDUser"/>
+			<collection type="array">
+				<order property="CreateDate" order="asc"/>
+			</collection>
+		</onetomany>
+		
+		<!-- Users have many media objects -->
+		<onetomany name="Media" lazy="true" proxied="true">
+			<link to="media.Media" column="link_IDUser"/>
+			<collection type="array">
+				<order property="CreateDate" order="asc"/>
+			</collection>
+		</onetomany>
+	</object>
+</package>
+
+
+
+<!-- media.Media and media.Binary -->
+<package name="media">
+	<object name="Media" table="tbl_media"
+		decorator="viewframework.customcf.org.figleaf.com.applications.multimedia.model.com.decorators.MediaDecorator">
+		
+		<id name="IDMedia" type="numeric" />
+		<property name="TItle" type="string" column="meida_title" />
+		<property name="Description" type="string" column="media_description" />
+		<property name="Avaiable" type="numeric" column="meida_avaiable" />
+		<property name="FileName" type="string" column="media_file_name" />
+		<property name="PreviewFileName" type="string" column="media_preview_name" />
+		<property name="IconFileName" type="string" column="meida_icon_name" />
+		<property name="SystemLocation" type="string" column="media_location" />
+		<property name="CreateDate" type="date" column="media_create_date" />
+		<property name="ModifyDate" type="date" column="media_modify_date" />
+		<property name="ExternalURL" type="string" column="media_external_url" />
+		<property name="MediaPropertyXML" type="string" column="media_properties_xml" />
+
+		<onetomany name="Keyword" lazy="true" proxied="true">
+			<link to="keyword.Keyword" column="link_IDMedia"/>
+			<collection type="array">
+				<order property="IDMetadata" order="desc"/>
+			</collection>
+		</onetomany>
+	</object>
+	
+	<!-- media.Binary -->
+	<object name="Binary" table="tbl_binary">
+		<id name="IDBinary" type="numeric" />
+		<property name="Data" type="binary" column="binary_data"/>
+	</object>
+</package>
+
+
+
+<!-- type.Type -->
+<package name="type">
+	<object name="Type" table="tbl_type">
+		<id name="IDType" type="numeric" />
+		<property name="Name" type="string" column="type_name" />
+		<property name="Avaiable" type="numeric" column="type_avaiable" />
+
+		<!-- Media is one of several types -->
+		<onetomany name="Media" lazy="true" proxied="true">
+			<link to="media.Media" column="link_IDType"/>
+			<collection type="array">
+				<order property="Title" order="asc"/>
+			</collection>
+		</onetomany>
+	</object>
+</package>
+
+
+
+<!-- keyword.Keyword -->
+<package name="keyword">
+	<object name="Keyword" table="tbl_metadata">
+		<id name="IDLocal" type="numeric" />
+		<property name="IDMetadata" type="numeric" column="IDMetadata"/>
+	</object>
+</package>
+</objectDefinitions>
+</transfer>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd" [
+	<!-- modify if context/location change -->
+	<!ENTITY fileMapping "/viewframework/customcf/org/figleaf/com/applications/multimedia">
+	<!ENTITY applicationMapping "viewframework.customcf.org.figleaf.com.applications.multimedia.">]>
+<beans>
+	
+<!-- Model-Glue configuration -->
+<bean id="modelglue.modelGlueConfiguration" class="ModelGlue.gesture.configuration.ModelGlueConfiguration">
+	<property name="reload"><value>false</value></property>
+	<property name="debug"><value>false</value></property>
+	<property name="defaultEvent"><value>commonspot.customfield.entry.point</value></property>
+	<!-- Won't work if generationEnabled=true and in development mode! -->
+	<property name="missingEvent"><value>page.missing</value></property>
+	<property name="defaultExceptionHandler"><value>page.error</value></property>
+	<property name="reloadPassword"><value>true</value></property>
+	<property name="reloadKey"><value>init</value></property>
+	<!-- Where to find necessary files -->
+	<property name="configurationPath"><value>config/ModelGlue.xml</value></property>
+	<property name="applicationPath"><value>&fileMapping;</value></property>
+	<property name="viewMappings"><value>&fileMapping;/views</value></property>
+	<property name="helperMappings"><value>&fileMapping;/helpers,/ModelGlue/helpers</value></property>
+	<!-- Generate unknown events when in development mode?  (reload=false) -->
+	<property name="generationEnabled"><value>false</value></property>
+	<property name="eventValue"><value>event</value></property>
+</bean>
+
+<!-- Fils System IO abstraction class -->
+<bean id="FileSystem" class="&applicationMapping;model.com.util.FileSystem" autowire="byName" singleton="true" />
+
+
+<!-- Model Glue controller -->
+<bean id="Controller" class="&applicationMapping;controller.Controller" autowire="byName" singleton="true" />
+
+<bean id="Config" class="&applicationMapping;model.com.config.ConfigBean" autowire="byName" singleton="true">
+	<constructor-arg name="ParentConfig">
+		<ref bean="modelglue.modelGlueConfiguration"/>
+	</constructor-arg>
+	<constructor-arg name="FileSystem">
+		<ref bean="FileSystem"/>
+	</constructor-arg>
+</bean>
+
+<bean id="Transfer" class="transfer.TransferFactory" singleton="true" autowire="byName">
+	<constructor-arg name="datasourcePath">
+		<value>&fileMapping;/config/datasource.xml</value>
+	</constructor-arg>
+	<constructor-arg name="configPath">
+		<value>&fileMapping;/config/transfer.xml</value>
+	</constructor-arg>
+	<constructor-arg name="definitionPath">
+		<value>&fileMapping;/model/com/gateway/data/transfer</value>
+	</constructor-arg>
+</bean>
+
+<bean id="MultiMedia" class="&applicationMapping;model.Multimedia" abstract="byName" singleton="true">
+	<constructor-arg name="UserService">
+		<ref bean="UserService"/>
+	</constructor-arg>
+	<constructor-arg name="MediaManager">
+		<ref bean="MediaManager"/>
+	</constructor-arg>
+		<constructor-arg name="Gateway">
+		<ref bean="Gateway"/>
+	</constructor-arg>
+</bean>
+
+<bean id="UserService" class="&applicationMapping;model.com.userservice.UserService" autowire="byName" singleton="true">
+	<constructor-arg name="Gateway">
+		<ref bean="Gateway"/>
+	</constructor-arg>
+	<constructor-arg name="Config">
+		<ref bean="Config"/>
+	</constructor-arg>
+</bean>
+
+<bean id="Gateway" class="&applicationMapping;model.com.gateway.Gateway" autowire="byName" singleton="true">
+	<constructor-arg name="orm">
+		<ref bean="Transfer"/>
+	</constructor-arg>
+</bean>
+
+<bean id="MediaManager" class="&applicationMapping;model.com.mediamanager.MediaManager" autowire="byName" singleton="true">
+	<constructor-arg name="Config">
+		<ref bean="Config"/>
+	</constructor-arg>
+	<constructor-arg name="FileSystem">
+		<ref bean="FileSystem"/>
+	</constructor-arg>
+</bean>
+</beans>

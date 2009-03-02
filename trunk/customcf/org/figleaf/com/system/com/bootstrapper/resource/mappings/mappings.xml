@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE deploymentMappings [
+	<!ENTITY path "customcf/org/figleaf">
+	<!ENTITY comPath "&path;/com">
+	<!ENTITY sitePath "&path;/site">
+	<!ENTITY systemPath "&path;/com/system/com">
+	<!ENTITY bootStrapperPath "&systemPath;/bootstrapper">
+	<!ENTITY applicationPath "&path;/com/applications">
+	<!ENTITY rootLeveFileMapping "">
+]>
+<mappings>
+
+	<!-- *************** Not a mapping, just a way to get the global stuff out *************** -->
+	<mapping type="context">
+		<path>&path;</path>
+		<systemPath>&systemPath;</systemPath>
+		<applicationPath>&applicationPath;</applicationPath>
+		<sitePath>&sitePath;</sitePath>
+	</mapping>
+	
+	<!-- *************** Files *************** -->
+	
+	<!-- cflog4j properties file -->
+	<mapping type="system" recursive="false">
+		<source>&sitePath;/config/cflog4j.properties</source>
+		<destination>&systemPath;/logger/cflog4j/cflog4j.properties</destination>
+	</mapping>
+	
+	<!-- customelements.xml file -->
+	<mapping type="system" recursive="false">
+		<source>&sitePath;/config/customelements.xml</source>
+		<destination>&applicationPath;/elementfactory/config/customelements.xml</destination>
+	</mapping>
+	
+	<!-- systemconfiguration.ini.cfc file -->
+	<mapping type="system" recursive="false">
+		<source>&sitePath;/config/systemconfiguration.ini.cfm</source>
+		<destination>&systemPath;/config/systemconfiguration.ini.cfm</destination>
+	</mapping>
+	
+	<!-- ViewFrameworks List Extension file -->
+	<mapping type="system" recursive="false">
+		<source>&sitePath;/model/viewframework/view-framework-list-mixen.cfm</source>
+		<destination>&applicationPath;/viewframework/com/xmlconfigurationloader/view-framework-list-mixen.cfm</destination>
+	</mapping>
+	
+	<!-- *************** Directories *************** -->
+	
+	<!-- Viewframework list extensions -->
+	<mapping type="system" recursive="false" allowedExtensions="xml">
+		<source>&sitePath;/config/veiwframework</source>
+		<destination>&applicationPath;/viewframework/com/xmlconfigurationloader/data</destination>
+	</mapping>
+	
+	<!-- Gateways / Extension CFC-->
+	<mapping type="system" recursive="false" allowedExtensions="cfc">
+		<source>&sitePath;/model/gateway</source>
+		<destination>&comPath;/applications/dataservice/com/gateway/gateways</destination>
+	</mapping>
+	
+	<!-- 
+	Site Files. These files are copied to root level and CommonSpot specific 
+	directoriess.
+	-->
+	<!-- Render Handlers and include directory -->
+	<mapping type="site" recursive="true" name="renderhandlers">
+		<source>&sitePath;/views/renderhandlers</source>
+		<destination>&rootLeveFileMapping;renderhandlers</destination>
+	</mapping>
+	
+	<!-- CommonSpot templates and associated .head files -->
+	<mapping type="site" recursive="false" name="templates">
+		<source>&sitePath;/views/templates</source>
+		<destination>&rootLeveFileMapping;templates</destination>
+	</mapping>
+	
+	<!-- UI Directory -->
+	<mapping type="site" recursive="true" name="ui">
+		<source>&sitePath;/views/ui</source>
+		<destination>&rootLeveFileMapping;ui</destination>
+	</mapping>
+	
+	<!-- Root Level CommonSpot extension files -->
+	<mapping type="site" recursive="false" name="root">
+		<source>&bootStrapperPath;/resource/rootfiles</source>
+		<destination>&rootLeveFileMapping;</destination>
+	</mapping>
+</mappings>
