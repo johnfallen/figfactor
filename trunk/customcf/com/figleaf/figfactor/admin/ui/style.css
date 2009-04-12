@@ -1,0 +1,103 @@
+body {
+	font-family:verdana; 
+	font-size:1.4em; 
+	background-color:red;
+	
+	
+}
+.borders {
+	border:solid 1px gray;
+	border-right:solid 2px black;
+	border-bottom:solid 2px black;
+}
+#pageFrame {
+	display:table-cell;
+	border:solid 1px silver;
+	border-right:solid 2px black;
+	border-bottom:solid 2px black;
+	min-width:900px; 
+	padding:10px;
+	background-color:#fff;
+}
+
+#menu  {
+	width:100%;
+	font-size:.75em;
+	margin-bottom:20px;
+}
+#content {
+	background-color:#fff; 
+	padding:4px;
+	
+}
+#tabs {
+	font-size:.75em;
+}
+#tabs, #accordion {
+	margin-left:-15px;
+}
+
+#tabs .info	{
+	font-color:gray;
+}
+h1, h2, h3 {text-align:left; border-top:solid 1px white;}
+
+
+.ini fieldset {
+	border:solid 1px black;
+}
+
+.ini input {
+	font-size:.90em;
+}
+
+.mapTitle {
+	font-size:.75em;
+	font-weight:bold;
+	}
+.mapping  {
+	font-size:.70em;
+	
+	}
+.mapTitle span {
+	font-size;.80em;
+	display:block;
+	float:right;
+	clear:left;
+	}
+.mapActions {
+	padding:4px 4px 4px 0px;
+	float:right;
+	}
+.mapActions a {
+	border:solid 1px gray;
+	border-right:solid 2px black;
+	border-bottom:solid 2px black;
+	background-color:#0f0;
+	color:#000;
+	padding:3px;
+	font-weight:bold;
+	font-size:.80em;
+	}
+.mapActions a:hover {
+
+	background-color:#f0f;
+
+	}
+.sourceDestination {
+	padding:4px;
+	margin-bottom:4px;
+	margin-top:4px;
+}
+
+
+.dataTable {
+	font-size:.90em;
+	width:100%;
+	}
+.logEntry {
+	padding:4px;
+}
+.lightBorder {
+	border:dotted 1px #eaeaea;
+}

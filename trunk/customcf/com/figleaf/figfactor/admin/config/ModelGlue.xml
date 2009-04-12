@@ -1,0 +1,287 @@
+<modelglue>
+	
+	<!--<include template="/viewframework/customcf/com/figleaf/figfactor/admin/applications/filemanager/config/ModelGlue.xml" />-->
+	
+	<controllers>
+		<controller name="figFactorAdminController" type="viewframework.customcf.com.figleaf.figfactor.admin.controller.Controller">
+			<message-listener message="OnRequestStart" function="OnRequestStart" />
+			<message-listener message="OnQueueComplete" function="OnQueueComplete" />
+			<message-listener message="getCustomElementXML" function="getCustomElementXML" />
+			<message-listener message="getFileMappings" function="getFileMappings" />
+			<message-listener message="loadFileMapping" function="loadFileMapping" />
+			<message-listener message="getLog" function="getLog" />
+			<message-listener message="doLogin" function="doLogin" />
+			<message-listener message="doLogout" function="doLogout" />
+			<message-listener message="addUser" function="addUser" />
+			<message-listener message="deleteUser" function="deleteUser" />
+			<message-listener message="listUsers" function="listUsers" />
+			<message-listener message="listBeans" function="listBeans" />
+			<message-listener message="loadBeanByName" function="loadBeanByName" />
+			<message-listener message="getCommonspotLogs" function="getCommonspotLogs" />
+			<message-listener message="OnRequestEnd" function="OnRequestEnd" />
+		</controller>
+	</controllers>
+  
+	<event-handlers>
+		
+		<!--
+			login
+		-->
+		<event-handler name="login.form">
+			<results>
+				<result do="view.template" />
+			</results>
+			<views>
+				<include name="body" template="forms/frmLogin.cfm">
+					<value name="xe.doLogin" value="do.login" />
+				</include>
+			</views>
+		</event-handler>
+		
+		<event-handler name="do.login">
+			<broadcasts>
+				<message name="doLogin" />
+			</broadcasts> 
+			<results>
+				<result do="page.index" />
+			</results>
+		</event-handler>
+		
+		<event-handler name="do.logout">
+			<broadcasts>
+				<message name="doLogout" />
+			</broadcasts> 
+			<results>
+				<result do="page.index" />
+			</results>
+		</event-handler>
+	
+		
+		
+		<!--
+			home page
+		-->
+		<event-handler name="page.index">
+			<broadcasts>
+				<message name="getCustomElementXML" />
+			</broadcasts> 
+			<results>
+				<result do="view.template" />
+			</results>
+			<views>
+				<include name="body" template="pages/dspIndex.cfm" />
+			</views>
+		</event-handler>
+		
+		
+		<!--
+			configuration
+		-->
+		<event-handler name="configure">
+			<results>
+				<result do="view.template" />
+			</results>
+			<views>
+				<include name="body" template="pages/dspConfigSettins.cfm" />
+			</views>
+		</event-handler>
+
+
+
+		<!--
+			File Mapping
+		-->
+		<event-handler name="manage.file.maps">
+			<broadcasts>
+				<message name="getFileMappings" />
+			</broadcasts> 
+			<results>
+				<result do="view.template" />
+			</results>
+			<views>
+				<include name="body" template="pages/dspFileMapper.cfm">
+					<value name="xe.loadFileMapping" value="load.file.mapping" />
+				</include>
+			</views>
+		</event-handler>
+		
+		<event-handler name="load.file.mapping">
+			<broadcasts>
+				<message name="loadFileMapping" />
+			</broadcasts>
+			<results>
+				<result do="manage.file.maps" />
+			</results>
+		</event-handler>
+
+
+
+		<!-- 
+			logging 
+		-->
+		<event-handler name="list.commmonspot.logs">
+			<broadcasts>
+				<message name="getCommonspotLogs" />
+			</broadcasts>
+			<results>
+				<result do="view.template" />
+			</results>
+			<views>
+				<include name="body" template="pages/dspLogList.cfm">
+					<value name="xe.log.reader" value="log.reader" />
+				</include>
+			</views>
+		</event-handler>
+
+		<event-handler name="log.reader">
+			<broadcasts>
+				<message name="getLog" />
+			</broadcasts>
+			<results>
+				<result do="view.template" />
+			</results>
+			<views>
+				<include name="body" template="pages/dspLogReader.cfm" />
+			</views>
+		</event-handler>
+		
+		
+		<!--
+			users
+		-->
+		<event-handler name="user.management">
+			<broadcasts>
+				<message name="listUsers" />
+			</broadcasts>
+			<results>
+				<result do="view.template" />
+			</results>
+			<views>
+				<include name="body" template="pages/dspUsers.cfm">
+					<value name="xe.addUser" value="add.user" />
+					<value name="xe.deleteUser" value="delete.user" />
+				</include>
+			</views>
+		</event-handler>
+		
+		<event-handler name="add.user">
+			<broadcasts>
+				<message name="addUser" />
+			</broadcasts>
+			<results>
+				<result do="user.management" />
+			</results>
+		</event-handler>
+		
+		<event-handler name="delete.user">
+			<broadcasts>
+				<message name="deleteUser" />
+			</broadcasts>
+			<results>
+				<result do="user.management" />
+			</results>
+		</event-handler>
+		
+		
+		
+		<!--
+			documentation
+		-->
+		<event-handler name="documentation">
+			<results>
+				<result do="view.template" />
+			</results>
+			<views>
+				<include name="body" template="pages/dspDocumentation.cfm" />
+			</views>
+		</event-handler>
+
+
+
+		<!--
+			beans
+		-->
+		<event-handler name="list.beans">
+			<broadcasts>
+				<message name="listBeans" />
+			</broadcasts>
+			<results>
+				<result do="view.template" />
+			</results>
+			<views>
+				<include name="body" template="pages/dspBeans.cfm">
+					<value name="xe.loadBeanByName" value="load.bean.by.name" />
+				</include>
+			</views>
+		</event-handler>
+		
+		<event-handler name="load.bean.by.name">
+			<broadcasts>
+				<message name="loadBeanByName" />
+			</broadcasts>
+			<results>
+				<result do="list.beans" />
+			</results>
+		</event-handler>
+		
+		
+		
+		
+		<!--
+			file management
+		-->
+		<event-handler name="browse.file.system">
+			<results>
+				<result do="view.template" />
+			</results>
+			<views>
+				<include name="body" template="pages/dspFilemanager.cfm">
+					<value name="xe.browseFileSystem" value="browse.file.system" />
+					<value name="xe.downloadFile" value="download.file" />
+				</include>
+			</views>
+		</event-handler>
+		
+		<event-handler name="download.file">
+			<results>
+				<result do="view.template" />
+			</results>
+			<views>
+				<include name="body" template="pages/dspViewFile.cfm">
+				</include>
+			</views>
+		</event-handler>
+
+
+
+		<!--
+			templates
+		-->
+		<event-handler name="view.template">
+			<broadcasts />
+			<results />
+			<views>
+				<include name="menu" template="templates/dspMenu.cfm">
+					<value name="xe.home" value="page.index" />
+					<value name="xe.file.mapper" value="manage.file.maps" />
+					<value name="xe.log.reader" value="log.reader" />
+					<value name="xe.commonspot.log.reader" value="list.commmonspot.logs" />
+					<value name="xe.listBeans" value="list.beans" />
+					<value name="xe.configure" value="configure" />
+					<value name="xe.documentation" value="documentation" />
+					<value name="xe.userManagement" value="user.management" />
+					<value name="xe.doLogout" value="do.logout" />
+					<value name="xe.browseFileSystem" value="browse.file.system" />
+				</include>
+				<include name="template" template="templates/dspTemplate.cfm" />
+			</views>
+		</event-handler>
+		
+		<event-handler name="exception">
+			<broadcasts />
+			<views>
+				<include name="body" template="pages/dspException.cfm" />
+			</views>
+		</event-handler>
+	</event-handlers>
+</modelglue>
