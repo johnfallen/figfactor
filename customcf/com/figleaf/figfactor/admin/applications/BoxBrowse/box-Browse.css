@@ -1,0 +1,100 @@
+/*
+		product:		BoxBrowse
+		developer: 	CivBox Software
+		www: 				www.civbox.com
+		release: 		102
+		date: 			28th July 2008
+		license:		Apache License, Version 2.0
+			
+		Copyright 2008 CivBox Software
+		
+		Licensed under the Apache License, Version 2.0 (the "License");
+		you may not use this file except in compliance with the License.
+		You may obtain a copy of the License at
+		
+		http://www.apache.org/licenses/LICENSE-2.0
+		
+		Unless required by applicable law or agreed to in writing, software
+		distributed under the License is distributed on an "AS IS" BASIS,
+		WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+		See the License for the specific language governing permissions and
+		limitations under the License.
+*/
+/* Cascading Style Sheet for box-Browse.cfm */
+/* Please note that this CSS has only been tested with Internet Explorer 6, 7, Firefox 1.5, 2 and Opera 9 for Windows and Linux */
+/* _ (underscore) properties are hacks designed to allow compatibility with IE6, these usually break CSS validation */
+/* Update 100 */
+
+a:link { color: #003366; text-decoration: none; }
+a:visited {	color: #003366;	text-decoration: none; }
+a:hover { color: #FF6633; text-decoration: underline; }
+a:active { color: #003366; }
+
+body.bbBody {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+}
+td.bbTD {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+}
+th.bbTH {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	background-repeat:repeat-x;
+}
+img.bbImage { float: none; border:0px; margin:0px; padding:0px; }
+
+/* Table Styles */
+/* table */
+.bbTable { margin:6px; border:1px solid #999999; margin-left:auto; margin-right:auto; }
+/* table headers */
+.bbTHSeparator { border-left:1px solid #DEF0FE; }
+.bbTHHead { color:#FFFFFF; margin-top:2px; margin-bottom:2px; }
+table.bbTable th a{ display:block; color:#FFFFFF; }
+table.bbTable th a:hover { color:#FFFFFF; text-decoration: underline; }
+/* table header arrows */
+img.bbTHArrow { margin-left:10px; vertical-align:middle; }
+img.bbTHArrowR { margin-right:10px; vertical-align:middle; }
+/* zebra cell backgrounds */
+.bbTDA { background-color:#F4F7F7; }
+.bbTDB { background-color:#FFFFFF; }
+
+/* column icons */
+.bbIconDiv { margin-top:2px; }
+.bbTDIcon { padding-left:6px; background-color:#F0F1F7; }
+/* column name */
+#bbTHNameHead { margin-left:6px; text-align:left; }
+.bbTDName { border-right:1px solid #CCCCCC; padding-left:6px; padding-right:12px; background-color:#F0F1F7; }
+.bbTDName:hover { background-color:#FFFFFF; }
+/* column size */
+#bbTHSizeHead { text-align:left; margin-left:6px; }
+.bbTDSize { margin-left:12px; }
+.bbTDSizeText {	text-align:right; margin-right:6px;	text-transform:uppercase; }
+/* column type */
+#bbTHTypeHead { text-align:left; margin-left:6px; }
+.bbTHType { text-align:left; }
+.bbTDTypeText {	margin-left:6px; }
+/* column date */
+.bbTHDate { margin-left:6px; text-align:left; }
+.bbTDDate {	margin-left:6px; }
+/* column extra */
+.bbTHExtra { margin-left:6px; margin-right:6px; text-align:left }
+.bbTDExtra { margin-left:6px; }
+
+/* Filter Box */
+#bb_SearchBox { position:relative; float:right; z-index:2; _width:110px; _line-height:0px; _margin-bottom:4px; }
+#bb_SearchQuery { margin-top:2px; margin-bottom:2px; margin-right:2px; height:auto; width:100px; }
+
+/* Bread Crumb Box (current directory) */
+#bb_DirBox { border:1px solid #CCCCCC; padding:0px; margin-left:auto; margin-right:auto; overflow:auto; }
+#bb_DirInfo { position:inherit; margin:6px; margin-bottom:0px; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:13px; }
+
+/* Statistics */
+#bbStatsBox { margin-left:auto; margin-right:auto; }
+#bbStatsText { font-family: Arial, Helvetica, sans-serif; font-size:13px; color:#000000; }
+#bbCivBox { font-size:9px; float:right; }
+
+/* Debug Text */
+#bbDebug { font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px; }
+.bbError { font-family:Verdana, Arial, Helvetica, sans-serif; font-size:14px; color:red; }

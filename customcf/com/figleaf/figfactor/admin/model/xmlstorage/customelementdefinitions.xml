@@ -1,0 +1,86 @@
+<customelementdefinitions>
+
+<!--  Blank Page-->
+<customelement name="Blank Page">
+	
+	<tab name="Content">
+		<property 
+			fieldname="blank_page_content"
+			label="Content" 
+			description="Enter the content for this page."
+			fieldtype="formatted_text_block" 
+			required="true"
+			defaultvalue=""/>
+	</tab>
+	
+	<tab name="Number Of Columns">
+		<property 
+			fieldname="blank_page_column_amout"
+			label="Number Of Columns" 
+			description="Select the number of columns for the page."
+			fieldtype="Selection List" 
+			required="true"
+			defaultvalue="Full Page,Two Column,Two Column Wide,Three Column"/>
+	</tab>	
+</customelement>
+
+<!--  News Item -->
+<customelement name="News Item">
+	
+	<!--  Details Tab -->
+	<tab name="Details">
+		
+		<property 
+			fieldname="news_item_title"
+			label="Title (required)" 
+			description="Enter the Title of the News Item."
+			fieldtype="text" 
+			required="true"
+			defaultvalue=""/>
+		
+		<property 
+			fieldname="news_item_release_date"
+			label="Release Date (required)" 
+			description="Enter the release date of the News Item."
+			fieldtype="calendar" 
+			required="true"
+			defaultvalue=""/>
+			
+		<property 
+			fieldname="news_item_state"
+			label="State (required)" 
+			description="Select the State."
+			fieldtype="Selection List" 
+			required="true"
+			defaultvalue="Application.ViewFramework.getList('states')"/>
+			
+		<property 
+			fieldname="news_item_contact_name"
+			label="Contact Name (required)" 
+			description="Enter the name of the person to contact for the News Item."
+			fieldtype="Text" 
+			required="true"
+			defaultvalue=""/>
+		
+		<property 
+			fieldname="news_item_contact_email"
+			label="Contact Email (required)" 
+			description="Enter the e-mail address of the contact person for the News Item."
+			fieldtype="Email"
+			required="true"
+			defaultvalue=""/>
+	</tab>
+	
+	<!--  Content Tab -->
+	<tab name="Details">
+		<property 
+			fieldname="news_item_contact_email"
+			label="Contact Email (required)" 
+			description="Enter the e-mail address of the contact person for the News Item."
+			fieldtype="Email"
+			required="true"
+			defaultvalue=""/>
+	</tab>
+</customelement>
+
+</customelementdefinitions>

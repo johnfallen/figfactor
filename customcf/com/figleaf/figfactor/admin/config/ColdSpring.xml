@@ -1,0 +1,34 @@
+<beans>
+  <!-- This is your Model-Glue configuration -->
+	<bean id="modelGlueConfiguration" class="ModelGlue.unity.framework.ModelGlueConfiguration">
+    <!-- Be sure to change reload to false when you go to production! -->
+    <property name="reload"><value>false</value></property>
+		<!-- Rescaffold is overridden by reload - if reload is false, rescaffold's setting doesn't matter -->
+    <property name="rescaffold"><value>false</value></property>
+    <!-- Be sure to change debug to false when you go to production! -->
+    <property name="debug"><value>false</value></property>
+    <property name="defaultEvent"><value>page.index</value></property>
+    <property name="reloadPassword"><value>true</value></property>
+    <property name="viewMappings"><value>/viewframework/customcf/com/figleaf/figfactor/admin/views</value></property>
+    <property name="generatedViewMapping"><value>/viewframework/customcf/com/figleaf/figfactor/admin/views/generated</value></property>
+    <property name="configurationPath"><value>config/ModelGlue.xml</value></property>
+    <property name="scaffoldPath"><value>config/scaffolds/Scaffolds.xml</value></property>
+    <property name="statePrecedence"><value>form</value></property>
+    <property name="reloadKey"><value>init</value></property>
+    <property name="eventValue"><value>event</value></property>
+    <property name="defaultTemplate"><value>index.cfm</value></property>
+    <property name="defaultExceptionHandler"><value>exception</value></property>
+    <property name="defaultCacheTimeout"><value>5</value></property>
+    <property name="defaultScaffolds"><value>list,edit,view,commit,delete</value></property>
+  </bean>
+  
+	<bean id="Controller" class="viewframework.customcf.com.figleaf.figfactor.admin.controller.Controller"  />
+	<bean id="DomainAPI" class="viewframework.customcf.com.figleaf.figfactor.admin.model.DomainAPI"  />
+
+<bean id="AdminConfig" class="viewframework.customcf.com.figleaf.figfactor.admin.model.config.AdminConfig">
+	<constructor-arg name="pathToCommonspot">
+  		<value>C:\Inetpub\wwwroot\commonspot</value>
+	</constructor-arg>
+</bean>
+	
+</beans>
