@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE deploymentMappings [
+	<!ENTITY path "customcf/com/figleaf/figfactor/">
+	<!ENTITY comPath "&path;com/">
+	<!ENTITY sitePath "&path;site/">
+	<!ENTITY systemPath "&path;com/system/">
+	<!ENTITY bootStrapperPath "&systemPath;bootstrapper/">
+	<!ENTITY applicationPath "&path;com/applications/">
+	<!ENTITY rootLeveFileMapping "">
+]>
+<mappings>
+	
+	<!-- *************** Files *************** -->
+
+	<!-- google config -->
+	<mapping>
+		<name>GoogleConfig</name>
+		<source>&sitePath;config/google/</source>
+		<destination>&applicationPath;google/search/resource/config/</destination>
+		<recursive>false</recursive>
+		<file>gcini.cfm</file>
+		<allowedExtensions></allowedExtensions>
+		<nameconflict>overwrite</nameconflict>
+	</mapping>
+	
+	<!-- Google Feeds Metadata properties -->
+	<mapping>
+		<name>GoogleFeedsMetaDataProperties</name>
+		<source>&sitePath;config/google/</source>
+		<destination>&applicationPath;google/search/resource/config/</destination>
+		<recursive>false</recursive>
+		<file>googlemetadataproperties.xml</file>
+		<allowedExtensions></allowedExtensions>
+		<nameconflict>overwrite</nameconflict>
+	</mapping>
+
+	
+	<!-- *************** Directories *************** -->
+	
+	<!-- Gateways / Extension CFC-->
+	<mapping>
+		<name>gateways</name>
+		<source>&sitePath;model/dataservice</source>
+		<destination>&applicationPath;dataservice/com/gateway/gateways</destination>
+		<recursive>false</recursive>
+		<file></file>
+		<allowedExtensions>cfc</allowedExtensions>
+		<nameconflict>overwrite</nameconflict>
+	</mapping>
+	
+	<!-- 
+		Site Files. These files are copied to root level and CommonSpot specific 
+		directoriess.
+	-->
+	<!-- Render Handlers and include directory -->
+	<mapping>
+		<name>renderhandlers</name>
+		<source>&sitePath;wwwroot/renderhandlers/</source>
+		<destination>&rootLeveFileMapping;renderhandlers/</destination>
+		<recursive>true</recursive>
+		<file></file>
+		<allowedExtensions>cfm,cfc</allowedExtensions>
+		<nameconflict>overwrite</nameconflict>
+	</mapping>
+	
+	<!-- CommonSpot templates and associated .head files -->
+	<mapping>
+		<name>templates</name>
+		<source>&sitePath;wwwroot/templates</source>
+		<destination>&rootLeveFileMapping;templates/</destination>
+		<recursive>false</recursive>
+		<file></file>
+		<allowedExtensions>cfm,head</allowedExtensions>
+		<nameconflict>overwrite</nameconflict>
+	</mapping>
+	
+	<!-- UI Directory 
+	<mapping>
+		<name>ui</name>
+		<source>&sitePath;wwwroot/ui</source>
+		<destination>&rootLeveFileMapping;ui/</destination>
+		<recursive>true</recursive>
+		<file></file>
+		<allowedExtensions></allowedExtensions>
+		<nameconflict>overwrite</nameconflict>
+	</mapping>
+	-->
+	
+	<!-- Custom Fields -->
+	<mapping>
+		<name>customFields</name>
+		<source>&sitePath;wwwroot/customfields/</source>
+		<destination>&rootLeveFileMapping;customfields</destination>
+		<recursive>false</recursive>
+		<file></file>
+		<allowedExtensions>cfm</allowedExtensions>
+		<nameconflict>overwrite</nameconflict>
+	</mapping>
+	
+	<!-- Root Level CommonSpot extension files -->
+	<mapping>
+		<name>rootFiles</name>
+		<source>&bootStrapperPath;com/rootfiles/</source>
+		<destination>&rootLeveFileMapping;</destination>
+		<recursive>false</recursive>
+		<file></file>
+		<allowedExtensions>cfm</allowedExtensions>
+		<nameconflict>overwrite</nameconflict>
+	</mapping>
+		
+</mappings>

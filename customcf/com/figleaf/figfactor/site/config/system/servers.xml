@@ -1,0 +1,10 @@
+<servers>
+	<server 
+		name="serverName" 
+		ip="127.0.0.1"
+		IsAuthor="true"
+		IsROPs="true">
+		<adminFilePath>C:\\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\ui\administrator</adminFilePath>
+		<adminDestroy>true</adminDestroy>
+	</server>
+</servers>

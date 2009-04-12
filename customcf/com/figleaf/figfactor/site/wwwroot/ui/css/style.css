@@ -1,0 +1,678 @@
+@charset "UTF-8";
+/* ********************************************************************************************* */
+/* ********************************************************************************************* */
+/** 
+	GLOBAL
+**/
+/* ********************************************************************************************* */
+/* ********************************************************************************************* */
+
+body {
+	margin-left: 0;
+	margin-top: 0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:.75em;
+	background-color:#fff;
+	height:100%;
+	}
+
+form, table, tr, td, ol, ul, li, h1, h2, h3, h4, h5, p, img, span, div, input {
+	margin:0;
+	padding:0;
+}
+
+input {
+	font-size:.85em;
+}
+
+a:link {
+	color: #1E16B7;
+	text-decoration: none;
+}
+a:visited {
+	color: #1E16B7;
+	text-decoration: none;
+}
+a:hover {
+	color: #000000;
+	text-decoration: underline;
+}
+
+h1 {
+	margin:-5px 0px 15px 0px;
+	color:#909;
+	font-weight: normal;
+}
+
+p {
+	line-height:1.4em;
+	padding:0px 0px 15px 0px;
+}
+
+/* ********************************************************************************************* */
+/* ********************************************************************************************* */
+/** 
+	WRAPPERS
+**/
+/* ********************************************************************************************* */
+/* ********************************************************************************************* */
+
+#base-template-wrapper {
+	margin:0;
+	padding:0;
+	width:987px;
+}
+
+#header-wrapper,  
+#footer-wrapper, 
+#center-coll-wrapper, 
+#content-wrapper, 
+#left-coll-wrapper, 
+#right-coll-wrapper,
+#right-coll-wrapper-wide, 
+#breadcrumb-wrapper, 
+#center-coll-wrapper-wide, 
+#banner-graphic-wrapper, 
+#meta-navigation-wrapper, 
+.center-col-image-header-wrapper, 
+#contact-wrapper, 
+#callout-wrapper,
+#render-handler-wrapper,
+#google-search-form-wrapper,
+.cs-content-wrapper {
+	margin:0;
+	padding:0;
+	width:auto;
+}
+
+/* ********************************************************************************************* */
+/* ********************************************************************************************* */
+/** 
+	 WRAPPER OVER RIDES
+	 NOTE:  Most of the font size declarations are here.
+**/
+/* ********************************************************************************************* */
+/* ********************************************************************************************* */
+
+#content-wrapper {
+	padding-left:27px;
+	margin-top:25px;
+}
+
+
+
+/* ******************************* */
+/* ******************************* */
+/** 
+	#google-search-form-wrapper
+**/
+/* ******************************* */
+/* ******************************* */
+#google-search-form-wrapper {
+	float:right;
+	clear:all;
+}
+
+#targetedSearchID {
+	float:right;
+	clear:all;
+	with:250px;
+	margin-left:10px;
+}
+
+
+.search-result-pagination-link-wrapper {
+	border-top:solid 1px gray;
+	border-right:solid 2px gray;
+	border-bottom:solid 2px gray;
+	border-left:solid 1px gray;
+	width:400px;
+	padding:4px 4px 35px 4px;
+}
+
+.GoogleStartNumbers, .GoogleNumbers {
+	border-top:solid 1px gray;
+	border-right:solid 2px gray;
+	border-bottom:solid 2px gray;
+	border-left:solid 1px gray;
+	float:left;
+	display:block;
+	width:auto;
+	padding:3px;
+	font-size:.80em;
+	background-color:#efefef;
+	margin-right:1px;
+	margin-top:10px;
+}
+
+.GoogleNumbers {
+	background-color:#fff;
+}
+
+
+/* ******************************* */
+/* ******************************* */
+/** 
+	#footer-wrapper
+**/
+/* ******************************* */
+/* ******************************* */
+#footer-wrapper {
+	font-size:.95em;
+	border-top:solid 1px #bebebe;
+	margin:10px 0px 10px 24px;
+	padding:10px 0px 10px 0px;
+	width:960px;
+}
+
+#footer-wrapper p {
+	padding:0px 0px 10px 0px;
+}
+
+#header-wrapper {
+	font-size:.95em;
+	width:987px;
+}
+
+#center-coll-wrapper {
+	padding:0px 5px 10px 10px;
+	width:415px;
+	min-height:400px;
+}
+
+#center-coll-wrapper-wide {
+	padding:0px 10px 10px 0px;
+	width:560px;
+	min-height:400px;
+}
+
+#contact-wrapper {
+	font-size:.90em;	
+	padding-top:10px;
+}
+
+#callout-wrapper {
+	padding-bottom:0px;
+	margin-bottom:5px;
+}
+	
+#left-coll-wrapper {
+	margin:0px 10px 0px 0px;
+	width:240px;
+}
+
+#right-coll-wrapper {
+	margin:0px 15px 0px 10px;
+	width:240px;
+}
+
+#right-coll-wrapper-wide {
+	margin:0px 15px 0px 10px;
+	width:360px;
+}
+
+#breadcrumb-wrapper {
+	display:block;
+	padding:10px 0px 19px 27px;
+	font-size:.95em;
+}
+
+#banner-graphic-wrapper {
+	margin-left:15px;
+	margin-bottom:0px;
+}
+
+.cs-content-wrapper ul li {
+	margin:0px 10px 5px 18px;
+}
+	
+
+/* ********************************************************************************************* */
+/* ********************************************************************************************* */
+/** 
+	LAYOUT TABLES
+**/
+/* ********************************************************************************************* */
+/* ********************************************************************************************* */
+
+/* ******************************* */
+/* ******************************* */
+/** 
+	.layout-table
+**/
+/* ******************************* */
+/* ******************************* */
+.layout-table {
+	margin:0;
+	padding:0;
+	width:100%;
+}
+
+.layout-table tr {
+	vertical-align:top;
+}
+
+/* ********************************************************************************************* */
+/* ********************************************************************************************* */
+/** 
+	COMMON SPOT HTML OUTPUT WRAPERS
+**/
+/* ********************************************************************************************* */
+/* ********************************************************************************************* */
+
+.cs-wrapper-center-col p {
+	margin:0;
+	padding:0 0 8px 0;
+}
+
+.cs-wrapper-center-col ul, ol {
+	margin:0% 2% 0% 4%;	
+}
+
+.cs-wrapper-center-col img {
+	margin:0% 2.5% 2.5% 0%;
+	border:solid 1px #000;
+}
+
+.cs-wrapper-right-col ul, ol {
+	margin:0% 2% 0% 6%;
+	line-height:150%;
+}
+
+.cs-wrapper-right-col img {
+	margin:0% 2.5% 2.5% 0%;
+	border:solid 1px #000;
+}
+
+/* ******************************* */
+/* ******************************* */
+/** 
+	RICH TEXT EDITOR SNIPPETS
+**/
+/* ******************************* */
+/* ******************************* */
+
+/* ******* Images ******* */
+.cs-rte-snippets-image-table {
+		margin-top:-5px;
+		padding-top:0px;
+}
+
+.cs-rte-snippets-image-table td {
+	padding:5px;
+}
+
+.cs-rte-snippets-image-table p {
+	font-size:.90em;
+	margin-bottom:0px;
+}
+
+/* ******* Data Table ******* */
+.cs-rte-snippets-data-table {
+	margin:5px;
+}
+
+
+/* ********************************************************************************************* */
+/* ********************************************************************************************* */
+/** 
+	CENTER COLUMN 
+**/
+/* ********************************************************************************************* */
+/* ********************************************************************************************* */
+
+.imageHeader {
+	margin:0px 0px 10px 0px;
+}
+
+.title-image {
+	display:block;
+	padding:0;
+	margin:4% 0% 4% 0%;
+}
+
+.rss-feeds-center-coll {
+	border:none;
+	float:right;
+	clear:all;
+}
+
+.center-coll-box {
+	margin:0% 0% 2% 0%;
+	padding:0;
+}
+
+.center-coll-box  h2, h3 {
+	color:#3f3e3e; 
+	font-size:100%;
+}
+
+.center-coll-box ul {
+	margin:0% 0% 2% 3%;
+	padding:0;
+	line-height:150%;
+}
+
+.center-coll-box li {
+	margin:0% 0% 2% 0%;
+}
+
+.center-coll-publications-list {
+	list-style:none;
+}
+
+.center-coll-publications-list li {
+	margin:0px 10px 10px -12px;
+}
+	
+
+/* ********************************************************************************************* */
+/* ********************************************************************************************* */
+/** 
+	RIGHT AND LEFT COLUMN BOXES
+**/
+/* ********************************************************************************************* */
+/* ********************************************************************************************* */
+
+.left-coll-box, .right-coll-box {
+	margin: 0% 0% 3% 0%;
+	padding:0;
+}
+
+.right-coll-box h2, h3 {
+	margin: 3% 0% 0% 0%;
+	padding:0;
+	color:#3f3e3e; 
+	font-size:100%;
+}
+
+.right-left-col-box {
+	padding:0;
+	margin:0;
+	width:100%;
+}
+
+/* ******************************* */
+/* ******************************* */
+/**
+	.right-left-coll-list
+**/
+/* ******************************* */
+/* ******************************* */
+.right-left-coll-list {
+	padding:0;
+	margin:0;
+	width:100%;
+}
+
+.right-left-coll-list ul {
+	margin:0;
+	padding:0;
+}
+
+.right-left-coll-list li {
+	background-color:#fff;
+	list-style:none;
+	margin:0;
+	min-height:7%;
+	padding:4% 3% 4% 0%;
+	width:auto;
+}
+
+.right-left-coll-list img {
+	margin:3% 0% 2% 0%;
+}
+
+.right-left-coll-list li.noBorder {
+	padding:2.5% 3% 2.5% 0%;
+}
+
+/* fixing for a goup right col */
+#fix-list-height .right-left-coll-list li{
+	padding:1.2% 2% 1% 0%;
+}
+
+
+/* ********************************************************************************************* */
+/* ********************************************************************************************* */
+/** 
+	BANNERS AND BANNER NAVIGATION
+**/
+/* ********************************************************************************************* */
+/* ********************************************************************************************* */
+
+#banner-graphic-wrapper-text {
+	display:none;
+}
+
+/* ******************************* */
+/* ******************************* */
+/** 
+	#meta-navigation-wrapper
+**/
+/* ******************************* */
+/* ******************************* */
+#meta-navigation-wrapper {
+	width:989px;
+	background-color:#2e2e2e;
+	height:19px;
+	padding:4px 0px 0px 0px;
+	margin:0px 0px 0px 0px;
+}
+
+#meta-navigation-wrapper img {
+	width:56px;
+	height:15px;
+	margin:0px 0px 0px 15px;
+	border:none;
+}
+
+#meta-navigation-wrapper ul {
+	margin:0;
+	padding:0;
+}
+
+#meta-navigation-links {
+	position:relative;
+	left:273px;
+	top:-16px;
+}
+
+#meta-navigation-wrapper .meta-header {
+	font-size:1.4em;
+	font-weight:bold;
+}
+
+
+
+/* ********************************************************************************************* */
+/* ********************************************************************************************* */
+/** 
+	GENERAL UTILITIES
+**/
+/* ********************************************************************************************* */
+/* ********************************************************************************************* */
+
+/* ******************************* */
+/* ******************************* */
+/**
+	.blackBorder
+**/
+/* ******************************* */
+/* ******************************* */
+.blackBorderAll {border:solid 1px #000;}
+.blackBorderTop {border-top:solid 1px #000;}
+.blackBorderRight {border-right:solid 1px #000;}
+.blackBorderrBottom {border-bottom:solid 1px #000;}
+.blackBorderLeft {border-left:solid 1px #000;}
+
+
+/* ******************************* */
+/* ******************************* */
+/**
+	.border
+**/
+/* ******************************* */
+/* ******************************* */
+.borderAll {border:solid 1px #bebebe;}
+.borderTop {border-top:solid 1px #bebebe;}
+.borderRight {border-right:solid 1px #bebebe;}
+.borderBottom {border-bottom:solid 1px #bebebe;}
+.borderLeft {border-left:solid 1px #bebebe;}
+
+/* ******************************* */
+/* ******************************* */
+/**
+	.borderDotted
+**/
+/* ******************************* */
+/* ******************************* */
+
+.borderTopDotted {background: #fff url(/nist/images/separation_dots.gif) repeat-x scroll 0 -6px;}
+.borderRightDotted {border-right:dotted 1px #bebebe;}
+.borderBottomDotted {background: #fff url(/nist/images/separation_dots.gif) repeat-x scroll 0% 99%;}
+.borderLeftDotted {background: #fff url(/nist/images/separation_dots.gif) repeat-y scroll 0 0;}
+
+/* ******************************* */
+/* ******************************* */
+/**
+		.noPadding
+**/
+/* ******************************* */
+/* ******************************* */
+.noPaddingAll {padding:0;}
+.noPaddingTop {padding-top:0;}
+.noPaddingRight {padding-right:0;}
+.noPaddingBottom {padding-bottom:0;}
+.noPaddingLeft {pading-left:0;}
+
+/* ******************************* */
+/* ******************************* */
+/**
+		.noMargin
+**/
+/* ******************************* */
+/* ******************************* */
+.noMarginAll {margin:0;}
+.noMarginTop {margin-top:0;}
+.noMarginRight {margin-right:0;}
+.noMarginBottom {margin-bottom:0;}
+.noMarginLeft {margin-left:0;}
+
+/* ******************************* */
+/* ******************************* */
+/**
+		.smallMargin
+**/
+/* ******************************* */
+/* ******************************* */
+.smallMarginAll {margin:3px;}
+.smallMarginTop {margin-top:3px;}
+.smallMarginRight {margin-right:3px;}
+.smallMarginBottom {margin-bottom:3px;}
+.smallMarginLeft {margin-left:3px;}
+
+/* ******************************* */
+/* ******************************* */
+/**
+		.mediumMargin
+**/
+/* ******************************* */
+/* ******************************* */
+.mediumMarginAll {margin:5px;}
+.mediumMarginTop {margin-top:5px;}
+.mediumMarginRight {margin-right:5px;}
+.mediumMarginBottom {margin-bottom:5px;}
+.mediumMarginLeft {margin-left:5px;}
+
+/* ******************************* */
+/* ******************************* */
+/**
+		.mediumBigMargin
+**/
+/* ******************************* */
+/* ******************************* */
+.mediumBigMarginAll {margin:10px;}
+.mediumBigMarginTop {margin-top:10px;}
+.mediumBigMarginRight {margin-right:10px;}
+.mediumBigMarginBottom {margin-bottom:10px;}
+.mediumBigMarginLeft {margin-left:10px;}
+
+/* ******************************* */
+/* ******************************* */
+/**
+		.bigMargin
+**/
+/* ******************************* */
+/* ******************************* */
+.bigMarginAll {margin:20px;}
+.bigMarginTop {margin-top:20px;}
+.bigMarginRight {margin-right:20px;}
+.bigMarginBottom {margin-bottom:20px;}
+.bigMarginLeft {margin-left:20px;}
+
+
+/* ******************************* */
+/* ******************************* */
+/**
+		.bigPadding
+**/
+/* ******************************* */
+/* ******************************* */
+.bigPaddingAll {padding:20px;}
+.bigPaddingTop {padding-top:20px;}
+.bigPaddingRight {padding-right:20px;}
+.bigPaddingBottom {padding-bottom:20px;}
+.bigPaddingLeft {padding-left:20px;}
+
+
+/* ******************************* */
+/* ******************************* */
+/**
+		.smallPadding
+**/
+/* ******************************* */
+/* ******************************* */
+.smallPaddingAll {padding:5px;}
+.smallPaddingTop {padding-top:5px;}
+.smallPaddingRight {padding-right:5px;}
+.smallPaddingBottom {padding-bottom:5px;}
+.smallPaddingLeft {padding-left:5px;}
+
+
+/* ******************************* */
+/* ******************************* */
+/**
+		.init-caps
+**/
+/* ******************************* */
+/* ******************************* */
+.all-caps {
+	text-transform: uppercase;
+}
+
+/* ******************************* */
+/* ******************************* */
+/**
+		.bold
+**/
+/* ******************************* */
+/* ******************************* */
+.bold {
+	font-weight:bold;
+}
+
+.small-text {
+	font-size:.80em;
+}
+
+.hr, hrTall {
+	line-height:3px;
+	border-bottom:solid 1px #bebebe;
+	margin:10px 0px 10px 0px;
+}
+
+.hrTall {
+	line-height:1em;
+}
+

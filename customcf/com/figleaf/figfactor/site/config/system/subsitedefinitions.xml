@@ -1,0 +1,4 @@
+<SubSiteDefinitions>
+	<subsite name="Foo" displayName="Foo - Cool Cool Foo" type="foo" />
+	<subsite name="Bar" displayName="Bar - Rocks The Foo" type="bar" />
+</SubSiteDefinitions>

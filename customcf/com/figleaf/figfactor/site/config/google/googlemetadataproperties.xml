@@ -1,0 +1,60 @@
+<googlemetadataproperties>
+	<package name="publications">
+		<!-- the primary key colum from the data source -->
+		<id name="pub_id" type="numeric" />
+		<!-- the build url for Google to crawl -->
+		<url><![CDATA["http://www.website.com/cgi/view_pub.cgi?pub_id="]]></url>
+	
+		<!-- the meta data properties for Search forms and Feeds -->
+		<property name="abstract" type="string" multi-tag="true">
+			<replacement-strings>
+				<entry string="[b]" replacement="&lt;b&gt;" />
+				<entry string="[/b]" replacement="&lt;/b&gt;" />
+			</replacement-strings>
+		</property>
+		<property name="authorList" type="string" formDisplay="true" formLable="Author List" multi-tag="true"  />
+		<property name="date_published" type="date" />
+		<property name="division" type="numeric" />
+		<property name="filesize" type="string" />
+		<property name="group_id" type="numeric" />
+		<property name="group_name" type="string" />
+		<property name="keywords" type="string" formDisplay="true" formLable="Key Words" />
+		<property name="last_modified" type="date" />
+		<property name="nistprojectid" type="string" />
+		<property name="op_unit" type="numeric" formDisplay="true" formLable="OUs">
+			<formvalue type="select">
+				<option>
+					<name>-select-</name>
+					<value></value>
+				</option>
+				<option>
+					<name>MSEL</name>
+					<value>81</value>
+				</option>
+				<option>
+					<name>85</name>
+					<value>85</value>
+				</option>
+				<option>
+					<name>86</name>
+					<value>86</value>
+				</option>
+				<option>
+					<name>87</name>
+					<value>87</value>
+				</option>
+				<option>
+					<name>89</name>
+					<value>89</value>
+				</option>
+			</formvalue>
+		</property>
+		<property name="pub_id" type="numeric" />
+		<property name="pub_type" type="string" />
+		<property name="research_field" type="string" formDisplay="true" formLable="Research Field"  />
+		<property name="title" type="string" formDisplay="true" formLable="Title text" />
+		<property name="view_abstract_url" type="string" value="http://www.website.com/cgi/view_pub.cgi?pub_id=" />
+		<property name="view_pdf_url" type="string" value="http://www.website.com/cgi/view_pdf.cgi?pub_id=" />
+		<property name="in_publication_xml" type="boolean" value="true" />
+	</package>
+</googlemetadataproperties>
