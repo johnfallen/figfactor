@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+Copyright: (c) 2006 The CFLog4j Author
+Author: Qasim Rasheed (qasimrasheed@gmail.com)
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License. 
+You may obtain a copy of the License at 
+
+http://www.apache.org/licenses/LICENSE-2.0 
+
+Unless required by applicable law or agreed to in writing, software 
+distributed under the License is distributed on an "AS IS" BASIS, 
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+See the License for the specific language governing permissions and 
+limitations under the License.
+-->
+<cflog4j>
+	<!-- 
+	location and name of the log4j.jar file. The program will search 
+	the jar file in current directory if no path is specified and will 
+	throw a cflog4j.log4j.InvalidPathToJar error. 
+	-->
+	<log4jJar value="log4j-1.2.13.jar" />
+	<!--  location and name of the cflog4j.properties file. By default the program checks the  -->
+	<propertyFile value="cflog4j.properties" />
+	<!-- Log4j will keep monitoring the property file for any changes every so manminutes, 
+		and if the file changes, Log4j will update the configuration. -->
+	<reloadConfigAfterMinutes value="100" />
+</cflog4j>

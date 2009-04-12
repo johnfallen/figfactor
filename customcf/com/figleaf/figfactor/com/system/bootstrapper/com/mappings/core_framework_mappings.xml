@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE deploymentMappings [
+	<!ENTITY path "customcf/com/figleaf/figfactor/">
+	<!ENTITY comPath "&path;com/">
+	<!ENTITY sitePath "&path;site/">
+	<!ENTITY systemPath "&path;com/system/">
+	<!ENTITY bootStrapperPath "&systemPath;bootstrapper/">
+	<!ENTITY applicationPath "&path;com/applications/">
+	<!ENTITY rootLeveFileMapping "">
+]>
+<mappings>
+
+	<!-- ************************************************ 
+		ColdSpring Files 
+	******************************************************-->
+	<!-- bootstrapper -->
+	<mapping>
+		<name>FigFactorBootStrapperColdSpringFile</name>
+		<source>&sitePath;config/system/coldspring/</source>
+		<destination>&systemPath;config/coldspring/</destination>
+		<recursive>false</recursive>
+		<file>coldspring_bootstrapper.xml</file>
+		<allowedExtensions>xml,cfm</allowedExtensions>
+		<nameconflict>overwrite</nameconflict>
+	</mapping>
+	<!-- system framework files -->
+	<mapping>
+		<name>FigFactorCoreSystemColdSpringFile</name>
+		<source>&sitePath;config/system/coldspring/</source>
+		<destination>&systemPath;config/coldspring/</destination>
+		<recursive>false</recursive>
+		<file>coldspring_framework.xml</file>
+		<allowedExtensions>xml,cfm</allowedExtensions>
+		<nameconflict>overwrite</nameconflict>
+	</mapping>
+	<!-- applications -->
+	<mapping>
+		<name>FigFactorApplicationsColdSpringFile</name>
+		<source>&sitePath;config/system/coldspring/</source>
+		<destination>&systemPath;config/coldspring/</destination>
+		<recursive>false</recursive>
+		<file>coldspring_applications.xml</file>
+		<allowedExtensions>xml,cfm</allowedExtensions>
+		<nameconflict>overwrite</nameconflict>
+	</mapping>
+	
+	<!-- cflog4j properties file -->
+	<mapping>
+		<name>cflogF4JProperties</name>
+		<source>&sitePath;config/system</source>
+		<destination>&systemPath;util/logger/cflog4j/</destination>
+		<recursive>false</recursive>
+		<file>cflog4j.properties</file>
+		<allowedExtensions></allowedExtensions>
+		<nameconflict>overwrite</nameconflict>
+	</mapping>
+	
+	<!-- List Service default list file -->
+	<mapping>
+		<name>defaultLists</name>
+		<source>&sitePath;config/system/</source>
+		<destination>&systemPath;listservice/data/</destination>
+		<recursive>false</recursive>
+		<file>frameworklists.xml</file>
+		<allowedExtensions></allowedExtensions>
+		<nameconflict>overwrite</nameconflict>
+	</mapping>
+	
+	<!-- customelements.xml file -->
+	<mapping>
+		<name>customelementsXml</name>
+		<source>&sitePath;config/system/</source>
+		<destination>&systemPath;elementfactory/config/</destination>
+		<recursive>false</recursive>
+		<file>customelements.xml</file>
+		<allowedExtensions></allowedExtensions>
+		<nameconflict>overwrite</nameconflict>
+	</mapping>
+	
+	<!-- subsitedefinitions.xml file -->
+	<mapping>
+		<name>subSiteDefinitions</name>
+		<source>&sitePath;config/system/</source>
+		<destination>&systemPath;config/</destination>
+		<recursive>false</recursive>
+		<file>subsitedefinitions.xml</file>
+		<allowedExtensions></allowedExtensions>
+		<nameconflict>overwrite</nameconflict>
+	</mapping>
+	
+	<!-- systemconfiguration.ini.cfc file -->
+	<mapping>
+		<name>systemconfig</name>
+		<source>&sitePath;config/system/</source>
+		<destination>&systemPath;config/</destination>
+		<recursive>false</recursive>
+		<file>systemconfiguration.ini.cfm</file>
+		<allowedExtensions></allowedExtensions>
+		<nameconflict>overwrite</nameconflict>
+	</mapping>
+
+
+	<!-- user defined mappings.xml -->
+	<mapping>
+		<name>userDefinedFileMappings</name>
+		<source>&sitePath;config/system/</source>
+		<destination>&systemPath;bootstrapper/com/mappings/</destination>
+		<recursive>false</recursive>
+		<file>filemappings.xml</file>
+		<allowedExtensions></allowedExtensions>
+		<nameconflict>overwrite</nameconflict>
+	</mapping>
+</mappings>
