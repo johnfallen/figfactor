@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd" [
+	
+	<!-- modify this if the FigFactor changes -->
+	<!ENTITY figFactorContext "viewframework.">
+	
+	<!ENTITY figFactorMapping "&figFactorContext;customcf.com.figleaf.figfactor.">
+	<!ENTITY applicationMapping "&figFactorMapping;com.applications.">
+	<!ENTITY systemMapping "&figFactorMapping;com.system.">
+	<!ENTITY utilMapping "&systemMapping;util.">]>
+<beans>
+<!-- **************************************************************************
+	BootStrapper 
+*************************************************************************** -->
+
+<!-- ***************************** Singletons ***************************** -->
+<bean id="Logger" class="&utilMapping;logger.LoggerAdapter" singleton="true">
+	<constructor-arg name="Config">
+		<ref bean="Config" />
+	</constructor-arg>
+</bean>
+
+<bean id="BootStrapper" class="&systemMapping;bootstrapper.BootStrapper" singleton="true">
+	<constructor-arg name="webRootPath">
+		<value>${webRootPath}</value>
+	</constructor-arg>
+	<constructor-arg name="webRootPath">
+		<value>${frameworkPath}</value>
+	</constructor-arg>
+	<constructor-arg name="FileMapper">
+		<ref bean="FileMapper" />
+	</constructor-arg>
+	<constructor-arg name="Logger">
+		<ref bean="Logger" />
+	</constructor-arg>
+	<constructor-arg name="Config">
+		<ref bean="Config" />
+	</constructor-arg>
+</bean>
+
+	
+<bean id="Config" class="&systemMapping;config.SystemConfigBean" singleton="true">
+	<constructor-arg name="webRootPath">
+		<value>${webRootPath}</value>
+	</constructor-arg>
+	<constructor-arg name="frameworkPath">
+		<value>${frameworkPath}</value>
+	</constructor-arg>
+	<constructor-arg name="serverRootPath">
+		<value>${serverRootPath}</value>
+	</constructor-arg>
+	<constructor-arg name="realitiveFrameworkPath">
+		<value>${realitiveFrameworkPath}</value>
+	</constructor-arg>
+	<constructor-arg name="codeBaseRealitivePath">
+		<value>${codeBaseRealitivePath}</value>
+	</constructor-arg>
+	<constructor-arg name="UIRealitivePath">
+		<value>${UIRealitivePath}</value>
+	</constructor-arg>
+	<constructor-arg name="CSSRealitivePath">
+		<value>${CSSRealitivePath}</value>
+	</constructor-arg>
+	<constructor-arg name="ImagesRealitivePath">
+		<value>${ImagesRealitivePath}</value>
+	</constructor-arg>
+	<constructor-arg name="JavaScriptRealitivePath">
+		<value>${JavaScriptRealitivePath}</value>
+	</constructor-arg>
+	<constructor-arg name="FigFactorIncludesRealitivePath">
+		<value>${FigFactorIncludesRealitivePath}</value>
+	</constructor-arg>
+	<constructor-arg name="RenderHandlersRealitivePath">
+		<value>${RenderHandlersRealitivePath}</value>
+	</constructor-arg>
+	<constructor-arg name="RenderHandlerIncludesRealitivePath">
+		<value>${RenderHandlerIncludesRealitivePath}</value>
+	</constructor-arg>
+	<constructor-arg name="iniFileName">
+		<value>${iniFileName}</value>
+	</constructor-arg>
+</bean>
+
+<!-- older versions refrence this object -->
+<bean id="ConfigBean" parent="Config" singleton="true"  />
+
+<bean id="FileMapper" class="&systemMapping;bootstrapper.com.filemapper.FileMapper" singleton="true">
+	<constructor-arg name="webRootPath">
+		<value>${webRootPath}</value>
+	</constructor-arg>
+	<constructor-arg name="Logger">
+		<ref bean="Logger" />
+	</constructor-arg>
+</bean>
+<!-- *************************** Non Singletons *************************** -->
+</beans>

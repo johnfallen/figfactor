@@ -1,0 +1,93 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd" [
+	
+	<!-- modify this if the FigFactor changes -->
+	<!ENTITY figFactorContext "viewframework.">
+	
+	<!ENTITY figFactorMapping "&figFactorContext;customcf.com.figleaf.figfactor.">
+	<!ENTITY applicationMapping "&figFactorMapping;com.applications.">
+	<!ENTITY systemMapping "&figFactorMapping;com.system.">
+	<!ENTITY utilMapping "&systemMapping;util.">]>
+<beans>
+<!-- ************************************************************************** 
+	Applications 
+*************************************************************************** -->
+
+<!-- ***************************** Singletons ***************************** -->
+<bean id="Authentication" class="&applicationMapping;authentication.Authentication" singleton="true">
+	<constructor-arg name="Config">
+		<ref bean="Config" />
+	</constructor-arg>
+</bean>
+
+<bean id="FLEET" class="&applicationMapping;fleet.Fleet" singleton="true">
+	<constructor-arg name="Logger">
+		<ref bean="Logger" />
+	</constructor-arg>
+	<constructor-arg name="Config">
+		<ref bean="Config" />
+	</constructor-arg>
+</bean>
+
+<bean id="DataService" class="&applicationMapping;dataservice.DataService" singleton="true">
+	<constructor-arg name="ElementFactory">
+		<ref bean="ElementFactory" />
+	</constructor-arg>
+	<constructor-arg name="Config">
+		<ref bean="Config" />
+	</constructor-arg>
+	<constructor-arg name="Logger">
+		<ref bean="Logger" />
+	</constructor-arg>
+	<constructor-arg name="CacheService">
+		<ref bean="CacheService" />
+	</constructor-arg>
+	<constructor-arg name="UDF">
+		<ref bean="UDF" />
+	</constructor-arg>
+	<constructor-arg name="FLEET">
+		<ref bean="FLEET" />
+	</constructor-arg>
+	<constructor-arg name="Security">
+		<ref bean="Security" />
+	</constructor-arg>
+	<constructor-arg name="ListService">
+		<ref bean="ListService" />
+	</constructor-arg>
+	<constructor-arg name="MessageService">
+		<ref bean="MessageService" />
+	</constructor-arg>
+</bean>
+
+<!--
+<bean id="DataService" class="&applicationMapping;dataservicev2.DataService" singleton="true">
+	<constructor-arg name="Config">
+		<ref bean="Config" />
+	</constructor-arg>
+	<constructor-arg name="CacheService">
+		<ref bean="CacheService" />
+	</constructor-arg>
+</bean>
+-->
+<bean id="Google" class="&applicationMapping;google.search.Google" singleton="true" />
+
+<bean id="ObjectStore" class="&applicationMapping;objectstore.ObjectStore" singleton="true" />
+
+<bean id="Security" class="&applicationMapping;security.Security" singleton="true">
+	<constructor-arg name="Logger">
+		<ref bean="Logger" />
+	</constructor-arg>
+</bean>
+
+<bean id="Validator" class="&applicationMapping;validator.Validator" singleton="true">
+	<constructor-arg name="Config">
+		<ref bean="Config" />
+	</constructor-arg>
+	<constructor-arg name="Logger">
+		<ref bean="Logger" />
+	</constructor-arg>
+	<constructor-arg name="FileSystem">
+		<ref bean="FileSystem" />
+	</constructor-arg>
+</bean>
+<!-- *************************** Non Singletons *************************** -->
+</beans>

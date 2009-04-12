@@ -1,0 +1,94 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd" [
+	
+	<!-- modify this if the FigFactor changes -->
+	<!ENTITY figFactorContext "viewframework.">
+	
+	<!ENTITY figFactorMapping "&figFactorContext;customcf.com.figleaf.figfactor.">
+	<!ENTITY applicationMapping "&figFactorMapping;com.applications.">
+	<!ENTITY systemMapping "&figFactorMapping;com.system.">
+	<!ENTITY utilMapping "&systemMapping;util.">]>
+<beans>
+<!-- *************************************************************************
+	Framework 
+*************************************************************************** -->
+
+<!-- ***************************** Singletons ***************************** -->
+
+<bean id="ElementFactory" class="&systemMapping;elementfactory.ElementFactory" singleton="true">
+	<constructor-arg name="MapCollection">
+		<ref bean="MapCollection" />
+	</constructor-arg>
+	<constructor-arg name="Logger">
+		<ref bean="Logger" />
+	</constructor-arg>
+	<constructor-arg name="Config">
+		<ref bean="Config" />
+	</constructor-arg>
+</bean>
+
+<bean id="EventService" class="&systemMapping;event.EventService" singleton="true">
+	<constructor-arg name="ElementFactory">
+		<ref bean="ElementFactory" />
+	</constructor-arg>
+	<constructor-arg name="Config">
+		<ref bean="Config" />
+	</constructor-arg>
+	<constructor-arg name="UDF">
+		<ref bean="UDF" />
+	</constructor-arg>
+	<constructor-arg name="Logger">
+		<ref bean="Logger" />
+	</constructor-arg>
+	<constructor-arg name="hasMixen">
+		<value>${hasMixen}</value>
+	</constructor-arg>
+</bean>
+	
+<bean id="ListService" class="&systemMapping;listservice.ListService" singleton="true">
+	<constructor-arg name="MapCollection">
+		<ref bean="MapCollection" />
+	</constructor-arg>
+	<constructor-arg name="ElementFactory">
+		<ref bean="ElementFactory" />
+	</constructor-arg>
+	<constructor-arg name="Config">
+		<ref bean="Config" />
+	</constructor-arg>
+	<constructor-arg name="Logger">
+		<ref bean="Logger" />
+	</constructor-arg>
+</bean>
+
+<bean id="FileSystem" class="&utilMapping;filesystem.FileSystem" singleton="true" />
+
+<bean id="UDF" class="&utilMapping;udf.UDFLib" singleton="true" />
+
+<bean id="CacheService" class="&systemMapping;cache.CacheFactory" singleton="true">
+	<constructor-arg name="Config">
+		<ref bean="Config" />
+	</constructor-arg>
+</bean>
+
+<bean id="VersionAdaptor" class="&systemMapping;versionadaptor.BaseVersionAdaptor" singleton="true" />	
+
+<bean id="Legacy" class="&systemMapping;legacy.Legacy" singleton="true" />
+
+<bean id="MessageService" class="&systemMapping;message.MessageService" singleton="true">
+	<constructor-arg name="Config">
+		<ref bean="Config" />
+	</constructor-arg>
+</bean>
+		
+
+
+<!-- *************************** Non Singletons *************************** -->
+<bean id="MapCollection" class="&utilMapping;collections.MapCollection" singleton="false" />
+
+<bean id="AdobeColdFusionSessionFacade" class="&utilMapping;collections.AdobeColdFusionSessionFacade" singleton="false" />
+
+<bean id="input" class="&utilMapping;input.Input" singleton="false" />
+
+<bean id="RenderHandlerService" class="&utilMapping;renderhandlerservice.RenderHandlerService" singleton="false" />
+	
+<bean id="Pagination" class="&utilMapping;pagination.Pagination" singleton="false" />
+</beans>
