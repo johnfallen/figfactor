@@ -1,0 +1,76 @@
+<!-- 
+TAG: id
+	@name : the primary key of the data source providing the content
+	required = true
+
+	@type : the type of name attribute: "numeric" or "string"
+		required = false
+		default = numeric
+
+TAG: property
+
+	<property 
+		name="{name of property}" 
+		type="{properties type}" 
+		multi-tag="{break to multi meta tags}" 
+		value="{any default value}" 
+		/>
+	
+	@name : The name of the property that will be in the GSA search collection. 
+		required = true
+		Usually it should corispond to a db's column name of the query that
+		populates it.
+				
+	@type : The type of the property: string, date, numeric, boolean
+		required = true 
+				
+	@multi-tag : Should the content be broken into many meta tags?
+		requried = false 
+		default = false
+		Set this to true if the content for the tag execeds 320 characters. 
+		Google will concantinate duplicate tag names for searches
+
+	@value : The value that the tag should always be.
+		requried = false
+		Usefull for putting in data that is handy for the views. Say two different
+		URL's that can retrieve the target data by its id.
+-->
+<googlemetadataproperties>
+	
+	<package name="publications">
+
+		<id name="pub_id" type="numeric" />
+			
+
+		<property name="title" type="string" />
+		<property name="publicationDate" type="date" />
+		<property name="authorList" type="string" formDisplay="true" formLable="Author List" multi-tag="true"  />
+		<property name="keywords" type="string" formDisplay="true" formLable="Key Words" />
+		<property name="group_id" type="numeric" />
+		
+		<!-- 
+			Say the output from the source had strings that needed to be replaced?
+			This example is replacing any 'bold' wiki tags with the HTML entities and
+			also uses the multi-tag to break the content into several meta tags called
+			abstract.
+		-->
+		<property name="abstract" type="string" multi-tag="true">
+			<replacement-strings>
+				<entry string="[b]" replacement="&lt;b&gt;" />
+				<entry string="[/b]" replacement="&lt;/b&gt;" />
+			</replacement-strings>
+		</property>
+		
+		<!-- 
+			Adding these to the meta data so the XML from Google will have it.
+			This way we dont have to read it from a config file. Seen this in several
+			example feeds.
+		-->
+		<property name="view_abstract_url" type="string" value="http://www.website.com/cgi/view_pub.cgi?pub_id=" />
+		<property name="view_pdf_url" type="string" value="http://www.website.com/cgi/view_pdf.cgi?pub_id=" />
+		
+		<!-- adding this for an easy filter for this package -->
+		<property name="in_publication_xml" type="boolean" />
+	</package>
+
+</googlemetadataproperties>

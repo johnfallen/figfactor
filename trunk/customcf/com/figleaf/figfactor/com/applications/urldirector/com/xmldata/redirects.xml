@@ -1,0 +1,12 @@
+<redirects>
+	<redirect>
+		<old>
+			<url>http://vanityEvent2002.company.com</url>
+			<path>/subdirectory/foo-products.html</path>
+		</old>
+		<new>
+			<url>http://www.company.com</url>
+			<path>/sub-site-name/products-sub-site/index.cfm</path>
+		</new>
+	</redirect>
+</redirects>

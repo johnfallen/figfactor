@@ -1,0 +1,5 @@
+<ViewFrameworkCampusDefinitions>
+	<campus name="boulder" displayName="Boulder" state="CO" />
+	<campus name="gaithersburg" displayName="Gaithersburg"  state="MD" />
+	<campus name="space" displayName="Space"  state="NA" />
+</ViewFrameworkCampusDefinitions>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated from customelements.xml by XMLBuddy -->
+<!ELEMENT customelement (method+)>
+<!ATTLIST customelement
+	CSSClass NMTOKEN REQUIRED
+	name CDATA REQUIRED
+	useCache NMTOKEN REQUIRED
+	useDataService NMTOKEN REQUIRED
+>
+<!ELEMENT customelements (customelement+)>
+<!ATTLIST customelements renderhandlerdirectory CDATA #REQUIRED>
+<!ELEMENT definitions (customelements)>
+<!ELEMENT method EMPTY>
+<!ATTLIST method
+	name NMTOKEN REQUIRED
+	resultName NMTOKEN REQUIRED
+>

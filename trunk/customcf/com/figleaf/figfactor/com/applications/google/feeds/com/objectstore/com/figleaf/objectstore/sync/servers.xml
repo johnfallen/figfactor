@@ -1,0 +1,25 @@
+<servers>
+	This file contains all of the servers that are confirgured to use ObjectStore.
+	<server>
+		<ip>127.0.0.1</ip>
+		<name>localhost</name>
+		<url>http://localhost/viewframework/</url>
+		<pathToSyncCFC>customcf/org/figleaf/com/applicatoins/googleV2/com/feeds/com/objectstore/com/sync/</pathToSyncCFC>
+	</server>
+
+	<server>
+		<ip>162.1.21.91</ip>
+		<name>csg1</name>
+		<url>http://www.nist.gov/</url>
+		<pathToSyncCFC>customcf/org/figleaf/com/applicatoins/googleV2/com/feeds/com/objectstore/com/sync/</pathToSyncCFC>
+	</server>
+	
+	<server>
+		<ip>168.6.54.111</ip>
+		<name>csg2</name>
+		<url>http://www.nist.gov/</url>
+		<pathToSyncCFC>customcf/org/figleaf/com/applicatoins/googleV2/com/feeds/com/objectstore/com/sync/</pathToSyncCFC>
+	</server>
+	
+
+</servers>

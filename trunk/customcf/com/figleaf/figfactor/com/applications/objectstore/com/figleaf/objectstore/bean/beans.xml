@@ -1,0 +1,47 @@
+<beans>
+	<bean name="PublicationFeed">
+		<property>
+			<name>FeedXML</name>
+		</property>
+		<property>
+			<name>BirthDay</name>
+		</property>
+		<property>
+			<name>LastUpdate</name>
+		</property>
+		<property>
+			<bean name="Report" />
+		</property>
+	</bean>
+	
+	<bean name="Report">
+		<property>
+			<name>DateSentToAppliance</name>
+		</property>
+		<property>
+			<name>StartID</name>
+		</property>
+		<property>
+			<name>EndID</name>
+		</property>
+	</bean>
+	
+	
+	<bean name="DemoBean">
+		<property>
+			<name>DemoPropertyOne</name>
+		</property>
+		<property>
+			<name>DemoPropertyTwo</name>
+		</property>
+		<property>
+			<name>DemoPropertyThree</name>
+		</property>
+		<property>
+			<bean name="Report" />
+		</property>
+		<property>
+			<bean name="PublicationFeed" />
+		</property>
+	</bean>
+</beans>
