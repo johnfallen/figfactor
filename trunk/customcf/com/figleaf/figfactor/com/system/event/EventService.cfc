@@ -75,24 +75,28 @@ John Allen	 07/20/2008	 Created
 <cffunction name="getMockEvent" returntype="component" access="public" output="false"
     displayname="Get Mock Event" hint="I return a Mock Event for developers."
     description="I return a Mock Event for developers.">
-    
 	
-   <cfif not structkeyexists(request, "MockObject")>
-	<cfset request.MockObject = 0 />
-		<cftry>
-		<cfset request.MockObject = 
-			createObject("component", "MockEvent").init(
+	<cfif not structkeyexists(request, "#variables.instance.requestHash#")>
+	
+		<cfif variables.frameworkHasMixin eq true>
+			<cfset Application.FigFactor.OnFigFactorRequestStart() />
+		</cfif>
+
+		<cfset request[variables.instance.requestHash] = createObject("component", "MockEvent").init(
 				doRequestScopeDefautls = 0,
 				Config = variables.Config,
 				ElementFactory = variables.ElementFactory,
-				UDF = variables.UDF) />
-				<cfcatch></cfcatch>
-			</cftry>
+				UDF = variables.UDF) /> />
+			
+		<cfset passEventToApplications(request[variables.instance.requestHash]) />
 	</cfif>
-
 	
-	<cfreturn request.MockObject />
+	<cfreturn request[variables.instance.requestHash] />
 </cffunction>
+
+
+
+
 
 
 

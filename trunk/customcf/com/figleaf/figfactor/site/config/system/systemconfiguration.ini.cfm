@@ -21,6 +21,7 @@ fig_leaf_system_version=RCV2 0.5
 [ui]
 default_css=home
 default_css_class=home
+web_path_to_admin=/customcf/com/figleaf/figfactor/admin/
 
 [logger]
 enable_external_logger=true

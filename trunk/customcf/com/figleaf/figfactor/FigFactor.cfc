@@ -106,21 +106,31 @@ John Allen 		20/03/2009			Created
 	<cfargument name="iniFileName" default="#variables.files.iniFileName#" />
 	<cfargument name="hasMixen" default="#variables.hasMixen#" />
 	
+	<!--- see note below when setting server.factory --->
+	<cfset var server = structNew() />
+	
 	<!--- regex up 4 directories to the root of this commonspot site --->
 	<cfset var webRoot = GetDirectoryFromPath(
 		GetCurrentTemplatePath()
 			).ReplaceFirst(
 			"([^\\\/]+[\\\/]){4}$", ""
-		)/>
+		)/>	
 	
 	<cfif variables.hasMixen eq true>
 		<cfset OnFigFactorFrameworkLoad() />	
 	</cfif>
-	
+
 	<cfset setWebRootPath(webRoot) />
 
 	<cfset setFrameworkPath(argumentCollection = arguments) />
 	
+	<!--- 
+		On Mac OS X running under TomCat the service cant be created in the
+		setDependencies() method for some reason. So make it here.
+	 --->
+	<cfset server.factory = createObject('java','coldfusion.server.ServiceFactory') />
+	
+
 	<!---  
 		This method has a real slick way to add server mappings by calling the 
 		ColdFusion server via java. Heres how it works: 
@@ -133,34 +143,24 @@ John Allen 		20/03/2009			Created
 		FigFactor HAS to have some sort of DI framework, currently ColdSpring.
 		So if this fails we copy the DI framework to the web root.
 	--->
-	<cftry>
-		
-		<cfif variables.hasMixen eq true>
-			<cfset OnFigFactorDependencyLoad()>
-		</cfif>
-		
-		<!--- make the server mappings --->
-		<cfset setDependencies() />
-
-		<cfcatch><!--- server didn't allow us to set the required dependencies --->
-			
-			<!--- copy the DI framework to the web root --->
-			<cfset installDIFramework() />
-
-		</cfcatch>
-	</cftry>
+	<cfif variables.hasMixen eq true>
+		<cfset OnFigFactorDependencyLoad()>
+	</cfif>
 	
-	<!--- where DI bean definition xml config files are --->
+	<!--- 
+		Make the server mappings or copy the needed supporting frameworks to the
+		web root if it fails.
+	 --->
+	<cfset setDependencies(server.factory) />
+	
 	<cfset setDIConfigPath(argumentCollection = arguments) />
-	
-	<!--- sets the required properties for the DI framework --->
+
 	<cfset setDIProperties(argumentCollection = arguments) />
 	
 	<cfif variables.hasMixen eq true>
 		<cfset OnFigFactorDIFrameworkCreate() />
 	</cfif>
-	
-	<!--- initalizes the DI framework --->
+
 	<cfset createDIFramework() />
 	
 	<cfif variables.hasMixen eq true>
@@ -172,7 +172,7 @@ John Allen 		20/03/2009			Created
 
 	<!--- get Legacy all configured --->
 	<cfset getFactory().getBean("Legacy").configure(this) />
-	
+
 	<!--- 
 		Set the objects that the FigFactors API proxies, and other objects
 		that public code uses all the time. The API's getBean() will 1st search
@@ -190,7 +190,6 @@ John Allen 		20/03/2009			Created
 	<cfset variables.private.Logger = getFactory().getBean("Logger") />
 	<cfset variables.private.Google = getFactory().getBean("Google") />
 	<cfset variables.private.DataService = getFactory().getBean("DataService") />
-
 	<cfset variables.private.Logger.setMessage(message = "FigFactorMixen.cfm file included? #variables.hasMixen#") />
 	
 	<cfreturn this />
@@ -491,58 +490,75 @@ John Allen 		20/03/2009			Created
 <cffunction name="setDependencies" access="private" output="false"	
 	displayname="Set Dependencies" hint="I add mappings FigFactor needs to the server. Return Type: void"
 	description="I add mappings the FigFactor needs by acting onColdFusions coldfusion.server.ServiceFactory.runtimeService.getMappings() has map. Return Type: void.">
-    
+	
+	
+	<cfargument name="cfServerFactory" />
+	
 	<cfset var server = 0 />
 	<cfset var serverMappings = 0 />
 	<cfset var thePath = "" />
 	<cfset var mappings = structNew() />
-	
+		
 	<cfset thePath = getFrameworkPath() & "com/system/util/frameworks/" />
-	
-	<!--- slick way to add mappings to the server --->
-	<cfset server.factory = createObject('java','coldfusion.server.ServiceFactory') />
-	<cfset serverMappings = server.factory.runtimeService.getMappings() />
-	
-	<cfset mappings.ModelGlue = thePath & "ModelGlue"/>
-	<cfset mappings.coldspring = thePath & "coldspring"/>
-	<cfset mappings.edmund = thePath & "edmund"/>
-	<cfset mappings.Transfer = thePath & "transfer"/>
 
-	<!--- Always add the FigFactor mapping --->
-	<cfset serverMappings["/FigFactor"] = "#getFrameworkPath()#" />
+
+	<cfif not isDefined("arguments.cfServerFactory")>
+		<cfset installRequiredFrameworks() />
+	<cfelse>
+		<cfset serverMappings = arguments.cfServerFactory.runtimeService.getMappings() />
+
 	
-	<!--- only add if they are not present --->
-	<cfif not structKeyExists(serverMappings, "ModelGlue")>
-		<cfset serverMappings["/ModelGlue"] = "#mappings.ModelGlue#" />
+		<cfset mappings.ModelGlue = thePath & "ModelGlue"/>
+		<cfset mappings.coldspring = thePath & "coldspring"/>
+		<cfset mappings.edmund = thePath & "edmund"/>
+		<cfset mappings.Transfer = thePath & "transfer"/>
+	
+		<!--- Always add the FigFactor mapping --->
+		<cfset serverMappings["/FigFactor"] = "#getFrameworkPath()#" />
+		
+		<!--- only add if they are not present --->
+		<cfif not structKeyExists(serverMappings, "ModelGlue")>
+			<cfset serverMappings["/ModelGlue"] = "#mappings.ModelGlue#" />
+		</cfif>
+		
+		<cfif not structKeyExists(serverMappings, "coldspring")>
+			<cfset serverMappings["/coldspring"] = "#mappings.coldspring#" />
+		</cfif>
+		
+		<cfif not structKeyExists(serverMappings, "edmund")>
+			<cfset serverMappings["/edmund"] = "#mappings.edmund#" />
+		</cfif>
+		
+		<cfif not structKeyExists(serverMappings, "transfer")>
+			<cfset serverMappings["/transfer"] = "#mappings.Transfer#" />
+		</cfif>
 	</cfif>
 	
-	<cfif not structKeyExists(serverMappings, "coldspring")>
-		<cfset serverMappings["/coldspring"] = "#mappings.coldspring#" />
-	</cfif>
-	
-	<cfif not structKeyExists(serverMappings, "edmund")>
-		<cfset serverMappings["/edmund"] = "#mappings.edmund#" />
-	</cfif>
-	
-	<cfif not structKeyExists(serverMappings, "transfer")>
-		<cfset serverMappings["/transfer"] = "#mappings.Transfer#" />
-	</cfif>
 	
 </cffunction>
 
 
 
-<!--- installDIFramework --->
-<cffunction name="installDIFramework" access="private" output="false"	
-	displayname="Install DI Framewrok" hint="I copy the DI Framework to the web root. Return Type: void."
-	description="I copy the DI Framework to the web root. Return Type: void.">
+<!--- installRequiredFrameworks --->
+<cffunction name="installRequiredFrameworks" output="false"	
+	displayname="Install Required Frameworks" hint="I copy the DI Framework and Admin front controller frameworks to the web root."
+	description="I copy the DI Framework and Admin front controller frameworks to the web root.">
 
 	<cfset var UDF = createObject("component", "com.system.util.udf.UDFLib").init() />
-	<cfset var source = getFrameworkPath() & "com/system/util/frameworks/coldspring" />
-	<cfset var destination = getDirectoryFromPath(expandPath("/")) &  "coldspring/" />
+	<cfset var ColdSpringSource = getFrameworkPath() & "com/system/util/frameworks/coldspring/" />
+	<cfset var ColdSpringDestination = getDirectoryFromPath(expandPath("/")) &  "coldspring/" />
+	<cfset var ModelGlueSource = getFrameworkPath() & "com/system/util/frameworks/ModelGlue" />
+	<cfset var ModelGlueDestination = getDirectoryFromPath(expandPath("/")) &  "ModelGlue/" />
 	
-	<cfset UDF.directoryCopy(source = source, destination = destination) />
-   
+	<cftry>	
+		<cfdirectory action="create" directory="#ColdSpringDestination#" mode="777" />
+		<cfdirectory action="create" directory="#ModelGlueDestination#" mode="777" />
+		<cfcatch></cfcatch>
+	</cftry>
+
+	<cfset UDF.directoryCopy(source = ColdSpringSource, destination = ColdSpringDestination) />
+   	<cfset UDF.directoryCopy(source = ModelGlueSource, destination = ModelGlueDestination) />
+		
 </cffunction>
 
 

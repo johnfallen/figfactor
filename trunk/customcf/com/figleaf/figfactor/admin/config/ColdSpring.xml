@@ -9,8 +9,8 @@
     <property name="debug"><value>false</value></property>
     <property name="defaultEvent"><value>page.index</value></property>
     <property name="reloadPassword"><value>true</value></property>
-    <property name="viewMappings"><value>/viewframework/customcf/com/figleaf/figfactor/admin/views</value></property>
-    <property name="generatedViewMapping"><value>/viewframework/customcf/com/figleaf/figfactor/admin/views/generated</value></property>
+    <property name="viewMappings"><value>/customcf/com/figleaf/figfactor/admin/views</value></property>
+    <property name="generatedViewMapping"><value>/customcf/com/figleaf/figfactor/admin/views/generated</value></property>
     <property name="configurationPath"><value>config/ModelGlue.xml</value></property>
     <property name="scaffoldPath"><value>config/scaffolds/Scaffolds.xml</value></property>
     <property name="statePrecedence"><value>form</value></property>
@@ -22,10 +22,10 @@
     <property name="defaultScaffolds"><value>list,edit,view,commit,delete</value></property>
   </bean>
   
-	<bean id="Controller" class="viewframework.customcf.com.figleaf.figfactor.admin.controller.Controller"  />
-	<bean id="DomainAPI" class="viewframework.customcf.com.figleaf.figfactor.admin.model.DomainAPI"  />
+	<bean id="Controller" class="customcf.com.figleaf.figfactor.admin.controller.Controller"  />
+	<bean id="DomainAPI" class="customcf.com.figleaf.figfactor.admin.model.DomainAPI"  />
 
-<bean id="AdminConfig" class="viewframework.customcf.com.figleaf.figfactor.admin.model.config.AdminConfig">
+<bean id="AdminConfig" class="customcf.com.figleaf.figfactor.admin.model.config.AdminConfig">
 	<constructor-arg name="pathToCommonspot">
   		<value>C:\Inetpub\wwwroot\commonspot</value>
 	</constructor-arg>
