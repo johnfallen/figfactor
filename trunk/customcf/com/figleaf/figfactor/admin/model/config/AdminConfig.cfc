@@ -17,7 +17,7 @@ John Allen 		31/03/2009			Created
 <!--- ****************************** Public ******************************* --->
 
 <!--- init --->
-<cffunction name="init" returntype="AdminConfig.cfc" access="public" output="false" 
+<cffunction name="init" returntype="AdminConfig" access="public" output="false" 
 	displayname="Init" hint="I am the constructor." 
 	description="I am the pseudo constructor for this CFC. I return an instance of myself.">
 
