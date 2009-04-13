@@ -1,9 +1,7 @@
 <modelglue>
 	
-	<!--<include template="/viewframework/customcf/com/figleaf/figfactor/admin/applications/filemanager/config/ModelGlue.xml" />-->
-	
 	<controllers>
-		<controller name="figFactorAdminController" type="viewframework.customcf.com.figleaf.figfactor.admin.controller.Controller">
+		<controller name="figFactorAdminController" type="customcf.com.figleaf.figfactor.admin.controller.Controller">
 			<message-listener message="OnRequestStart" function="OnRequestStart" />
 			<message-listener message="OnQueueComplete" function="OnQueueComplete" />
 			<message-listener message="getCustomElementXML" function="getCustomElementXML" />

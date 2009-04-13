@@ -1,4 +1,4 @@
-<cfset path = Application.FigFactor.getBean("config").getFIGFACTORWEBCONTEXT() & "admin/" /><cfoutput><html>
+<cfset path = Application.FigFactor.getBean("config").getWebPathToAdmin() /><cfoutput><html>
 <head>
 <title>FigFactor Adminstration !!</title>
 <link type="text/css" href="#path#ui/js/jquery-ui-1.7.1.custom/development-bundle/themes/base/ui.all.css" rel="stylesheet" />

@@ -57,7 +57,7 @@ John Allen 		04/06/2008			Upgraded to FigFactor V2.
 		hint="I am the site realitive path to the FigFactor includes directory. I am required." />
 	<cfargument name="RenderHandlersRealitivePath"  
 		hint="I am the sites realitive path to the 'reanderhandlers' directory. I am required." />
-	<cfargument name="RenderHandlerIncludesRealitivePath"  
+	<cfargument name="RenderHandlerIncludesRealitivePath"
 		hint="I am the sites realitive path to the 'site' directory. I am required." />
 	
 	<!--- set all the framework paths explicitly --->
@@ -124,18 +124,29 @@ John Allen 		04/06/2008			Upgraded to FigFactor V2.
 		hint="I am the siteRoot Path. I am required."/>
 	<cfargument name="webRootPath" 
 		hint="I am the webRootPath property. I am required."/>
-	
-	<cfif arguments.siteRootPath eq arguments.webRootPath>
+
+	<cfif not CompareNoCase(arguments.siteRootPath, arguments.webRootPath)>
 		<cfset variables.instance.WebSiteContext = "/" />
 	<cfelse>
 		<cfset variables.instance.WebSiteContext = "/" & fixURLPathing( listLast(arguments.webRootPath, "/") ) & "/"/>
 	</cfif>
 	
-	<cfif arguments.siteRootPath eq variables.instance.WebSiteContext>
+	<cfif not CompareNoCase(arguments.siteRootPath, variables.instance.WebSiteContext)>
 		<cfset variables.instance.WebSiteContext = "/" />
 	<cfelse>
 		<cfset variables.instance.WebSiteContext = "/" & fixURLPathing( listLast(arguments.webRootPath, "\") )  & "/"/>
 	</cfif>
+	
+	<!--- fix how a developer might add paths --->
+	<cfif left(variables.instance.WebSiteContext, 2) eq "//">
+		<cfset variables.instance.WebSiteContext = 
+		right(variables.instance.WebSiteContext, (len(variables.instance.WebSiteContext) - 1)) />
+	</cfif>
+	<cfif right(variables.instance.WebSiteContext, 2) eq "//">
+		<cfset variables.instance.WebSiteContext = 
+			left(variables.instance.WebSiteContext, (len(variables.instance.WebSiteContext) - 1)) />
+	</cfif>
+	
 </cffunction>
 
 

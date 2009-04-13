@@ -3,12 +3,12 @@
 <!--- ************** ADDED by John Allen **************  --->
 <!--- Security code --->
 <cfif not isDefined("session.allowexternalapplicationmanagement") or session.allowexternalapplicationmanagement eq false>
-	<cfset forward = application.FigFactor.getBean("config").getFIGFACTORWEBCONTEXT() &  "admin/index.cfm"/>
+	<cfset forward = application.FigFactor.getBean("config").getWebPathToAdmin() &  "admin/index.cfm"/>
 	<cflocation addtoken="false" url="#forward#" />
 </cfif>
 
 <!--- the path to this imeplementation of cffm.cfm --->
-<cfset figPath = Application.FigFactor.getBean("config").getFIGFACTORWEBCONTEXT() & "admin/applications/cffm-1.17/" />
+<cfset figPath = Application.FigFactor.getBean("config").getWebPathToAdmin() & "applications/cffm-1.17/" />
 
 <cfoutput>
 	<p><a href="../../index.cfm">&laquo; back to FigFactor Admin</a></p>
