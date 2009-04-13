@@ -45,13 +45,13 @@ John Allen	 04/06/2009	 Refactored for v2 exactly one year later!
 	<cfset variables.ReleatedLinks = 0 />
 	<cfset variables.CommonSpotCFC = 0 />	
 	<cfset variables.gatewayComponentPath = "gateways." />
-	
+
 	<cfset variables.ReleatedLinks = createObject("component", "util.ReleatedLinks").init() />
-	<cfset variables.CommonSpotCFC = createObject("component", "util.CommonSpot").init() />	
+	<cfset variables.CommonSpotCFC = createObject("component", "util.CommonSpot").init() />		
 
 	<!--- inject all the methods from the user supplied components --->
 	<cfset load() />
-
+	
 	<cfreturn this />
 </cffunction>
 

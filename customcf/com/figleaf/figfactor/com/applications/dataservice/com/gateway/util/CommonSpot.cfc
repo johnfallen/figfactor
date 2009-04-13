@@ -628,7 +628,7 @@ N'#trim(left(arguments.description,2000))#'
 </cffunction>
 
 
-
+<!--- 
 <cffunction name="searchGoogle" access="private" output="false" returntype="query" hint="perform verity search across site">
 	<cfargument name="datasource" type="string" required="yes" hint="data source for commonspot content">
 	<cfargument name="subsite" type="String" required="Yes" hint="path of commonspot subsite to search">
@@ -669,7 +669,7 @@ N'#trim(left(arguments.description,2000))#'
 	
 	<cfreturn getSearchPageDetails(argumentCollection=arguments)/>
 </cffunction>
-
+ --->
 
 
 <cffunction name="searchVerity" access="private" output="false" returntype="query" hint="perform verity search across site">

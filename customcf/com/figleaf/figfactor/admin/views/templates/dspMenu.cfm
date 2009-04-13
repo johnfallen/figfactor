@@ -46,7 +46,7 @@
 	
 	<li<cfif url.event eq xe.configure> class="current"</cfif>><a href="#myself##xe.configure#">Configuration</a></li>
 	
-	<li<cfif url.event eq xe.documentation> class="current"</cfif>><a href="#myself##xe.documentation#">Objects / Docs</a></li>
+	<li<cfif url.event eq xe.documentation> class="current"</cfif>><a href="#myself##xe.documentation#">Documentation / Objects</a></li>
 	<li<cfif url.event eq xe.userManagement> class="current"</cfif>><a href="#myself##xe.userManagement#">Users</a></li>
 	<li><a href="#myself##xe.doLogout#">Logout</a></li>
 </ul>

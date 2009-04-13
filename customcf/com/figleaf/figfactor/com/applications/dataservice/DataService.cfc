@@ -29,21 +29,21 @@ John Allen	 04/06/2009	 Refactored for v2 exactly one year later!
 	displayname="Init" hint="I am the constructor." 
 	description="I am the pseudo-constructor for this CFC. I return an instance of myself.">
 
-	<cfargument name="ElementFactory" type="component" required="true" 
+	<cfargument name="ElementFactory" type="any" required="true" 
 		hint="I am the Element Factory object. I am requried." />
-	<cfargument name="Config" type="component" required="true" 
+	<cfargument name="Config" type="any" required="true" 
 		hint="I am the framework Config object. I am requried." />
-	<cfargument name="CacheService" type="component" required="true" 
+	<cfargument name="CacheService" type="any" required="true" 
 		hint="I am the framework Cache Service object. I am requried." />
-	<cfargument name="UDF" type="component" required="true" 
+	<cfargument name="UDF" type="any" required="true" 
 		hint="I am the framework UDF object. I am requried." />
-	<cfargument name="FLEET" type="component" required="false" 
+	<cfargument name="FLEET" type="any" required="false" 
 		hint="I am the FLEET component. I am requried." />
-	<cfargument name="MessageService" type="component" required="false" 
+	<cfargument name="MessageService" type="any" required="false" 
 		hint="I am the MessageService component. I am requried." />
-	<cfargument name="ListService" type="component" required="false" 
-		hint="I am the ListService component. I am requried." />
-	<cfargument name="Security" type="component" required="false" 
+	<cfargument name="ListService" type="any" required="false" 
+		hint="I am the ListService any. I am requried." />
+	<cfargument name="Security" type="any" required="false" 
 		hint="I am the Security component. I am requried." />
 
 	<cfset variables.ConfigBean = arguments.Config />
@@ -52,7 +52,7 @@ John Allen	 04/06/2009	 Refactored for v2 exactly one year later!
 	<cfset variables.writeXMLFileData = variables.ConfigBean.getStoreXMLDiskCache() />
 	<cfset variables.version = variables.ConfigBean.getDataserviceVersion() />
 	<cfset variables.notFound = variables.ConfigBean.getConstants().DATANOTFOUND />
-	
+
 	<cfset variables.FileIO = createObject("component", "com.xmldata.FileIO").init() />
 	<cfset variables.Gateway = createObject("component", "com.gateway.AbstractGateway").init(argumentCollection = arguments) />
 

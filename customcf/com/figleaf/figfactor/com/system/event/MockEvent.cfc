@@ -51,10 +51,6 @@ John Allen	 03/08/2008	 Created
 
 	<cfset variables.pageType = structNew() />
 	<cfset setPageTypeDeinitions(arguments.pageTypeDefinitionPageTypeKey)  />
-	
-
-	<cfdump var="#ARGUMENTS#">
-	<cfabort />
 
 	<!--- CommonSpot request vars --->
 	<cfif isDefined('arguments.doRequestScopeDefautls') and  arguments.doRequestScopeDefautls eq 1>
