@@ -37,8 +37,8 @@ John Allen 		04/09/2008			Created
 	displayname="Add Value" hint="I add a named value pair to the EventCollection."
 	description="I add a named value pair to the EventCollection.<br />I thorw an error if the data passed to me is unnamed and NOT a structure.">
 	
-	<cfargument name="name" hint="I am the name of the value.<br />I am required" />
-	<cfargument name="value" hint="I am the value.<br />I am required" />
+	<cfargument name="name" hint="I am the name of the value." />
+	<cfargument name="value" hint="I am the value." />
 	<cfargument name="append" default="false" type="boolean"  hint="I am the value.<br />I am required" />
 		
 	<cfif not structKeyExists(request, "VFPageEventEventCollection")>
@@ -54,7 +54,7 @@ John Allen 		04/09/2008			Created
 			<cfthrow message="Oops! You have attempted to add a value to the EventCollection that is unnamed and NOT a struct. Unnamed data must always be a structure.">
 		</cfif>
 	</cfif>	
-
+	
 </cffunction>
 
 

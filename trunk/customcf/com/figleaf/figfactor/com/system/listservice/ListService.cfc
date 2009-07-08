@@ -92,7 +92,7 @@ John Allen 		28/03/2009			Created
 <cffunction name="getInstance" returntype="struct" access="public" output="false"
 	displayname="Get Instance" hint="I return my internal instance data as a structure."
 	description="I return my internal instance data as a structure, the 'momento' pattern.">
-	<cfargument name="duplicate" type="boolean" required="false" 
+	<cfargument name="duplicate" type="boolean" required="false" default="false" 
 		hint="Should I return a duplicate of my data? I default to false, a shalow copy. I am requried." />
 	
 	<cfif arguments.duplicate eq true>

@@ -27,7 +27,6 @@ John Allen	 08/06/2008	 Created
 <cfset variables.instance.caches = structNew() />
 
 
-
 <!--- **************************** Constants **************************** --->
 <cfset variables.instance.constants.DATA_NOT_FOUND = "DATA_NOT_FOUND" />
 
@@ -50,6 +49,8 @@ John Allen	 08/06/2008	 Created
 	<cfset variables.instance.caches.HardCache = 0 />
 	<cfset variables.instance.caches.SimpleTimedCache = 0 />
 	<cfset variables.instance.caches.sofcache = 0 />
+	<cfset variables.instance.constants.DATA_NOT_FOUND = 
+		arguments.Config.getConstants().DATANOTFOUND />
 	
 	<!--- 
 	The 'hard' cache usefull for testing. Keeping around to calculate

@@ -1,7 +1,7 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd" [
 	
 	<!-- modify this if the FigFactor changes -->
-	<!ENTITY figFactorContext "">
+	<!ENTITY figFactorContext "viewframework.">
 	
 	<!ENTITY figFactorMapping "&figFactorContext;customcf.com.figleaf.figfactor.">
 	<!ENTITY applicationMapping "&figFactorMapping;com.applications.">
@@ -59,6 +59,36 @@
 	</constructor-arg>
 </bean>
 
+<bean id="DataService" class="&systemMapping;dataservice.Dataservice" singleton="true">
+	<constructor-arg name="ElementFactory">
+		<ref bean="ElementFactory" />
+	</constructor-arg>
+	<constructor-arg name="Config">
+		<ref bean="Config" />
+	</constructor-arg>
+	<constructor-arg name="Logger">
+		<ref bean="Logger" />
+	</constructor-arg>
+	<constructor-arg name="CacheService">
+		<ref bean="CacheService" />
+	</constructor-arg>
+	<constructor-arg name="UDF">
+		<ref bean="UDF" />
+	</constructor-arg>
+	<constructor-arg name="FLEET">
+		<ref bean="FLEET" />
+	</constructor-arg>
+	<constructor-arg name="Security">
+		<ref bean="Security" />
+	</constructor-arg>
+	<constructor-arg name="ListService">
+		<ref bean="ListService" />
+	</constructor-arg>
+	<constructor-arg name="MessageService">
+		<ref bean="MessageService" />
+	</constructor-arg>
+</bean>
+
 <bean id="FileSystem" class="&utilMapping;filesystem.FileSystem" singleton="true" />
 
 <bean id="UDF" class="&utilMapping;udf.UDFLib" singleton="true" />
@@ -69,8 +99,6 @@
 	</constructor-arg>
 </bean>
 
-<bean id="VersionAdaptor" class="&systemMapping;versionadaptor.BaseVersionAdaptor" singleton="true" />	
-
 <bean id="Legacy" class="&systemMapping;legacy.Legacy" singleton="true" />
 
 <bean id="MessageService" class="&systemMapping;message.MessageService" singleton="true">
@@ -78,10 +106,11 @@
 		<ref bean="Config" />
 	</constructor-arg>
 </bean>
-		
 
 
-<!-- *************************** Non Singletons *************************** -->
+
+
+<!-- *************************** Transients *************************** -->
 <bean id="MapCollection" class="&utilMapping;collections.MapCollection" singleton="false" />
 
 <bean id="AdobeColdFusionSessionFacade" class="&utilMapping;collections.AdobeColdFusionSessionFacade" singleton="false" />

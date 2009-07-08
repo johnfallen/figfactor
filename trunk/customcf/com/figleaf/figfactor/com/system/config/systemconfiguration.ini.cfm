@@ -2,6 +2,7 @@
 [system]
 system_mode=production
 commonspot_dsn=commonspot-site-viewframework
+commonspot_sites_dsn=commonspot-sites
 reload=false
 url_reload_key=init
 url_reload_key_value=true
@@ -21,7 +22,7 @@ fig_leaf_system_version=RCV2 0.5
 [ui]
 default_css=home
 default_css_class=home
-web_path_to_admin=/customcf/com/figleaf/figfactor/admin/
+web_path_to_admin=/viewframework/customcf/com/figleaf/figfactor/admin/
 
 [logger]
 enable_external_logger=true
@@ -64,7 +65,7 @@ dataservice_version=1.0
 force_pass=true
 
 [authentication]
-enable_authentication=true
+enable_authentication=false
 realm=GENA
 authentication_url=https://webapp01.nist.gov:7101/axis/services/AuthWSv1?wsdl
 authentication_test_url=https://webapp03.nist.gov:7101/axis/services/AuthWSv1?wsdl

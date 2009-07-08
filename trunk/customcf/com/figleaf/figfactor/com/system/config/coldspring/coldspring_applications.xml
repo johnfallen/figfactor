@@ -1,7 +1,7 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd" [
-	
+
 	<!-- modify this if the FigFactor changes -->
-	<!ENTITY figFactorContext "">
+	<!ENTITY figFactorContext "viewframework.">
 	
 	<!ENTITY figFactorMapping "&figFactorContext;customcf.com.figleaf.figfactor.">
 	<!ENTITY applicationMapping "&figFactorMapping;com.applications.">
@@ -28,46 +28,6 @@
 	</constructor-arg>
 </bean>
 
-<bean id="DataService" class="&applicationMapping;dataservice.DataService" singleton="true">
-	<constructor-arg name="ElementFactory">
-		<ref bean="ElementFactory" />
-	</constructor-arg>
-	<constructor-arg name="Config">
-		<ref bean="Config" />
-	</constructor-arg>
-	<constructor-arg name="Logger">
-		<ref bean="Logger" />
-	</constructor-arg>
-	<constructor-arg name="CacheService">
-		<ref bean="CacheService" />
-	</constructor-arg>
-	<constructor-arg name="UDF">
-		<ref bean="UDF" />
-	</constructor-arg>
-	<constructor-arg name="FLEET">
-		<ref bean="FLEET" />
-	</constructor-arg>
-	<constructor-arg name="Security">
-		<ref bean="Security" />
-	</constructor-arg>
-	<constructor-arg name="ListService">
-		<ref bean="ListService" />
-	</constructor-arg>
-	<constructor-arg name="MessageService">
-		<ref bean="MessageService" />
-	</constructor-arg>
-</bean>
-
-<!--
-<bean id="DataService" class="&applicationMapping;dataservicev2.DataService" singleton="true">
-	<constructor-arg name="Config">
-		<ref bean="Config" />
-	</constructor-arg>
-	<constructor-arg name="CacheService">
-		<ref bean="CacheService" />
-	</constructor-arg>
-</bean>
--->
 <bean id="Google" class="&applicationMapping;google.search.Google" singleton="true" />
 
 <bean id="ObjectStore" class="&applicationMapping;objectstore.ObjectStore" singleton="true" />

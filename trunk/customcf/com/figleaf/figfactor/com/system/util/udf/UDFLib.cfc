@@ -14,10 +14,13 @@ John Allen		05/04/2008		Created
 <cfcomponent displayname="User Defined Functions Library" hint="I am the Global User Defined Functions Library" output="false">
 
 <!--- init --->
-<cffunction name="init" returntype="any" access="public" hint="" displayname="Init" output="false">
+<cffunction name="init" access="public" hint="I am the init" displayname="Init" output="false">
 	
 	<cfreturn this  />
 </cffunction>
+
+
+
 
 <!---
 Copies a directory.
@@ -35,21 +38,24 @@ Copies a directory.
     <cfargument name="nameconflict" required="true" default="overwrite">
 
     <cfset var contents = "" />
-    <cfset var dirDelim = "/">
-    
-    <cfif server.OS.Name contains "Windows">
-        <cfset dirDelim = "\" />
-    </cfif>
+    <cfset var dirDelim = "/" />
+	 
+	<cftry>
+	    <cfif server.OS.Name contains "Windows">
+	        <cfset dirDelim = "\" />
+	    </cfif>
+		<cfcatch></cfcatch>
+	</cftry>
     
     <cfif not(directoryExists(arguments.destination))>
         <cfdirectory action="create" directory="#arguments.destination#">
     </cfif>
     
     <cfdirectory action="list" directory="#arguments.source#" name="contents">
-    
+	
     <cfloop query="contents">
         <cfif contents.type eq "file">
-            <cffile action="copy" source="#arguments.source#\#name#" destination="#arguments.destination#\#name#" nameconflict="#arguments.nameConflict#">
+            <cffile action="copy" source="#arguments.source##dirDelim##name#" destination="#arguments.destination##dirDelim##name#" nameconflict="#arguments.nameConflict#">
         <cfelseif contents.type eq "dir">
             <cfset directoryCopy(arguments.source & dirDelim & name, arguments.destination & dirDelim & name) />
         </cfif>
@@ -696,5 +702,6 @@ function queryToStructOfStructsAutoRow(theQuery){
     return theStructure;
 }
 </cfscript>
+
 
 </cfcomponent>

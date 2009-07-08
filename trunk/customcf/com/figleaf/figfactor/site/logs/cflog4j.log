@@ -1,0 +1,829 @@
+INFO  CFLog4j 2009-07-08 17:14:20,750 - Map Deployment: FigFactorCoreSystemColdSpringFile
+INFO  CFLog4j 2009-07-08 17:14:20,750 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:20,750 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\coldspring\coldspring_framework.xml
+INFO  CFLog4j 2009-07-08 17:14:20,765 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\config\coldspring\coldspring_framework.xml
+INFO  CFLog4j 2009-07-08 17:14:20,765 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:20,765 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:20,765 - Map Deployment: defaultLists
+INFO  CFLog4j 2009-07-08 17:14:20,765 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:20,781 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\frameworklists.xml
+INFO  CFLog4j 2009-07-08 17:14:20,781 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\listservice\data\frameworklists.xml
+INFO  CFLog4j 2009-07-08 17:14:20,796 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:20,796 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:20,796 - Map Deployment: cflogF4JProperties
+INFO  CFLog4j 2009-07-08 17:14:20,812 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:20,812 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\cflog4j.properties
+INFO  CFLog4j 2009-07-08 17:14:20,812 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\util\logger\cflog4j\cflog4j.properties
+INFO  CFLog4j 2009-07-08 17:14:20,828 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:20,828 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:20,828 - Map Deployment: customelementsXml
+INFO  CFLog4j 2009-07-08 17:14:20,828 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:20,843 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\customelements.xml
+INFO  CFLog4j 2009-07-08 17:14:20,843 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\elementfactory\config\customelements.xml
+INFO  CFLog4j 2009-07-08 17:14:20,843 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:20,859 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:20,859 - Map Deployment: FigFactorBootStrapperColdSpringFile
+INFO  CFLog4j 2009-07-08 17:14:20,859 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:20,875 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\coldspring\coldspring_bootstrapper.xml
+INFO  CFLog4j 2009-07-08 17:14:20,875 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\config\coldspring\coldspring_bootstrapper.xml
+INFO  CFLog4j 2009-07-08 17:14:20,875 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:20,875 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:20,890 - Map Deployment: systemconfig
+INFO  CFLog4j 2009-07-08 17:14:20,890 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:20,890 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\systemconfiguration.ini.cfm
+INFO  CFLog4j 2009-07-08 17:14:20,890 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\config\systemconfiguration.ini.cfm
+INFO  CFLog4j 2009-07-08 17:14:20,906 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:20,906 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:20,906 - Map Deployment: subSiteDefinitions
+INFO  CFLog4j 2009-07-08 17:14:20,906 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:20,921 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\subsitedefinitions.xml
+INFO  CFLog4j 2009-07-08 17:14:20,921 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\config\subsitedefinitions.xml
+INFO  CFLog4j 2009-07-08 17:14:20,921 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:20,921 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:20,937 - Map Deployment: FigFactorApplicationsColdSpringFile
+INFO  CFLog4j 2009-07-08 17:14:20,937 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:20,937 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\coldspring\coldspring_applications.xml
+INFO  CFLog4j 2009-07-08 17:14:20,953 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\config\coldspring\coldspring_applications.xml
+INFO  CFLog4j 2009-07-08 17:14:20,953 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:20,953 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:20,953 - Map Deployment: userDefinedFileMappings
+INFO  CFLog4j 2009-07-08 17:14:20,968 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:20,968 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\filemappings.xml
+INFO  CFLog4j 2009-07-08 17:14:20,968 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\mappings\filemappings.xml
+INFO  CFLog4j 2009-07-08 17:14:20,984 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:21,062 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:21,062 - Map Deployment: gateways
+INFO  CFLog4j 2009-07-08 17:14:21,062 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,078 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\model\dataservice\
+INFO  CFLog4j 2009-07-08 17:14:21,078 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\dataservice\com\gateway\gateways\
+INFO  CFLog4j 2009-07-08 17:14:21,078 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,093 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\model\dataservice\CommonSpotGateway.cfc
+INFO  CFLog4j 2009-07-08 17:14:21,093 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\dataservice\com\gateway\gateways\CommonSpotGateway.cfc
+INFO  CFLog4j 2009-07-08 17:14:21,093 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,093 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\model\dataservice\FLEETGateway.cfc
+INFO  CFLog4j 2009-07-08 17:14:21,109 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\dataservice\com\gateway\gateways\FLEETGateway.cfc
+INFO  CFLog4j 2009-07-08 17:14:21,109 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,109 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\model\dataservice\GoogleGateway.cfc
+INFO  CFLog4j 2009-07-08 17:14:21,125 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\dataservice\com\gateway\gateways\GoogleGateway.cfc
+INFO  CFLog4j 2009-07-08 17:14:21,125 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,125 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\model\dataservice\RemoteGateway.cfc
+INFO  CFLog4j 2009-07-08 17:14:21,125 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\dataservice\com\gateway\gateways\RemoteGateway.cfc
+INFO  CFLog4j 2009-07-08 17:14:21,140 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:21,140 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:21,140 - Map Deployment: rootFiles
+INFO  CFLog4j 2009-07-08 17:14:21,156 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,156 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\
+INFO  CFLog4j 2009-07-08 17:14:21,156 - Destina: C:\Inetpub\wwwroot\viewframework\
+INFO  CFLog4j 2009-07-08 17:14:21,156 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,156 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\after--replication.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,156 - Destina: C:\Inetpub\wwwroot\viewframework\after--replication.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,171 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,171 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\custom-application.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,187 - Destina: C:\Inetpub\wwwroot\viewframework\custom-application.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,187 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,187 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\custom-authentication.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,203 - Destina: C:\Inetpub\wwwroot\viewframework\custom-authentication.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,218 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,218 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\post-approve.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,218 - Destina: C:\Inetpub\wwwroot\viewframework\post-approve.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,218 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,218 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\post-delete-page.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,234 - Destina: C:\Inetpub\wwwroot\viewframework\post-delete-page.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,234 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:21,234 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:21,234 - Map Deployment: customFields
+INFO  CFLog4j 2009-07-08 17:14:21,234 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,250 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\customfields\
+INFO  CFLog4j 2009-07-08 17:14:21,250 - Destina: C:\Inetpub\wwwroot\viewframework\customfields\
+INFO  CFLog4j 2009-07-08 17:14:21,250 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,250 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\customfields\metadata_properties.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,265 - Destina: C:\Inetpub\wwwroot\viewframework\customfields\metadata_properties.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,265 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,265 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\customfields\metadata_rendering.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,265 - Destina: C:\Inetpub\wwwroot\viewframework\customfields\metadata_rendering.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,281 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,281 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\customfields\multimedia_rendering.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,281 - Destina: C:\Inetpub\wwwroot\viewframework\customfields\multimedia_rendering.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,296 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:21,296 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:21,296 - Map Deployment: GoogleFeedsMetaDataProperties
+INFO  CFLog4j 2009-07-08 17:14:21,296 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,296 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\google\googlemetadataproperties.xml
+INFO  CFLog4j 2009-07-08 17:14:21,296 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\applications\google\search\resource\config\googlemetadataproperties.xml
+INFO  CFLog4j 2009-07-08 17:14:21,312 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:21,328 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:21,328 - Map Deployment: templates
+INFO  CFLog4j 2009-07-08 17:14:21,328 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,328 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\
+INFO  CFLog4j 2009-07-08 17:14:21,328 - Destina: C:\Inetpub\wwwroot\viewframework\templates\
+INFO  CFLog4j 2009-07-08 17:14:21,328 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,343 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\include_header.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,343 - Destina: C:\Inetpub\wwwroot\viewframework\templates\include_header.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,343 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,343 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\template-basepage.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,359 - Destina: C:\Inetpub\wwwroot\viewframework\templates\template-basepage.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,359 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,359 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\template-basepage.head
+INFO  CFLog4j 2009-07-08 17:14:21,359 - Destina: C:\Inetpub\wwwroot\viewframework\templates\template-basepage.head
+INFO  CFLog4j 2009-07-08 17:14:21,375 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,375 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\template-search.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,375 - Destina: C:\Inetpub\wwwroot\viewframework\templates\template-search.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,375 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,406 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\template-search.head
+INFO  CFLog4j 2009-07-08 17:14:21,406 - Destina: C:\Inetpub\wwwroot\viewframework\templates\template-search.head
+INFO  CFLog4j 2009-07-08 17:14:21,406 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:21,406 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:21,421 - Map Deployment: renderhandlers
+INFO  CFLog4j 2009-07-08 17:14:21,421 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,421 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\
+INFO  CFLog4j 2009-07-08 17:14:21,421 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\
+INFO  CFLog4j 2009-07-08 17:14:21,437 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,437 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp-blank-page.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,437 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp-blank-page.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,437 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,437 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp-multimedia.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,453 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp-multimedia.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,453 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,453 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp-news-item.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,468 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp-news-item.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,468 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,468 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp-page-index.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,468 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp-page-index.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,484 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,484 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp_paginated_pageindex.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,484 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp_paginated_pageindex.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,500 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,500 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp_search_results.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,500 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp_search_results.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,500 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,500 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\
+INFO  CFLog4j 2009-07-08 17:14:21,500 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\
+INFO  CFLog4j 2009-07-08 17:14:21,515 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,515 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\demo-query-ouput.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,515 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\demo-query-ouput.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,531 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,531 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\dsp-footer.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,531 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\dsp-footer.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,531 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,546 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\dsp-header.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,546 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\dsp-header.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,546 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,562 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\dsp-one-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,562 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\dsp-one-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,562 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,562 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\dsp-three-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,562 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\dsp-three-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,578 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,578 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\dsp-two-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,578 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\dsp-two-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,593 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,609 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\inc-breadcrumb.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,609 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\inc-breadcrumb.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,609 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,625 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\meta_data_page_list.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,625 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\meta_data_page_list.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,625 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,625 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\page_index_include_dynamic_output.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,625 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\page_index_include_dynamic_output.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,640 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,640 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\page_index_page_list.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,640 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\page_index_page_list.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,656 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,656 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\Pagination.cfc
+INFO  CFLog4j 2009-07-08 17:14:21,656 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\Pagination.cfc
+INFO  CFLog4j 2009-07-08 17:14:21,671 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:21,671 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:21,671 - Map Deployment: GoogleConfig
+INFO  CFLog4j 2009-07-08 17:14:21,671 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:14:21,687 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\google\gcini.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,687 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\applications\google\search\resource\config\gcini.cfm
+INFO  CFLog4j 2009-07-08 17:14:21,687 - *************************************************
+INFO  CFLog4j 2009-07-08 17:14:21,875 - ELEMENT CREATED: Name - Blank Page
+INFO  CFLog4j 2009-07-08 17:14:21,875 - ELEMENT CREATED: Name - News Item
+INFO  CFLog4j 2009-07-08 17:14:21,875 - ELEMENT CREATED: Name - Page List
+INFO  CFLog4j 2009-07-08 17:14:21,890 - ELEMENT CREATED: Name - Test Element
+INFO  CFLog4j 2009-07-08 17:14:22,734 - FigFactorMixen.cfm file included? true
+INFO  CFLog4j 2009-07-08 17:15:37,859 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:37,859 - Map Deployment: FigFactorCoreSystemColdSpringFile
+INFO  CFLog4j 2009-07-08 17:15:37,859 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:37,875 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\coldspring\coldspring_framework.xml
+INFO  CFLog4j 2009-07-08 17:15:37,875 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\config\coldspring\coldspring_framework.xml
+INFO  CFLog4j 2009-07-08 17:15:37,875 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:37,890 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:37,906 - Map Deployment: defaultLists
+INFO  CFLog4j 2009-07-08 17:15:37,906 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:37,906 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\frameworklists.xml
+INFO  CFLog4j 2009-07-08 17:15:37,906 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\listservice\data\frameworklists.xml
+INFO  CFLog4j 2009-07-08 17:15:37,906 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:37,921 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:37,921 - Map Deployment: cflogF4JProperties
+INFO  CFLog4j 2009-07-08 17:15:37,921 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:37,937 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\cflog4j.properties
+INFO  CFLog4j 2009-07-08 17:15:37,937 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\util\logger\cflog4j\cflog4j.properties
+INFO  CFLog4j 2009-07-08 17:15:37,937 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:37,937 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:37,953 - Map Deployment: customelementsXml
+INFO  CFLog4j 2009-07-08 17:15:37,953 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:37,953 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\customelements.xml
+INFO  CFLog4j 2009-07-08 17:15:37,953 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\elementfactory\config\customelements.xml
+INFO  CFLog4j 2009-07-08 17:15:37,968 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:37,968 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:37,968 - Map Deployment: FigFactorBootStrapperColdSpringFile
+INFO  CFLog4j 2009-07-08 17:15:37,968 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:37,968 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\coldspring\coldspring_bootstrapper.xml
+INFO  CFLog4j 2009-07-08 17:15:37,984 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\config\coldspring\coldspring_bootstrapper.xml
+INFO  CFLog4j 2009-07-08 17:15:37,984 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,000 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,000 - Map Deployment: systemconfig
+INFO  CFLog4j 2009-07-08 17:15:38,000 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,000 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\systemconfiguration.ini.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,000 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\config\systemconfiguration.ini.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,015 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,015 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,015 - Map Deployment: subSiteDefinitions
+INFO  CFLog4j 2009-07-08 17:15:38,031 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,031 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\subsitedefinitions.xml
+INFO  CFLog4j 2009-07-08 17:15:38,031 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\config\subsitedefinitions.xml
+INFO  CFLog4j 2009-07-08 17:15:38,031 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,046 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,046 - Map Deployment: FigFactorApplicationsColdSpringFile
+INFO  CFLog4j 2009-07-08 17:15:38,046 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,046 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\coldspring\coldspring_applications.xml
+INFO  CFLog4j 2009-07-08 17:15:38,046 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\config\coldspring\coldspring_applications.xml
+INFO  CFLog4j 2009-07-08 17:15:38,062 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,062 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,062 - Map Deployment: userDefinedFileMappings
+INFO  CFLog4j 2009-07-08 17:15:38,062 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,078 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\filemappings.xml
+INFO  CFLog4j 2009-07-08 17:15:38,078 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\mappings\filemappings.xml
+INFO  CFLog4j 2009-07-08 17:15:38,093 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,171 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,171 - Map Deployment: gateways
+INFO  CFLog4j 2009-07-08 17:15:38,171 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,187 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\model\dataservice\
+INFO  CFLog4j 2009-07-08 17:15:38,187 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\dataservice\com\gateway\gateways\
+INFO  CFLog4j 2009-07-08 17:15:38,187 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,187 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\model\dataservice\CommonSpotGateway.cfc
+INFO  CFLog4j 2009-07-08 17:15:38,187 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\dataservice\com\gateway\gateways\CommonSpotGateway.cfc
+INFO  CFLog4j 2009-07-08 17:15:38,203 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,203 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\model\dataservice\FLEETGateway.cfc
+INFO  CFLog4j 2009-07-08 17:15:38,203 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\dataservice\com\gateway\gateways\FLEETGateway.cfc
+INFO  CFLog4j 2009-07-08 17:15:38,218 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,218 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\model\dataservice\GoogleGateway.cfc
+INFO  CFLog4j 2009-07-08 17:15:38,218 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\dataservice\com\gateway\gateways\GoogleGateway.cfc
+INFO  CFLog4j 2009-07-08 17:15:38,218 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,234 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\model\dataservice\RemoteGateway.cfc
+INFO  CFLog4j 2009-07-08 17:15:38,234 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\dataservice\com\gateway\gateways\RemoteGateway.cfc
+INFO  CFLog4j 2009-07-08 17:15:38,234 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,250 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,250 - Map Deployment: rootFiles
+INFO  CFLog4j 2009-07-08 17:15:38,250 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,250 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\
+INFO  CFLog4j 2009-07-08 17:15:38,250 - Destina: C:\Inetpub\wwwroot\viewframework\
+INFO  CFLog4j 2009-07-08 17:15:38,265 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,265 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\after--replication.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,281 - Destina: C:\Inetpub\wwwroot\viewframework\after--replication.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,281 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,281 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\custom-application.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,281 - Destina: C:\Inetpub\wwwroot\viewframework\custom-application.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,312 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,312 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\custom-authentication.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,312 - Destina: C:\Inetpub\wwwroot\viewframework\custom-authentication.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,312 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,312 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\post-approve.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,328 - Destina: C:\Inetpub\wwwroot\viewframework\post-approve.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,328 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,328 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\post-delete-page.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,328 - Destina: C:\Inetpub\wwwroot\viewframework\post-delete-page.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,343 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,343 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,343 - Map Deployment: customFields
+INFO  CFLog4j 2009-07-08 17:15:38,343 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,359 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\customfields\
+INFO  CFLog4j 2009-07-08 17:15:38,359 - Destina: C:\Inetpub\wwwroot\viewframework\customfields\
+INFO  CFLog4j 2009-07-08 17:15:38,359 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,359 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\customfields\metadata_properties.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,375 - Destina: C:\Inetpub\wwwroot\viewframework\customfields\metadata_properties.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,375 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,375 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\customfields\metadata_rendering.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,375 - Destina: C:\Inetpub\wwwroot\viewframework\customfields\metadata_rendering.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,390 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,390 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\customfields\multimedia_rendering.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,390 - Destina: C:\Inetpub\wwwroot\viewframework\customfields\multimedia_rendering.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,406 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,406 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,406 - Map Deployment: GoogleFeedsMetaDataProperties
+INFO  CFLog4j 2009-07-08 17:15:38,406 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,406 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\google\googlemetadataproperties.xml
+INFO  CFLog4j 2009-07-08 17:15:38,421 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\applications\google\search\resource\config\googlemetadataproperties.xml
+INFO  CFLog4j 2009-07-08 17:15:38,421 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,437 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,437 - Map Deployment: templates
+INFO  CFLog4j 2009-07-08 17:15:38,437 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,437 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\
+INFO  CFLog4j 2009-07-08 17:15:38,437 - Destina: C:\Inetpub\wwwroot\viewframework\templates\
+INFO  CFLog4j 2009-07-08 17:15:38,453 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,453 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\include_header.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,453 - Destina: C:\Inetpub\wwwroot\viewframework\templates\include_header.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,468 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,468 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\template-basepage.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,468 - Destina: C:\Inetpub\wwwroot\viewframework\templates\template-basepage.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,468 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,468 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\template-basepage.head
+INFO  CFLog4j 2009-07-08 17:15:38,484 - Destina: C:\Inetpub\wwwroot\viewframework\templates\template-basepage.head
+INFO  CFLog4j 2009-07-08 17:15:38,484 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,484 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\template-search.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,500 - Destina: C:\Inetpub\wwwroot\viewframework\templates\template-search.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,515 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,515 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\template-search.head
+INFO  CFLog4j 2009-07-08 17:15:38,515 - Destina: C:\Inetpub\wwwroot\viewframework\templates\template-search.head
+INFO  CFLog4j 2009-07-08 17:15:38,531 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,531 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,531 - Map Deployment: renderhandlers
+INFO  CFLog4j 2009-07-08 17:15:38,531 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,531 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\
+INFO  CFLog4j 2009-07-08 17:15:38,546 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\
+INFO  CFLog4j 2009-07-08 17:15:38,546 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,546 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp-blank-page.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,562 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp-blank-page.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,562 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,562 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp-multimedia.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,562 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp-multimedia.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,578 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,578 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp-news-item.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,578 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp-news-item.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,593 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,593 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp-page-index.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,593 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp-page-index.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,593 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,593 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp_paginated_pageindex.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,609 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp_paginated_pageindex.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,609 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,609 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp_search_results.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,625 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp_search_results.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,625 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,625 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\
+INFO  CFLog4j 2009-07-08 17:15:38,625 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\
+INFO  CFLog4j 2009-07-08 17:15:38,640 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,640 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\demo-query-ouput.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,640 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\demo-query-ouput.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,656 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,656 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\dsp-footer.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,656 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\dsp-footer.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,656 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,656 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\dsp-header.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,671 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\dsp-header.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,671 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,671 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\dsp-one-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,687 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\dsp-one-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,687 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,687 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\dsp-three-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,687 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\dsp-three-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,703 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,703 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\dsp-two-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,718 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\dsp-two-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,734 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,734 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\inc-breadcrumb.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,734 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\inc-breadcrumb.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,750 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,750 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\meta_data_page_list.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,750 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\meta_data_page_list.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,750 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,750 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\page_index_include_dynamic_output.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,765 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\page_index_include_dynamic_output.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,765 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,781 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\page_index_page_list.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,781 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\page_index_page_list.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,781 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,781 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\Pagination.cfc
+INFO  CFLog4j 2009-07-08 17:15:38,796 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\Pagination.cfc
+INFO  CFLog4j 2009-07-08 17:15:38,796 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,796 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:38,812 - Map Deployment: GoogleConfig
+INFO  CFLog4j 2009-07-08 17:15:38,812 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:15:38,812 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\google\gcini.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,812 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\applications\google\search\resource\config\gcini.cfm
+INFO  CFLog4j 2009-07-08 17:15:38,812 - *************************************************
+INFO  CFLog4j 2009-07-08 17:15:39,000 - ELEMENT CREATED: Name - Blank Page
+INFO  CFLog4j 2009-07-08 17:15:39,000 - ELEMENT CREATED: Name - News Item
+INFO  CFLog4j 2009-07-08 17:15:39,015 - ELEMENT CREATED: Name - Page List
+INFO  CFLog4j 2009-07-08 17:15:39,031 - ELEMENT CREATED: Name - Test Element
+INFO  CFLog4j 2009-07-08 17:15:39,937 - FigFactorMixen.cfm file included? true
+WARN  CFLog4j 2009-07-08 17:15:43,578 - ELEMENT NOT FOUND!! The Element requested element name: 'portal'
+WARN  CFLog4j 2009-07-08 17:15:49,890 - ELEMENT NOT FOUND!! The Element requested element name: 'foo'
+WARN  CFLog4j 2009-07-08 17:15:49,921 - ELEMENT NOT FOUND!! The Element requested element name: ''
+INFO  CFLog4j 2009-07-08 17:16:45,156 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,156 - Map Deployment: FigFactorCoreSystemColdSpringFile
+INFO  CFLog4j 2009-07-08 17:16:45,171 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,171 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\coldspring\coldspring_framework.xml
+INFO  CFLog4j 2009-07-08 17:16:45,171 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\config\coldspring\coldspring_framework.xml
+INFO  CFLog4j 2009-07-08 17:16:45,171 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,171 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,203 - Map Deployment: defaultLists
+INFO  CFLog4j 2009-07-08 17:16:45,203 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,203 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\frameworklists.xml
+INFO  CFLog4j 2009-07-08 17:16:45,203 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\listservice\data\frameworklists.xml
+INFO  CFLog4j 2009-07-08 17:16:45,218 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,218 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,218 - Map Deployment: cflogF4JProperties
+INFO  CFLog4j 2009-07-08 17:16:45,234 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,234 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\cflog4j.properties
+INFO  CFLog4j 2009-07-08 17:16:45,234 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\util\logger\cflog4j\cflog4j.properties
+INFO  CFLog4j 2009-07-08 17:16:45,234 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,250 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,250 - Map Deployment: customelementsXml
+INFO  CFLog4j 2009-07-08 17:16:45,250 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,250 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\customelements.xml
+INFO  CFLog4j 2009-07-08 17:16:45,250 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\elementfactory\config\customelements.xml
+INFO  CFLog4j 2009-07-08 17:16:45,265 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,265 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,265 - Map Deployment: FigFactorBootStrapperColdSpringFile
+INFO  CFLog4j 2009-07-08 17:16:45,265 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,281 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\coldspring\coldspring_bootstrapper.xml
+INFO  CFLog4j 2009-07-08 17:16:45,281 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\config\coldspring\coldspring_bootstrapper.xml
+INFO  CFLog4j 2009-07-08 17:16:45,281 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,296 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,296 - Map Deployment: systemconfig
+INFO  CFLog4j 2009-07-08 17:16:45,296 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,296 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\systemconfiguration.ini.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,296 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\config\systemconfiguration.ini.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,312 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,312 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,312 - Map Deployment: subSiteDefinitions
+INFO  CFLog4j 2009-07-08 17:16:45,328 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,328 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\subsitedefinitions.xml
+INFO  CFLog4j 2009-07-08 17:16:45,328 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\config\subsitedefinitions.xml
+INFO  CFLog4j 2009-07-08 17:16:45,328 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,343 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,343 - Map Deployment: FigFactorApplicationsColdSpringFile
+INFO  CFLog4j 2009-07-08 17:16:45,343 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,343 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\coldspring\coldspring_applications.xml
+INFO  CFLog4j 2009-07-08 17:16:45,343 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\config\coldspring\coldspring_applications.xml
+INFO  CFLog4j 2009-07-08 17:16:45,359 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,359 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,359 - Map Deployment: userDefinedFileMappings
+INFO  CFLog4j 2009-07-08 17:16:45,359 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,375 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\filemappings.xml
+INFO  CFLog4j 2009-07-08 17:16:45,375 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\mappings\filemappings.xml
+INFO  CFLog4j 2009-07-08 17:16:45,375 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,468 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,468 - Map Deployment: gateways
+INFO  CFLog4j 2009-07-08 17:16:45,468 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,468 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\model\dataservice\
+INFO  CFLog4j 2009-07-08 17:16:45,484 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\dataservice\com\gateway\gateways\
+INFO  CFLog4j 2009-07-08 17:16:45,484 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,484 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\model\dataservice\CommonSpotGateway.cfc
+INFO  CFLog4j 2009-07-08 17:16:45,484 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\dataservice\com\gateway\gateways\CommonSpotGateway.cfc
+INFO  CFLog4j 2009-07-08 17:16:45,500 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,500 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\model\dataservice\FLEETGateway.cfc
+INFO  CFLog4j 2009-07-08 17:16:45,500 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\dataservice\com\gateway\gateways\FLEETGateway.cfc
+INFO  CFLog4j 2009-07-08 17:16:45,500 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,515 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\model\dataservice\GoogleGateway.cfc
+INFO  CFLog4j 2009-07-08 17:16:45,515 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\dataservice\com\gateway\gateways\GoogleGateway.cfc
+INFO  CFLog4j 2009-07-08 17:16:45,515 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,531 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\model\dataservice\RemoteGateway.cfc
+INFO  CFLog4j 2009-07-08 17:16:45,531 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\dataservice\com\gateway\gateways\RemoteGateway.cfc
+INFO  CFLog4j 2009-07-08 17:16:45,531 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,546 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,546 - Map Deployment: rootFiles
+INFO  CFLog4j 2009-07-08 17:16:45,546 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,546 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\
+INFO  CFLog4j 2009-07-08 17:16:45,562 - Destina: C:\Inetpub\wwwroot\viewframework\
+INFO  CFLog4j 2009-07-08 17:16:45,562 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,562 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\after--replication.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,562 - Destina: C:\Inetpub\wwwroot\viewframework\after--replication.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,578 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,578 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\custom-application.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,578 - Destina: C:\Inetpub\wwwroot\viewframework\custom-application.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,578 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,593 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\custom-authentication.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,609 - Destina: C:\Inetpub\wwwroot\viewframework\custom-authentication.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,609 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,609 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\post-approve.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,609 - Destina: C:\Inetpub\wwwroot\viewframework\post-approve.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,625 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,625 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\post-delete-page.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,625 - Destina: C:\Inetpub\wwwroot\viewframework\post-delete-page.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,640 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,640 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,640 - Map Deployment: customFields
+INFO  CFLog4j 2009-07-08 17:16:45,640 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,640 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\customfields\
+INFO  CFLog4j 2009-07-08 17:16:45,656 - Destina: C:\Inetpub\wwwroot\viewframework\customfields\
+INFO  CFLog4j 2009-07-08 17:16:45,656 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,656 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\customfields\metadata_properties.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,656 - Destina: C:\Inetpub\wwwroot\viewframework\customfields\metadata_properties.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,671 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,671 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\customfields\metadata_rendering.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,671 - Destina: C:\Inetpub\wwwroot\viewframework\customfields\metadata_rendering.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,671 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,671 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\customfields\multimedia_rendering.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,687 - Destina: C:\Inetpub\wwwroot\viewframework\customfields\multimedia_rendering.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,687 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,703 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,703 - Map Deployment: GoogleFeedsMetaDataProperties
+INFO  CFLog4j 2009-07-08 17:16:45,703 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,703 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\google\googlemetadataproperties.xml
+INFO  CFLog4j 2009-07-08 17:16:45,703 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\applications\google\search\resource\config\googlemetadataproperties.xml
+INFO  CFLog4j 2009-07-08 17:16:45,718 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,734 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,734 - Map Deployment: templates
+INFO  CFLog4j 2009-07-08 17:16:45,734 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,734 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\
+INFO  CFLog4j 2009-07-08 17:16:45,734 - Destina: C:\Inetpub\wwwroot\viewframework\templates\
+INFO  CFLog4j 2009-07-08 17:16:45,734 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,750 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\include_header.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,750 - Destina: C:\Inetpub\wwwroot\viewframework\templates\include_header.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,750 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,765 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\template-basepage.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,765 - Destina: C:\Inetpub\wwwroot\viewframework\templates\template-basepage.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,765 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,765 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\template-basepage.head
+INFO  CFLog4j 2009-07-08 17:16:45,765 - Destina: C:\Inetpub\wwwroot\viewframework\templates\template-basepage.head
+INFO  CFLog4j 2009-07-08 17:16:45,781 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,781 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\template-search.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,781 - Destina: C:\Inetpub\wwwroot\viewframework\templates\template-search.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,796 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,812 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\template-search.head
+INFO  CFLog4j 2009-07-08 17:16:45,812 - Destina: C:\Inetpub\wwwroot\viewframework\templates\template-search.head
+INFO  CFLog4j 2009-07-08 17:16:45,812 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,828 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:45,828 - Map Deployment: renderhandlers
+INFO  CFLog4j 2009-07-08 17:16:45,828 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,828 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\
+INFO  CFLog4j 2009-07-08 17:16:45,828 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\
+INFO  CFLog4j 2009-07-08 17:16:45,843 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,843 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp-blank-page.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,843 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp-blank-page.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,859 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,859 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp-multimedia.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,859 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp-multimedia.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,859 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,859 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp-news-item.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,859 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp-news-item.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,875 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,875 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp-page-index.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,875 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp-page-index.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,890 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,890 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp_paginated_pageindex.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,890 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp_paginated_pageindex.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,890 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,906 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp_search_results.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,906 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp_search_results.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,906 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,921 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\
+INFO  CFLog4j 2009-07-08 17:16:45,921 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\
+INFO  CFLog4j 2009-07-08 17:16:45,921 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,921 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\demo-query-ouput.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,921 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\demo-query-ouput.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,937 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,937 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\dsp-footer.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,937 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\dsp-footer.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,953 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,953 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\dsp-header.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,953 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\dsp-header.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,953 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,953 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\dsp-one-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,968 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\dsp-one-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,968 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,984 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\dsp-three-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,984 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\dsp-three-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,984 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:45,984 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\dsp-two-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:16:45,984 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\dsp-two-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:16:46,000 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:46,015 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\inc-breadcrumb.cfm
+INFO  CFLog4j 2009-07-08 17:16:46,015 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\inc-breadcrumb.cfm
+INFO  CFLog4j 2009-07-08 17:16:46,015 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:46,031 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\meta_data_page_list.cfm
+INFO  CFLog4j 2009-07-08 17:16:46,031 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\meta_data_page_list.cfm
+INFO  CFLog4j 2009-07-08 17:16:46,046 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:46,046 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\page_index_include_dynamic_output.cfm
+INFO  CFLog4j 2009-07-08 17:16:46,046 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\page_index_include_dynamic_output.cfm
+INFO  CFLog4j 2009-07-08 17:16:46,046 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:46,046 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\page_index_page_list.cfm
+INFO  CFLog4j 2009-07-08 17:16:46,046 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\page_index_page_list.cfm
+INFO  CFLog4j 2009-07-08 17:16:46,062 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:46,062 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\Pagination.cfc
+INFO  CFLog4j 2009-07-08 17:16:46,078 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\Pagination.cfc
+INFO  CFLog4j 2009-07-08 17:16:46,078 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:46,078 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:46,078 - Map Deployment: GoogleConfig
+INFO  CFLog4j 2009-07-08 17:16:46,078 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:16:46,093 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\google\gcini.cfm
+INFO  CFLog4j 2009-07-08 17:16:46,093 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\applications\google\search\resource\config\gcini.cfm
+INFO  CFLog4j 2009-07-08 17:16:46,109 - *************************************************
+INFO  CFLog4j 2009-07-08 17:16:46,312 - ELEMENT CREATED: Name - Blank Page
+INFO  CFLog4j 2009-07-08 17:16:46,328 - ELEMENT CREATED: Name - News Item
+INFO  CFLog4j 2009-07-08 17:16:46,328 - ELEMENT CREATED: Name - Page List
+INFO  CFLog4j 2009-07-08 17:16:46,343 - ELEMENT CREATED: Name - Test Element
+INFO  CFLog4j 2009-07-08 17:16:47,281 - FigFactorMixen.cfm file included? true
+INFO  CFLog4j 2009-07-08 17:17:00,312 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,328 - Map Deployment: FigFactorCoreSystemColdSpringFile
+INFO  CFLog4j 2009-07-08 17:17:00,328 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,328 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\coldspring\coldspring_framework.xml
+INFO  CFLog4j 2009-07-08 17:17:00,328 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\config\coldspring\coldspring_framework.xml
+INFO  CFLog4j 2009-07-08 17:17:00,343 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,343 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,343 - Map Deployment: defaultLists
+INFO  CFLog4j 2009-07-08 17:17:00,343 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,343 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\frameworklists.xml
+INFO  CFLog4j 2009-07-08 17:17:00,359 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\listservice\data\frameworklists.xml
+INFO  CFLog4j 2009-07-08 17:17:00,375 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,375 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,375 - Map Deployment: cflogF4JProperties
+INFO  CFLog4j 2009-07-08 17:17:00,390 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,390 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\cflog4j.properties
+INFO  CFLog4j 2009-07-08 17:17:00,390 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\util\logger\cflog4j\cflog4j.properties
+INFO  CFLog4j 2009-07-08 17:17:00,390 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,406 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,406 - Map Deployment: customelementsXml
+INFO  CFLog4j 2009-07-08 17:17:00,406 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,421 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\customelements.xml
+INFO  CFLog4j 2009-07-08 17:17:00,421 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\elementfactory\config\customelements.xml
+INFO  CFLog4j 2009-07-08 17:17:00,421 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,421 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,421 - Map Deployment: FigFactorBootStrapperColdSpringFile
+INFO  CFLog4j 2009-07-08 17:17:00,437 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,437 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\coldspring\coldspring_bootstrapper.xml
+INFO  CFLog4j 2009-07-08 17:17:00,437 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\config\coldspring\coldspring_bootstrapper.xml
+INFO  CFLog4j 2009-07-08 17:17:00,453 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,453 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,453 - Map Deployment: systemconfig
+INFO  CFLog4j 2009-07-08 17:17:00,453 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,468 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\systemconfiguration.ini.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,468 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\config\systemconfiguration.ini.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,484 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,484 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,484 - Map Deployment: subSiteDefinitions
+INFO  CFLog4j 2009-07-08 17:17:00,484 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,484 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\subsitedefinitions.xml
+INFO  CFLog4j 2009-07-08 17:17:00,484 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\config\subsitedefinitions.xml
+INFO  CFLog4j 2009-07-08 17:17:00,500 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,500 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,500 - Map Deployment: FigFactorApplicationsColdSpringFile
+INFO  CFLog4j 2009-07-08 17:17:00,515 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,515 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\coldspring\coldspring_applications.xml
+INFO  CFLog4j 2009-07-08 17:17:00,515 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\config\coldspring\coldspring_applications.xml
+INFO  CFLog4j 2009-07-08 17:17:00,515 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,515 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,531 - Map Deployment: userDefinedFileMappings
+INFO  CFLog4j 2009-07-08 17:17:00,531 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,531 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\system\filemappings.xml
+INFO  CFLog4j 2009-07-08 17:17:00,546 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\mappings\filemappings.xml
+INFO  CFLog4j 2009-07-08 17:17:00,546 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,625 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,625 - Map Deployment: gateways
+INFO  CFLog4j 2009-07-08 17:17:00,625 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,640 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\model\dataservice\
+INFO  CFLog4j 2009-07-08 17:17:00,640 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\dataservice\com\gateway\gateways\
+INFO  CFLog4j 2009-07-08 17:17:00,640 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,640 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\model\dataservice\CommonSpotGateway.cfc
+INFO  CFLog4j 2009-07-08 17:17:00,656 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\dataservice\com\gateway\gateways\CommonSpotGateway.cfc
+INFO  CFLog4j 2009-07-08 17:17:00,656 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,656 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\model\dataservice\FLEETGateway.cfc
+INFO  CFLog4j 2009-07-08 17:17:00,656 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\dataservice\com\gateway\gateways\FLEETGateway.cfc
+INFO  CFLog4j 2009-07-08 17:17:00,671 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,671 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\model\dataservice\GoogleGateway.cfc
+INFO  CFLog4j 2009-07-08 17:17:00,671 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\dataservice\com\gateway\gateways\GoogleGateway.cfc
+INFO  CFLog4j 2009-07-08 17:17:00,687 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,687 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\model\dataservice\RemoteGateway.cfc
+INFO  CFLog4j 2009-07-08 17:17:00,687 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\dataservice\com\gateway\gateways\RemoteGateway.cfc
+INFO  CFLog4j 2009-07-08 17:17:00,687 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,703 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,703 - Map Deployment: rootFiles
+INFO  CFLog4j 2009-07-08 17:17:00,718 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,718 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\
+INFO  CFLog4j 2009-07-08 17:17:00,718 - Destina: C:\Inetpub\wwwroot\viewframework\
+INFO  CFLog4j 2009-07-08 17:17:00,718 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,718 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\after--replication.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,734 - Destina: C:\Inetpub\wwwroot\viewframework\after--replication.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,734 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,734 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\custom-application.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,750 - Destina: C:\Inetpub\wwwroot\viewframework\custom-application.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,750 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,750 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\custom-authentication.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,750 - Destina: C:\Inetpub\wwwroot\viewframework\custom-authentication.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,750 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,765 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\post-approve.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,781 - Destina: C:\Inetpub\wwwroot\viewframework\post-approve.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,781 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,781 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\system\bootstrapper\com\rootfiles\post-delete-page.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,781 - Destina: C:\Inetpub\wwwroot\viewframework\post-delete-page.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,796 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,796 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,812 - Map Deployment: customFields
+INFO  CFLog4j 2009-07-08 17:17:00,812 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,812 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\customfields\
+INFO  CFLog4j 2009-07-08 17:17:00,812 - Destina: C:\Inetpub\wwwroot\viewframework\customfields\
+INFO  CFLog4j 2009-07-08 17:17:00,812 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,812 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\customfields\metadata_properties.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,828 - Destina: C:\Inetpub\wwwroot\viewframework\customfields\metadata_properties.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,828 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,843 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\customfields\metadata_rendering.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,843 - Destina: C:\Inetpub\wwwroot\viewframework\customfields\metadata_rendering.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,843 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,843 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\customfields\multimedia_rendering.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,843 - Destina: C:\Inetpub\wwwroot\viewframework\customfields\multimedia_rendering.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,859 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,859 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,859 - Map Deployment: GoogleFeedsMetaDataProperties
+INFO  CFLog4j 2009-07-08 17:17:00,859 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,875 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\google\googlemetadataproperties.xml
+INFO  CFLog4j 2009-07-08 17:17:00,875 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\applications\google\search\resource\config\googlemetadataproperties.xml
+INFO  CFLog4j 2009-07-08 17:17:00,875 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,890 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,890 - Map Deployment: templates
+INFO  CFLog4j 2009-07-08 17:17:00,890 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,890 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\
+INFO  CFLog4j 2009-07-08 17:17:00,906 - Destina: C:\Inetpub\wwwroot\viewframework\templates\
+INFO  CFLog4j 2009-07-08 17:17:00,906 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,906 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\include_header.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,906 - Destina: C:\Inetpub\wwwroot\viewframework\templates\include_header.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,921 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,921 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\template-basepage.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,921 - Destina: C:\Inetpub\wwwroot\viewframework\templates\template-basepage.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,937 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,937 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\template-basepage.head
+INFO  CFLog4j 2009-07-08 17:17:00,937 - Destina: C:\Inetpub\wwwroot\viewframework\templates\template-basepage.head
+INFO  CFLog4j 2009-07-08 17:17:00,937 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,953 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\template-search.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,953 - Destina: C:\Inetpub\wwwroot\viewframework\templates\template-search.cfm
+INFO  CFLog4j 2009-07-08 17:17:00,953 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:00,953 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\templates\template-search.head
+INFO  CFLog4j 2009-07-08 17:17:00,953 - Destina: C:\Inetpub\wwwroot\viewframework\templates\template-search.head
+INFO  CFLog4j 2009-07-08 17:17:00,968 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,984 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:00,984 - Map Deployment: renderhandlers
+INFO  CFLog4j 2009-07-08 17:17:00,984 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:17:01,000 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\
+INFO  CFLog4j 2009-07-08 17:17:01,000 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\
+INFO  CFLog4j 2009-07-08 17:17:01,000 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:01,015 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp-blank-page.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,015 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp-blank-page.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,015 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:01,015 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp-multimedia.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,015 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp-multimedia.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,031 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:01,031 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp-news-item.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,031 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp-news-item.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,046 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:01,046 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp-page-index.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,046 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp-page-index.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,046 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:01,046 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp_paginated_pageindex.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,062 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp_paginated_pageindex.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,062 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:01,062 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\dsp_search_results.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,078 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\dsp_search_results.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,078 - ******DirectoryCopy*****
+INFO  CFLog4j 2009-07-08 17:17:01,078 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\
+INFO  CFLog4j 2009-07-08 17:17:01,078 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\
+INFO  CFLog4j 2009-07-08 17:17:01,093 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:01,093 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\demo-query-ouput.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,093 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\demo-query-ouput.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,109 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:01,109 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\dsp-footer.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,109 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\dsp-footer.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,109 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:01,109 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\dsp-header.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,125 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\dsp-header.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,125 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:01,125 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\dsp-one-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,140 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\dsp-one-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,140 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:01,140 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\dsp-three-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,140 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\dsp-three-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,140 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:01,156 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\dsp-two-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,156 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\dsp-two-column-blank.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,171 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:01,171 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\inc-breadcrumb.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,171 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\inc-breadcrumb.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,171 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:01,187 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\meta_data_page_list.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,203 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\meta_data_page_list.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,203 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:01,203 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\page_index_include_dynamic_output.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,203 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\page_index_include_dynamic_output.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,218 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:01,218 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\page_index_page_list.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,218 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\page_index_page_list.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,234 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:01,234 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\wwwroot\renderhandlers\includes\Pagination.cfc
+INFO  CFLog4j 2009-07-08 17:17:01,234 - Destina: C:\Inetpub\wwwroot\viewframework\renderhandlers\includes\Pagination.cfc
+INFO  CFLog4j 2009-07-08 17:17:01,234 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:01,234 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:01,250 - Map Deployment: GoogleConfig
+INFO  CFLog4j 2009-07-08 17:17:01,250 - ******FileCopy*****
+INFO  CFLog4j 2009-07-08 17:17:01,250 - Source: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\site\config\google\gcini.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,265 - Destina: C:\Inetpub\wwwroot\viewframework\customcf\com\figleaf\figfactor\com\applications\google\search\resource\config\gcini.cfm
+INFO  CFLog4j 2009-07-08 17:17:01,265 - *************************************************
+INFO  CFLog4j 2009-07-08 17:17:01,468 - ELEMENT CREATED: Name - Blank Page
+INFO  CFLog4j 2009-07-08 17:17:01,484 - ELEMENT CREATED: Name - News Item
+INFO  CFLog4j 2009-07-08 17:17:01,484 - ELEMENT CREATED: Name - Page List
+INFO  CFLog4j 2009-07-08 17:17:01,500 - ELEMENT CREATED: Name - Test Element
+INFO  CFLog4j 2009-07-08 17:17:02,296 - FigFactorMixen.cfm file included? true
+WARN  CFLog4j 2009-07-08 17:17:04,828 - ELEMENT NOT FOUND!! The Element requested element name: 'portal'
+WARN  CFLog4j 2009-07-08 17:17:11,312 - ELEMENT NOT FOUND!! The Element requested element name: 'foo'
+WARN  CFLog4j 2009-07-08 17:17:11,328 - ELEMENT NOT FOUND!! The Element requested element name: ''

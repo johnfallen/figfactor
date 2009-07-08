@@ -20,7 +20,6 @@ John Allen		03/04/2008		Created
 <cfset variables.instance = structNew() />
 
 
-
 <!--- ****************************** Public ****************************** --->
 
 <!--- init --->
@@ -47,6 +46,35 @@ John Allen		03/04/2008		Created
 	<cfreturn this  />
 </cffunction>
 
+
+
+<!--- getSubSiteDefinition --->
+<cffunction name="getSubSiteDefinition" access="public"  output="false"
+	displayname="GetSubSiteDefinition" hint="I return a structure of information about the main Sub Site/OU. Return Type: Struct"
+	description="I return a structure of configuration xml data, based on a what 'Top Level' sub-site the page is in.  Return Type: Struct">
+
+	<cfargument name="SubSiteName" type="string" required="false" default="#getSubSiteName()#"
+		hint="I am the name of the sub-site to get." />
+	<cfargument name="subsiteDefinitions" default="#variables.Config.getSubSiteDefinitions()#" 
+		hint="I am the array of Sub Definitions as defined by the SubSiteDefinsitions.xml file."/>
+	
+	<cfreturn variables.Config.getSubSiteDefinition(argumentCollection = arguments) />
+</cffunction>
+
+
+
+<!--- getInstance --->
+<cffunction name="getInstance" output="false"
+	displayname="Get Instance" hint="I return the variable scope."
+	description="I return the variables scope.">
+
+	<cfreturn  variables.instance />
+</cffunction>
+
+
+
+<!--- ****************************** Package ****************************** --->
+<!--- ****************************** Private ****************************** --->
 
 
 <!--- initalizeEvent --->
@@ -156,26 +184,14 @@ John Allen		03/04/2008		Created
 
 
 
-<!--- getInstance --->
-<cffunction name="getInstance" output="false"
-	displayname="Get Instance" hint="I return the variable scope."
-	description="I return the variables scope.">
-
-	<cfreturn  variables.instance />
-</cffunction>
-
-
-
-<!--- ****************************** Package ****************************** --->
-<!--- ****************************** Private ****************************** --->
-
 <!--- configure --->
 <cffunction name="configure" returntype="any" access="private" output="false"
 	displayname="Configure" hint="I configure several aspects of myself."
 	description="I configure several aspects of myself by calling methods on myself. I load the form and URL variables and my custom elements data.">
 	
 	<!--- 
-	Load the FORM and URL variables into the EventCollection 
+	Load the FORM and URL variables into the EventCollection and add the
+	custom elements data as well.
 	--->
 	<cfset setValue(value = variables.instance.Input.load(), append = true) />
 
@@ -196,15 +212,17 @@ John Allen		03/04/2008		Created
 	<cfset var CEQuery =  0 />
 	<cfset var results = structNew() />
 	<cfset var x = 0 />
-	
+
 	<cfquery name="CEQuery" datasource="#arguments.dsn#">
-		select
+		select 
 			replace(f.fieldName,'FIC_','') as fieldName, 
 			
 			case
-				when d.memoValue is not null and ltrim( rtrim( convert( varchar(100),d.memoValue ) ) ) != '' then d.memoValue
-			else 
-				d.fieldValue
+				when d.memoValue is not null 
+					and ltrim(rtrim(convert(varchar(100),d.memoValue))) != '' 
+					then d.memoValue
+				else 
+					d.fieldValue
 			end 
 		as fieldValue
 		
@@ -216,32 +234,37 @@ John Allen		03/04/2008		Created
 			where d.pageID = <cfqueryparam cfsqltype="cf_sql_integer" value="#pageID#">
 			and 
 			d.versionState = 2
+			<!--- 
+				ADDED by JFA 0062009. 
+				Seems to pick up the total custom element even if the page has
+				NOT been approved. After FigFactor 2.0 if a page had not been
+				approved the custome element form field data woulnt be picked
+				up. weird. I HAVE to become a SQL master.
+			 --->
+			or
+			(d.versionState > 2 and d.pageID = <cfqueryparam cfsqltype="cf_sql_integer" value="#pageID#">)
 	</cfquery>
-	
+
 	<!--- morph the query to a structure --->
 	<cfloop query="CEQuery">
-		<cfset structInsert(results, CEQuery.fieldname, CEQuery.fieldvalue) />
+		<!--- ALSO ADDED WITH THE ABOVE QUERY CHANGE. THIS MIGHT SUCK.
+			I could be possiable that an older of data hits here. IF so
+			revisit this and maybe add a check on the pages "what ever state"
+			and only modify the above query if it is in this new state.
+		 --->
+		<cfif not structKeyExists(results, CEQuery.fieldname)>
+			<cfset structInsert(results, CEQuery.fieldname, CEQuery.fieldvalue) />
+		</cfif>
 	</cfloop>
-
+	
 	<cfset setCustomElementData(results) />
-	<cfset setValue(name = "customElement", value = results) />	
-	
+	<cfset setValue("customelement", getCustomElementData())>
+
 </cffunction>
 
 
 
-<!--- getSubSiteDefinition --->
-<cffunction name="getSubSiteDefinition" access="public"  output="false"
-	displayname="GetSubSiteDefinition" hint="I return a structure of information about the main Sub Site/OU. Return Type: Struct"
-	description="I return a structure of configuration xml data, based on a what 'Top Level' sub-site the page is in.  Return Type: Struct">
 
-	<cfargument name="SubSiteName" type="string" required="false" default="#getSubSiteName()#"
-		hint="I am the name of the sub-site to get." />
-	<cfargument name="subsiteDefinitions" default="#variables.Config.getSubSiteDefinitions()#" 
-		hint="I am the array of Sub Definitions as defined by the SubSiteDefinsitions.xml file."/>
-	
-	<cfreturn variables.Config.getSubSiteDefinition(argumentCollection = arguments) />
-</cffunction>
 
 
 

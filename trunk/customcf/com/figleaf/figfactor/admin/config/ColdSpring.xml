@@ -1,16 +1,21 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd" [
+	
+	<!-- modify this if the FigFactor changes -->
+	<!ENTITY adminContext "viewframework.customcf.com.figleaf.figfactor.admin.">
+	<!ENTITY adminFileMapping "/viewframework/customcf/com/figleaf/figfactor/admin/">]>
 <beans>
   <!-- This is your Model-Glue configuration -->
 	<bean id="modelGlueConfiguration" class="ModelGlue.unity.framework.ModelGlueConfiguration">
     <!-- Be sure to change reload to false when you go to production! -->
     <property name="reload"><value>false</value></property>
-		<!-- Rescaffold is overridden by reload - if reload is false, rescaffold's setting doesn't matter -->
+	<!-- Rescaffold is overridden by reload - if reload is false, rescaffold's setting doesn't matter -->
     <property name="rescaffold"><value>false</value></property>
     <!-- Be sure to change debug to false when you go to production! -->
     <property name="debug"><value>false</value></property>
-    <property name="defaultEvent"><value>page.index</value></property>
+    <property name="defaultEvent"><value>login.form</value></property>
     <property name="reloadPassword"><value>true</value></property>
-    <property name="viewMappings"><value>/customcf/com/figleaf/figfactor/admin/views</value></property>
-    <property name="generatedViewMapping"><value>/customcf/com/figleaf/figfactor/admin/views/generated</value></property>
+    <property name="viewMappings"><value>&adminFileMapping;views</value></property>
+    <property name="generatedViewMapping"><value>&adminFileMapping;views/generated</value></property>
     <property name="configurationPath"><value>config/ModelGlue.xml</value></property>
     <property name="scaffoldPath"><value>config/scaffolds/Scaffolds.xml</value></property>
     <property name="statePrecedence"><value>form</value></property>
@@ -22,13 +27,23 @@
     <property name="defaultScaffolds"><value>list,edit,view,commit,delete</value></property>
   </bean>
   
-	<bean id="Controller" class="customcf.com.figleaf.figfactor.admin.controller.Controller"  />
-	<bean id="DomainAPI" class="customcf.com.figleaf.figfactor.admin.model.DomainAPI"  />
+<bean id="Controller" class="&adminContext;controller.Controller"  />
+<bean id="DomainAPI" class="&adminContext;model.DomainAPI"  />
 
-<bean id="AdminConfig" class="customcf.com.figleaf.figfactor.admin.model.config.AdminConfig">
+<bean id="AdminConfig" class="&adminContext;model.config.AdminConfig">
 	<constructor-arg name="pathToCommonspot">
   		<value>C:\Inetpub\wwwroot\commonspot</value>
 	</constructor-arg>
 </bean>
-	
+
+<bean id="transferFactory" class="transfer.TransferFactory" singleton="true" >
+   <constructor-arg name="datasourcePath"><value>&adminFileMapping;config/transfer/datasource.xml</value></constructor-arg>
+   <constructor-arg name="configPath"><value>&adminFileMapping;config/transfer/transfer.xml</value></constructor-arg>
+   <constructor-arg name="definitionPath"><value>&adminFileMapping;model/data/transfer</value></constructor-arg>
+</bean>
+
+<bean id="transfer" factory-bean="transferFactory" factory-method="getTransfer" singleton="true" />
+<bean id="datasource" factory-bean="transferFactory" factory-method="getDatasource" singleton="true" />
+
+
 </beans>

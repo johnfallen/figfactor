@@ -20,9 +20,7 @@ John Allen 		13/12/2008			Created
 <cffunction name="init" returntype="FileSystem" access="public" output="false" 
 	displayname="Init" hint="I am the constructor." 
 	description="I am the pseudo constructor for this CFC. I return an instance of myself.">
-
-
-
+		
 	<cfreturn this />
 </cffunction>
 
@@ -95,6 +93,7 @@ John Allen 		13/12/2008			Created
 			<cfset directoryCopy(arguments.source & dirDelim & name, arguments.destination & dirDelim &  name) />
 		</cfif>
 	</cfloop>
+
 </cffunction>
 
 

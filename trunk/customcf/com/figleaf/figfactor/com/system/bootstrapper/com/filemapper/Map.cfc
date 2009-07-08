@@ -210,6 +210,17 @@ John Allen 		26/03/2009			Created
 			<cfset arguments.path = arguments.path & "/" />
 		</cfif>
 	</cfif>
+	
+	
+	<!--- fix how a developer might add paths --->
+	<cfif left(arguments.path, 2) eq "//">
+		<cfset arguments.path = 
+		right(arguments.path, (len(arguments.path) - 1)) />
+	</cfif>
+	<cfif right(arguments.path, 2) eq "//">
+		<cfset arguments.path = 
+			left(arguments.path, (len(arguments.path) - 1)) />
+	</cfif>
 	<cfreturn arguments.path />
 </cffunction>
 

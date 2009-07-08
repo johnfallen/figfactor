@@ -2,7 +2,7 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd" [
 	
 	<!-- modify this if the FigFactor changes -->
-	<!ENTITY figFactorContext "">
+	<!ENTITY figFactorContext "viewframework.">
 	
 	<!ENTITY figFactorMapping "&figFactorContext;customcf.com.figleaf.figfactor.">
 	<!ENTITY applicationMapping "&figFactorMapping;com.applications.">

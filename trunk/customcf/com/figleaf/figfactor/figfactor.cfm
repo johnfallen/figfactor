@@ -28,6 +28,7 @@ John Allen		03/27/2009		Created
 				)
 			)
 	>
+	
 	<!--- light up FigFactor --->
 	<cfset Application.FigFactor = createObject("component", "FigFactor").init() />
 </cfif>

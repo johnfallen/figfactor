@@ -67,6 +67,23 @@ John Allen 		20/03/2009			Created
 <cfset variables.files.DI.DIApplicationsBeanFile = "coldspring_applications.xml" />
 <cfset variables.files.iniFileName = "systemconfiguration.ini.cfm" />
 
+<!--- 
+	NOTE: this is a fix for an archiecture problem. We HAVE to copy the IOC 
+	config files before the IOC is light up and the BootStrapper is called. So 
+	the hard copy here.
+	
+	TODO: clean this up a bit. Fin and totally functional now but could be more
+	elegant.
+--->
+<cfset fileSystem = createObject("component", "com.system.util.filesystem.FileSystem").init() />
+<cfset serverPath = replaceNoCase(getCurrentTemplatePath(), "FigFactor.cfc", "") />
+<cfset source = serverPath & "site/config/system/coldspring" />
+<cfset destination = serverPath & "com/system/config/coldspring" />
+
+<cfset fileSystem.directoryCopy(
+	source = source,
+	destination = destination) />
+
 
 <!--- **************************** Mixens **************************** --->
 <!--- 
@@ -130,7 +147,6 @@ John Allen 		20/03/2009			Created
 	 --->
 	<cfset server.factory = createObject('java','coldfusion.server.ServiceFactory') />
 	
-
 	<!---  
 		This method has a real slick way to add server mappings by calling the 
 		ColdFusion server via java. Heres how it works: 
@@ -139,7 +155,7 @@ John Allen 		20/03/2009			Created
 		<cfset serverMappings = server.factory.runtimeService.getMappings() />
 		<cfset serverMappings["/fooFramework"] = "/Users/allenj/development/fooFramework" />
 		
-		But I'm not 100% sure that this will run on a very locked down server and
+		If Java calls are disabled on the CFML server this will fail and 
 		FigFactor HAS to have some sort of DI framework, currently ColdSpring.
 		So if this fails we copy the DI framework to the web root.
 	--->
@@ -340,7 +356,8 @@ John Allen 		20/03/2009			Created
 	displayname="Get List" hint="I return a list by name. Return Type: string."
 	description="I return a list by name. Return Type: string.">
     
-	<cfargument name="name" hint="I am the name of the list to return. I am required. Type: String. Required." />
+	<cfargument name="name" 
+		hint="I am the name of the list to return. I am required. Type: String. Required." />
 	
 	<cfreturn variables.private.ListService.getList(argumentCollection = arguments) />
 </cffunction>
@@ -453,6 +470,41 @@ John Allen 		20/03/2009			Created
 
 
 
+<!--- setMockCommonSpotPageRequestVariables --->
+<cffunction name="setMockCommonSpotPageRequestVariables" output="false"
+	displayname="Set Mock CommonSpot Page Request Variables"
+	hint="I create the needed request scope variables if the request scope dose not contain them. I am used for testing only.">
+	
+	<cfargument name="forceOverwrite" default="true" />
+	
+	<cfset var config = getBean("config") />
+
+	<!--- only overwrite if these arnt here --->
+	<cfif not isDefined("request.page") or forceOverwrite eq true>
+	
+		<!--- create the required CommonSpot request scope vars --->
+		<cfset request.page = structNew() />
+		<cfset request.page.id = 1 />
+		<cfset request.page.Title = "test title" />
+		<cfset request.page.dateAdded = now() />
+		<cfset request.page.DateContentLastModified = now() />
+		<cfset request.page.metadata = structNew() />
+		<cfset request.page.metadata[config.getPageTypeMetaDataFormName()] = structNew()/ >
+		<cfset request.page.metadata[config.getPageTypeMetaDataFormName()].page_meta_data = "1,2,3,4,5,6,7,8,9"/ >
+		<cfset request.page.metadata[config.getPageTypeMetaDataFormName()][Config.getPageTypeMetaDataFormFieldName()] = "Blank Page"/ >
+
+	</cfif>
+
+	<!--- used in the URL and FORM loading and merging test methods --->
+	<cfset form._eventFormInputTest1 = "foo" />
+	<cfset form._eventFormInputTest2 = "barOverRide" />
+	<cfset url._eventFormInputTest2 = "bar" />
+	<cfset url._eventURLInputTest2 = "bar2" />
+	
+</cffunction>
+
+
+
 <!--- replicate --->
 <cffunction name="replicate" output="false"
 	displayname="Replicate" hint="I replicate my internal data to Read Only Production Servers. Return Type: void."
@@ -490,8 +542,7 @@ John Allen 		20/03/2009			Created
 <cffunction name="setDependencies" access="private" output="false"	
 	displayname="Set Dependencies" hint="I add mappings FigFactor needs to the server. Return Type: void"
 	description="I add mappings the FigFactor needs by acting onColdFusions coldfusion.server.ServiceFactory.runtimeService.getMappings() has map. Return Type: void.">
-	
-	
+
 	<cfargument name="cfServerFactory" />
 	
 	<cfset var server = 0 />
@@ -501,12 +552,10 @@ John Allen 		20/03/2009			Created
 		
 	<cfset thePath = getFrameworkPath() & "com/system/util/frameworks/" />
 
-
 	<cfif not isDefined("arguments.cfServerFactory")>
 		<cfset installRequiredFrameworks() />
 	<cfelse>
 		<cfset serverMappings = arguments.cfServerFactory.runtimeService.getMappings() />
-
 	
 		<cfset mappings.ModelGlue = thePath & "ModelGlue"/>
 		<cfset mappings.coldspring = thePath & "coldspring"/>
@@ -533,8 +582,6 @@ John Allen 		20/03/2009			Created
 			<cfset serverMappings["/transfer"] = "#mappings.Transfer#" />
 		</cfif>
 	</cfif>
-	
-	
 </cffunction>
 
 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<query cachekey="BlankPage__1412" columns="6" queryName="REMOTEPUBLICATIONS" rows="20">
+	<row>
+		<abstract></abstract>
+		<date_published>{ts '1990-02-01 12:00:00'}</date_published>
+		<last_modified></last_modified>
+		<pub_id>3</pub_id>
+		<r>1</r>
+		<title>Editorial</title>
+	</row>
+</query>

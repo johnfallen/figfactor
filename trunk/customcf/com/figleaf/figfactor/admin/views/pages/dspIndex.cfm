@@ -32,4 +32,5 @@
 			</div>
 		</div>
 	</div>
+<cfdump var="#request.cp.commonspotDir#">
 </cfoutput>

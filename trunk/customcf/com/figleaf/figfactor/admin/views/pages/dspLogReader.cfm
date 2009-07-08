@@ -3,7 +3,10 @@
 <cfset pagination = event.getValue("pagination") />
 <cfset displayAmount = event.getValue("displayAmount") />
 <cfset logFileName = event.getValue("logFileName") />
+<cfset config = event.getValue("config") />
+<cfset xe.log.reader = event.getValue("xe.log.reader") />
 
+<cfset pagination.setBaseLink("#config.getWebPathToAdmin()##myself##xe.log.reader#") />
 <cfset pagination.setArrayToPaginate(log) />
 <cfset pagination.setItemsPerPage(#displayAmount#) />
 <cfset pagination.setShowNumericLinks(true) />

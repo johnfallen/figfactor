@@ -3,7 +3,7 @@
 	<customelements renderhandlerdirectory="/renderhandlers">
 
 		<!-- Blank Page -->
-		<customelement name="Blank Page" useDataService="true" useCache="false" CSSClass="blank-page">
+		<customelement name="Blank Page" useDataService="true" useCache="true" CSSClass="blank-page">
 			<method name="getReleatedPages" resultName="ReleatedPages" />
 			<method name="getRemoteData" resultName="RemoteData" />
 			<method name="getFakeMetaData" resultName="FakeMetaData" />

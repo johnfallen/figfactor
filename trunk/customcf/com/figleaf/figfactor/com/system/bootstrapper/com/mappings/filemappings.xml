@@ -41,7 +41,7 @@
 	<mapping>
 		<name>gateways</name>
 		<source>&sitePath;model/dataservice</source>
-		<destination>&applicationPath;dataservice/com/gateway/gateways</destination>
+		<destination>&systemPath;dataservice/com/gateway/gateways</destination>
 		<recursive>false</recursive>
 		<file></file>
 		<allowedExtensions>cfc</allowedExtensions>

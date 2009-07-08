@@ -3,15 +3,16 @@
 <cfset numberOfColumns = 1 />
 <cfset pageTitle = "" />
 <cfset isPageIndex = 0 />
+<cfset ceData = event.getValue("customelement") />
 
 <!--- set the desired column amount --->
-<cfif structKeyExists(event.getValue("customelement"), "page_list_column_amount")>
-	<cfset numberOfColumns =  event.getValue("customelement").page_list_column_amount />
+<cfif structKeyExists(ceData, "page_list_column_amount")>
+	<cfset numberOfColumns =  ceData.page_list_column_amount />
 </cfif>
 
 <!--- set the page title --->
-<cfif structKeyExists(event.getValue("customelement"), "page_list_title")>
-	<cfset pageTitle = event.getValue("customelement").page_list_title />
+<cfif structKeyExists(ceData, "page_list_title")>
+	<cfset pageTitle = ceData.page_list_title />
 </cfif>
 
 <!--- only set this if its there and has a value --->
@@ -20,6 +21,7 @@
 	len(event.getValue("customelement").page_list_is_page_index)>
 	<cfset isPageIndex = event.getValue("customelement").page_list_is_page_index>
 </cfif>
+
 
 
 <cfoutput>

@@ -8,8 +8,8 @@ Purpose:			I render dynamic queries for a Blank Page
 ================================================================================
 John Allen		18/09/2008		Created
 ------------------------------------------------------------------------------->
-<cftry>
-<cfset queries = Application.vf.getPageEvent().getValue("queries") />
+
+<cfset queries = Application.FigFactor.getEvent().getValue("dataServiceResult") />
 <cfset releatedPages = queries.RELEATEDPAGES />
 <cfset data = queries.fakemetadata />
 <cfset pagination = createobject("component", "Pagination").init() />
@@ -53,5 +53,3 @@ John Allen		18/09/2008		Created
 	</ul>
 </div>
 </cfoutput>
-<cfcatch><cfdump var="#cfcatch#"></cfcatch>
-</cftry>

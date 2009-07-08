@@ -1,5 +1,5 @@
 <cfcomponent displayname="Controller" extends="ModelGlue.unity.controller.Controller" output="false" 
-	beans="AdminConfig, Config, Logger, FileMapper, Pagination, DataService, Security">
+	beans="AdminConfig, Config, Logger, Pagination, FileMapper, DataService, Security, transfer">
 
 <!--- onRequestStart --->
 <cffunction name="onRequestStart" access="public" returnType="void" output="false">
@@ -28,6 +28,7 @@
 	<!--- make a refrence, the beans scop is a cool idea --->
 	<cfset beans.FigFactor = Application.FigFactor />
 </cffunction>
+
 
 
 <!--- listBeans --->
@@ -158,7 +159,7 @@
 	<cfset var logEntry = "" />
 
 	<!--- TODO: clean this up --->
-	<!--- i suck, this isnt DRY!  :P rushing at the end --->
+	<!--- i suck, this isnt DRY!  :P rushing to get out the door --->
 	<cfif 
 	not Len(logType) 
 	or lcase(logType) eq "figfactor" 
@@ -190,7 +191,7 @@
 		<cfset arguments.event.setValue("displayAmount", 5) />
 	</cfif>
 	
-	<cfset arguments.event.setValue("pagination", beans.Pagination) />
+	<cfset arguments.event.setValue("pagination", beans.pagination) />
 </cffunction> 
 
 
@@ -231,6 +232,29 @@
 	<cfargument name="event" />
 	<cfset arguments.event.setValue("fileMaps", beans.FileMapper.getMappingDefinitions()) />
 </cffunction> 
+
+
+
+<!--- getCommonspotQueries --->
+<cffunction name="getCommonspotQueries" output="false">
+	<cfargument name="event" />
+	
+	<!--- the tables we will return --->
+	<cfset var siteSync = 0 />
+	<cfset var servers = 0 />
+	<cfset var dsn = beans.config.getCommonSpotSitesDSN() />
+	
+	<cfquery datasource="#dsn#" name="siteSync">
+		select * from SiteSync
+	</cfquery>
+	<cfquery datasource="#dsn#" name="servers">
+		select * from Servers
+	</cfquery>
+
+	<cfset arguments.event.setValue("SiteSync", siteSync) />
+	<cfset arguments.event.setValue("servers", servers) />
+	
+</cffunction>
 
 
 
@@ -299,6 +323,7 @@
 	<cfset arguments.event.setValue("thePath", beans.Config.getFigLeafFileContext() & "/admin/") />
 	<cfset arguments.event.setValue("DataService", beans.DataService) />
 	<cfset arguments.event.setValue("jquey", "ui/js/jquery-ui-1.7.1.custom/") />
+	<cfset arguments.event.setValue("transfer", beans.transfer) />
 </cffunction>
 
 
