@@ -44,22 +44,6 @@ John Allen 		27/03/2009			Created
 	<cfset Application.VF = arguments.Framework />
 	
 </cffunction>
-
-
-
-<!--- getInstance --->
-<cffunction name="getInstance" returntype="struct" access="public" output="false"
-	displayname="Get Instance" hint="I return my internal instance data as a structure."
-	description="I return my internal instance data as a structure, the 'momento' pattern.">
-	<cfargument name="duplicate" type="boolean" required="false" 
-		hint="Should I return a duplicate of my data? I default to false, a shalow copy. I am requried." />
-	
-	<cfif arguments.duplicate eq true>
-		<cfreturn duplicate(variables.instance) />
-	<cfelse>
-		<cfreturn variables.instance />
-	</cfif>
-</cffunction>
 <!--- *********** Package *********** --->
 <!--- *********** Private *********** --->
 </cfcomponent>

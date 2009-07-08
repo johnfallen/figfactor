@@ -65,7 +65,11 @@ History:
 08-13-2008		John Allen				Added KeyExistsCheck argument and logic to the get method.
 ==================================================================================
 --->
-<cfcomponent name="softcache" output="false" displayname="Soft Cache" implements="ICache"
+<cfcomponent 
+	name="softcache" 
+	output="false" 
+	displayname="Soft Cache" 
+	implements="ICache"
 	hint="I am a memory-sensitive cache implementation for CF.">
 
 

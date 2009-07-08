@@ -14,9 +14,8 @@ John Allen		28/07/2008		Created
 ------------------------------------------------------------------------------->
 
 <!--- set the pageEvent and custom element data --->
-<cfset event = Application.vf.getPageEvent(elementInfo = attributes.elementInfo) />
+<cfset event = Application.FigFactor.getEvent(elementInfo = attributes.elementInfo) />
 <cfset blankPage = event.getCustomElementData() />
-
 
 <cftry>
 <!--- 
@@ -41,5 +40,7 @@ having every thing on this page.
 </div>
 </cfif>
 </cfoutput>
-	<cfcatch><cfdump var="#cfcatch#"></cfcatch>
+	<cfcatch>
+		<cfdump var="#cfcatch#" />
+	</cfcatch>
 </cftry>

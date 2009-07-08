@@ -3,7 +3,7 @@
 	<server>
 		<ip>127.0.0.1</ip>
 		<name>localhost</name>
-		<url>http://localhost/viewframework/</url>
+		<url>http://localhost/cfusion/</url>
 		<pathToSyncCFC>customcf/org/figleaf/com/applicatoins/googleV2/com/feeds/com/objectstore/com/sync/</pathToSyncCFC>
 	</server>
 

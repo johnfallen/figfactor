@@ -14,30 +14,35 @@ John Allen		09/17/2008		Created
 <!--- the CommonSpot UI module --->
 <cfmodule template="/commonspot/pagemode/pagemodeui.cfm">
 
-<!--- set a refrence to the config object --->
+<!--- this will create the Event object, its the first call --->
+<cfset Event = application.FigFactor.getEvent() />
 <cfset config = Application.BeanFactory.getBean("ConfigBean") />
 
-<cfmodule template="/commonspot/utilities/invoke-dynamic-cfml.cfm" 
-	cfml="#config.getFigLeafFileContext()#figfactorrequestloader.cfm">
-
-<cfset PageEvent = application.FigFactor.getEvent() />
-
 <!--- output the page --->
-<cfoutput><div id="base-template-wrapper" class="#PageEvent.getCSSClass()#">
+<cfoutput><div id="base-template-wrapper" class="#Event.getCSSClass()#">
 	<div id="header-wrapper"></cfoutput>
-		
 		<cfinclude template="#config.getIncludesDirectory()#dsp-header.cfm" />
-	
 		<cfinclude template="#config.getIncludesDirectory()#inc-breadcrumb.cfm" />
 		<cfoutput></div>
-	<div id="content-wrapper" class="#PageEvent.getCSSClass()#"></cfoutput>
+	<div id="content-wrapper" class="#Event.getCSSClass()#"></cfoutput>
+		<!--- 
+			this guy loads the correct render handler dynamically by name, just
+			like the code below. But if you want to see the TOTAL time of the
+			event creation process use this include, then look at the 
+			viewstatecontroller.cfm execution time in the ColdFusion Show 
+			Execution dispalay stack output.
+		 --->
+		<!--- <cfinclude template="#config.getFigLeafFileContext()#viewstatecontroller.cfm" /> --->
 		
-		<!--- this guy dynamically loads the correct render handler dynamically by name --->	
-		<cfinclude template="#config.getFigLeafFileContext()#viewstatecontroller.cfm" /><cfoutput>
+		<!--- 
+			...or you can load the customelement right here. This is good because
+			it Keeps Is Simple Stupid, and I like simple.
+		--->
+		<cfmodule template="/commonspot/utilities/ct-render-named-element.cfm"
+			ElementName="#event.getCustomElementName()#CustomElement"
+			ElementType="custom:#event.getCustomElementName()#"><cfoutput>
 	</div>
 	<div id="footer-wrapper"></cfoutput>
-		
-		<!--- footer --->
 		<cfinclude template="#config.getIncludesDirectory()#dsp-footer.cfm" /><cfoutput>
 	</div>
 </div></cfoutput>

@@ -15,7 +15,10 @@ Name 			Date 					Description
 ================================================================================
 John Allen 		24/09/2008			Created
 ------------------------------------------------------------------------------->
-<cfcomponent displayname="Simple Timed Cache" output="false" implements="ICache"
+<cfcomponent 
+	displayname="Simple Timed Cache" 
+	output="false" 
+	implements="ICache"
 	hint="I am a simple time-based content cache.  Reaps the cache based on the 'reapInterval' constructor argument, checking for reaps necessity on each write to the cache.">
 
 <!--- *********** Public ************ --->

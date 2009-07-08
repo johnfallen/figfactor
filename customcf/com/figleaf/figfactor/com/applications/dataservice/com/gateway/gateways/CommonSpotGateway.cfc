@@ -30,7 +30,7 @@ John Allen	 07/06/2008	 Created
 	displayname="Get Releated Pages" hint="I return a query of related pages for a given page."
 	description="I return a query of releated pages for a given page by calling several sub components to do the heavy lifting." >
 	
-	<cfargument name="PageEvent" required="true" />
+	<cfargument name="Event" required="true" />
 	<cfargument name="BeanFactory" required="false" default="" />
 	<cfargument name="Helpers" required="false"  />
 	<cfargument name="returnIDsOnly" required="false" default="false" hint="Should I only return teh values from getReleatedPages() value?" />
@@ -72,7 +72,7 @@ John Allen	 07/06/2008	 Created
 
 	<cfargument name="pageTypes" default=""
 		hint="I am a list of PageTypes to get.<br />I defalult to an empty string ''." />
-	<cfargument name="pageEvent" 
+	<cfargument name="Event" 
 		hint="I am the PageEvent Object.<br />I am required." />
 	
 	<cfset var config = arguments.beanfactory.getBean("ConfigBean") />

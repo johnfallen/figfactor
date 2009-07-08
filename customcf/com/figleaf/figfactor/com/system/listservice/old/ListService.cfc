@@ -65,8 +65,8 @@ John Allen 		17/09/2008			Created
 
 <!--- configureRequiredLists --->
 <cffunction name="configureRequiredLists" returntype="any" access="public" output="false"
-	displayname="Configure Required Lists" hint="I configure lists required by ViewFramework."
-	description="I configure lists required by ViewFramework.">
+	displayname="Configure Required Lists" hint="I configure lists required by cfusion."
+	description="I configure lists required by cfusion.">
 	
 	<cfset setCustomElements() />
 	<cfset setAvaiableSubSites(FileLocation = variables.filelocation) />

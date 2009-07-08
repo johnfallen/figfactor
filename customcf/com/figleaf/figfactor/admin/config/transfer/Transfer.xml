@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<transfer xsi:noNamespaceSchemaLocation="transfer.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <objectDefinitions>
 
-<!--
+<package name="server">
+	<object name="Server">
+		<id name="ID" column="ID" type="numeric" generate="false" />
+		<property name="ServerName" column="ServerName" type="string" />
+		<property name="ServerIP" column="ServerIP" type="string" />
+		<property name="ServerState" column="ServerState" type="numeric" />
+		<property name="LocalVerity" column="LocalVerity" type="numeric" />
+	</object>
+</package>
 
-It'd be a good idea to uncomment this, pointing the xsi:noNamespaceSchemaLocation attribute to transfer's .xsd 
-	
-<transfer xsi:noNamespaceSchemaLocation="../../../transfer/resources/xsd/transfer.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
--->
-
-<transfer>
-  <objectDefinitions>
-  </objectDefinitions>
+</objectDefinitions>
 </transfer>

@@ -64,7 +64,7 @@ John Allen 		11/10/2008			Created
 	displayname="Get Element" hint="I return a Custom Element object." 
 	description="I return a custom element object by name or an empty one named the CONSTANT: dataNotFound.">
 
-	<cfargument name="name" default=""	hint="I am the name of the element.<br />I default to an empty string." />
+	<cfargument name="name" default="" hint="I am the name of the element.<br />I default to an empty string." />
 	
 	<!---  We will always return something for any application in the framework --->
 	<cfif not IsSimpleValue(variables.instance.elementCollection.getValue(arguments.name))>
@@ -102,9 +102,9 @@ John Allen 		11/10/2008			Created
 	<cfset var x = 0 />
 	
 	<!--- 
-	Read from disk, seach to the customelements array, 
-	loop and pass the element node so the element
-	can be created and set to the element collection.
+		Read from disk, seach to the customelements array, loop and pass the 
+		element node so the element can be created and set to the element 
+		collection.
 	--->
 	<cffile action="read" file="#arguments.path#" variable="fileXML" />
 	<cfset ceXML = XmlSearch(fileXML, "/definitions/customelements/customelement") />

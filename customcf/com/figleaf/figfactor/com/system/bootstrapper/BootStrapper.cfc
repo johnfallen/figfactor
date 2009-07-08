@@ -29,9 +29,9 @@ John Allen 		26/03/2009			Created
 		hint="I am the path to the web root. I default to an empty string." />
  	<cfargument name="frameworkPath" type="string" required="false" 
 		hint="I am the absolute path to the FigFactor framework." />
-	<cfargument name="Logger" type="componet" required="false"  
+	<cfargument name="Logger" type="any" required="false"  
 		hint="I am the Logger component. I am required." />
-	<cfargument name="FileMapper" type="componet" required="false"  
+	<cfargument name="FileMapper" type="any" required="false"  
 		hint="I am the FileMapper component. I am required." />
 
 	<cfset variables.instance = structNew() />
