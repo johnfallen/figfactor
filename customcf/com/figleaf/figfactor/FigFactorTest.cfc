@@ -20,7 +20,9 @@
 	<cfset var ff = variables.FigFactor />
 	<cfset var config = ff.getBean("config") />	
 
-	<cfset assertIsTypeOf(config, "viewframework.customcf.com.figleaf.figfactor.com.system.config.SystemConfigBean", "The config object is not the correct type.") />
+	<cfset assertIsTypeOf(config, 
+		"viewframework.customcf.com.figleaf.figfactor.com.system.config.SystemConfigBean", 
+		"The config object is not the correct type.") />
 	
 </cffunction>
 
@@ -164,7 +166,8 @@
 <!--- testGetBootstrapper --->
 <cffunction name="testGetBootstrapper" output="false">
 	<cfset var obj = variables.FigFactor.getBean("BootStrapper") />
-	<cfset assertIsTypeOf(obj, "viewframework.customcf.com.figleaf.FigFactor.com.system.bootstrapper.BootStrapper") />
+	<cfset assertIsTypeOf(obj, 
+		"viewframework.customcf.com.figleaf.FigFactor.com.system.bootstrapper.BootStrapper") />
 </cffunction>
 
 
@@ -172,7 +175,8 @@
 <!--- testGetListService --->
 <cffunction name="testGetListService" output="false">
 	<cfset var obj = variables.FigFactor.getBean("ListService") />
-	<cfset assertIsTypeOf(obj, "viewframework.customcf.com.figleaf.FigFactor.com.system.listservice.ListService") />
+	<cfset assertIsTypeOf(obj, 
+		"viewframework.customcf.com.figleaf.FigFactor.com.system.listservice.ListService") />
 </cffunction>
 
 
@@ -180,7 +184,8 @@
 <!--- testGetConfig --->
 <cffunction name="testGetConfig" output="false">
 	<cfset var obj = variables.FigFactor.getBean("Config") />
-	<cfset assertIsTypeOf(obj, "viewframework.customcf.com.figleaf.FigFactor.com.system.config.SystemConfigBean") />
+	<cfset assertIsTypeOf(obj, 
+		"viewframework.customcf.com.figleaf.FigFactor.com.system.config.SystemConfigBean") />
 </cffunction>
 
 
@@ -188,7 +193,8 @@
 <!--- testGetFileMapper --->
 <cffunction name="testGetFileMapper" output="false">
 	<cfset var obj = variables.FigFactor.getBean("FileMapper") />
-	<cfset assertIsTypeOf(obj, "viewframework.customcf.com.figleaf.figfactor.com.system.bootstrapper.com.filemapper.FileMapper") />
+	<cfset assertIsTypeOf(obj, 
+		"viewframework.customcf.com.figleaf.figfactor.com.system.bootstrapper.com.filemapper.FileMapper") />
 </cffunction>
 
 
@@ -196,7 +202,8 @@
 <!--- testGetRenderHandlerService --->
 <cffunction name="testGetRenderHandlerService" output="false">	
 	<cfset var obj = variables.FigFactor.getBean("RenderHandlerService") />
-	<cfset assertIsTypeOf(obj, "viewframework.customcf.com.figleaf.figfactor.com.system.util.renderhandlerservice.RenderHandlerService") />
+	<cfset assertIsTypeOf(obj, 
+		"viewframework.customcf.com.figleaf.figfactor.com.system.util.renderhandlerservice.RenderHandlerService") />
 </cffunction>
 
 
@@ -204,7 +211,8 @@
 <!--- testGetLogger --->
 <cffunction name="testGetLogger" output="false">	
 	<cfset var obj = variables.FigFactor.getBean("Logger") />
-	<cfset assertIsTypeOf(obj, "viewframework.customcf.com.figleaf.figfactor.com.system.util.logger.LoggerAdapter") />
+	<cfset assertIsTypeOf(obj, 
+		"viewframework.customcf.com.figleaf.figfactor.com.system.util.logger.LoggerAdapter") />
 </cffunction>
 
 
@@ -212,7 +220,8 @@
 <!--- testGetGoogle --->
 <cffunction name="testGetGoogle" output="false">	
 	<cfset var obj = variables.FigFactor.getBean("Google") />
-	<cfset assertIsTypeOf(obj, "viewframework.customcf.com.figleaf.figfactor.com.applications.google.search.Google") />
+	<cfset assertIsTypeOf(obj, 
+		"viewframework.customcf.com.figleaf.figfactor.com.applications.google.search.Google") />
 </cffunction>
 
 
@@ -220,7 +229,8 @@
 <!--- testGetDataService --->
 <cffunction name="testGetDataService" output="false">	
 	<cfset var obj = variables.FigFactor.getBean("DataService") />
-	<cfset assertIsTypeOf(obj, "viewframework.customcf.com.figleaf.figfactor.com.system.dataservice.DataService") />
+	<cfset assertIsTypeOf(obj, 
+		"viewframework.customcf.com.figleaf.figfactor.com.system.dataservice.DataService") />
 </cffunction>
 
 
@@ -228,7 +238,8 @@
 <!--- testGetAuthentication --->
 <cffunction name="testGetAuthentication" output="false">	
 	<cfset var obj = variables.FigFactor.getBean("Authentication") />
-	<cfset assertIsTypeOf(obj, "viewframework.customcf.com.figleaf.figfactor.com.applications.authentication.Authentication") />
+	<cfset assertIsTypeOf(obj, 
+		"viewframework.customcf.com.figleaf.figfactor.com.applications.authentication.Authentication") />
 </cffunction>
 
 
@@ -236,7 +247,8 @@
 <!--- testGetObjectStore --->
 <cffunction name="testGetObjectStore" output="false">	
 	<cfset var obj = variables.FigFactor.getBean("ObjectStore") />
-	<cfset assertIsTypeOf(obj, "viewframework.customcf.com.figleaf.figfactor.com.applications.objectstore.ObjectStore") />
+	<cfset assertIsTypeOf(obj, 
+		"viewframework.customcf.com.figleaf.figfactor.com.applications.objectstore.ObjectStore") />
 </cffunction>
 
 
@@ -244,7 +256,8 @@
 <!--- testGetSecurity --->
 <cffunction name="testGetSecurity" output="false">	
 	<cfset var obj = variables.FigFactor.getBean("Security") />
-	<cfset assertIsTypeOf(obj, "viewframework.customcf.com.figleaf.figfactor.com.applications.security.Security") />
+	<cfset assertIsTypeOf(obj, 
+		"viewframework.customcf.com.figleaf.figfactor.com.applications.security.Security") />
 </cffunction>
 
 
@@ -252,7 +265,8 @@
 <!--- testGetValidator --->
 <cffunction name="testGetValidator" output="false">
 	<cfset var obj = variables.FigFactor.getBean("Validator") />
-	<cfset assertIsTypeOf(obj, "viewframework.customcf.com.figleaf.figfactor.com.applications.validator.Validator") />
+	<cfset assertIsTypeOf(obj, 
+		"viewframework.customcf.com.figleaf.figfactor.com.applications.validator.Validator") />
 </cffunction>
 
 
@@ -260,7 +274,8 @@
 <!--- testGetElementFactory --->
 <cffunction name="testGetElementFactory" output="false">	
 	<cfset var obj = variables.FigFactor.getBean("ElementFactory") />
-	<cfset assertIsTypeOf(obj, "viewframework.customcf.com.figleaf.figfactor.com.system.elementfactory.ElementFactory") />
+	<cfset assertIsTypeOf(obj, 
+		"viewframework.customcf.com.figleaf.figfactor.com.system.elementfactory.ElementFactory") />
 </cffunction>
 
 
@@ -268,22 +283,26 @@
 <!--- testGetEventService --->
 <cffunction name="testGetEventService" output="false">	
 	<cfset var obj = variables.FigFactor.getBean("EventService") />
-	<cfset assertIsTypeOf(obj, "viewframework.customcf.com.figleaf.figfactor.com.system.event.EventService") />
+	<cfset assertIsTypeOf(obj, 
+		"viewframework.customcf.com.figleaf.figfactor.com.system.event.EventService") />
 </cffunction>
+
 
 
 <!--- testGetFileSystem --->
 <cffunction name="testGetFileSystem" output="false">	
 	<cfset var obj = variables.FigFactor.getBean("FileSystem") />
-	<cfset assertIsTypeOf(obj, "Figfactor.com.system.util.filesystem.FileSystem") />
+	<cfset assertIsTypeOf(obj, 
+		"Figfactor.com.system.util.filesystem.FileSystem") />
 </cffunction>
 
 
 
 <!--- testGetUDF --->
-<cffunction name="testGetUDF" output="false">	
+<cffunction name="testGetUDF" output="false">
 	<cfset var obj = variables.FigFactor.getBean("UDF") />
-	<cfset assertIsTypeOf(obj, "viewframework.customcf.com.figleaf.figfactor.com.system.util.udf.UDFLib") />
+	<cfset assertIsTypeOf(obj, 
+		"viewframework.customcf.com.figleaf.figfactor.com.system.util.udf.UDFLib") />
 </cffunction>
 
 
@@ -291,6 +310,7 @@
 <!--- testGetLegacy --->
 <cffunction name="testGetLegacy" output="false">	
 	<cfset var obj = variables.FigFactor.getBean("Legacy") />
-	<cfset assertIsTypeOf(obj, "viewframework.customcf.com.figleaf.figfactor.com.system.legacy.Legacy") />
+	<cfset assertIsTypeOf(obj, 
+		"viewframework.customcf.com.figleaf.figfactor.com.system.legacy.Legacy") />
 </cffunction>
 </cfcomponent>

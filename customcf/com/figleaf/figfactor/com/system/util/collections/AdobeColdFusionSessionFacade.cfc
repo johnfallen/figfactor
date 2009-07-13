@@ -12,7 +12,7 @@
 			<cfset session.sessionId = "#application.applicationname#_#session.cfid#_#session.cftoken#" />
 			<cfreturn session.sessionId />
 		<cfelse>
-			<cfthrow type="ModelGlue.AdobeColdFusionSessionFacade.NoSessionId"
+			<cfthrow type="AdobeColdFusionSessionFacade.NoSessionId"
 							 detail="Can't generate session identifier!"
 			/>
 		</cfif>
@@ -65,6 +65,8 @@
 	</cftry>
 </cffunction>
 
+
+<!--- exists --->
 <cffunction name="exists" output="false">
 	<cfargument name="key" />
 
