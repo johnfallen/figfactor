@@ -104,6 +104,24 @@ John Allen 		28/03/2009			Created
 
 
 
+<cffunction name="removeList" returntype="boolean" access="public" output="false"
+	displayname="Remove List" hint="I remove a list from my collection"
+	description="I remove a list by name from my collection of strored lists.">
+	<cfargument name="name" type="string" required="false" default=""
+		hint="I am the name of the list to remove from my collection. I default to an empty string" />
+	
+	<cfset result = true>
+	<cftry>	
+		<cfset variables.collection.removeValue(arguments.name) />
+		<cfcatch>
+			<cfset result = false />
+		</cfcatch>
+	</cftry>	
+
+	<cfreturn result />
+</cffunction>
+
+
 <!--- *********** Package *********** --->
 <!--- *********** Private *********** --->
 

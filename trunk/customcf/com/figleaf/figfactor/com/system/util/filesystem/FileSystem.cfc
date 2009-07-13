@@ -44,16 +44,20 @@ John Allen 		13/12/2008			Created
 	<cfargument name="FileName" required="true" type="any" hint="I am the file name.<br />I am required." />
 	<cfargument name="Content" required="true" type="any" hint="I am the content of the file.<br />I am required." />
 
+	<cfset var result = false />
 	<cftry>
 		
 		<cflock type="exclusive" name="#createUUID()#" timeout="10">
 			<cffile action="write" file="#arguments.Destination##arguments.FileName#" output="#arguments.Content#" />
+			<cfset result = true />
 		</cflock>
 
 		<cfcatch type="any">
 			<cfthrow type="FileSystem.createFile" message="#cfcatch.message#" />
 		</cfcatch>
 	</cftry>
+	
+	<cfreturn result />
 </cffunction>
 
 
@@ -68,7 +72,7 @@ John Allen 		13/12/2008			Created
  @author Joe Rinehart (&#106;&#111;&#101;&#46;&#114;&#105;&#110;&#101;&#104;&#97;&#114;&#116;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;) 
  @version 1, July 27, 2005 
 --->
-<cffunction name="directoryCopy" output="true">
+<cffunction name="directoryCopy" output="true" returntype="boolean">
 	<cfargument name="source" required="true" type="string">
 	<cfargument name="destination" required="true" type="string">
 	<cfargument name="nameconflict" required="true" default="overwrite">
@@ -84,37 +88,98 @@ John Allen 		13/12/2008			Created
 		<cfdirectory action="create" directory="#arguments.destination#">
 	</cfif>
 	
-	<cfdirectory action="list" directory="#arguments.source#" name="contents">
+	<cfdirectory action="list" directory="#arguments.source#" name="contents" />
 	
 	<cfloop query="contents">
 		<cfif contents.type eq "file">
-			<cffile action="copy" source="#arguments.source#\#name#" destination="#arguments.destination#\#name#" nameconflict="#arguments.nameConflict#">
+			<cffile action="copy" 
+				source="#arguments.source & dirDelim & name#" 
+				destination="#arguments.destination & dirDelim & name#" 
+				nameconflict="#arguments.nameConflict#" />
 		<cfelseif contents.type eq "dir">
 			<cfset directoryCopy(arguments.source & dirDelim & name, arguments.destination & dirDelim &  name) />
 		</cfif>
 	</cfloop>
 
+	<cfreturn true />
 </cffunction>
 
 
 
 <!--- delete --->
-<cffunction name="delete" access="public" output="false" returntype="void" 
+<cffunction name="delete" access="public" output="false" returntype="boolean" 
 	displayname="Delete" hint="I delete a file by path and name."
 	description="I attempt to delete a file by path and name.<br />Throws error if file not found.">
 	
 	<cfargument name="Destination" required="true" type="string" hint="I am the fully system path.<br />I am required." />
 	<cfargument name="FileName" required="true" type="any" hint="I am the file name.<br />I am required." />
 
+	<cfset var result = false />
+	
 	<cftry>
-		
 		<cffile action="delete" file="#arguments.Destination##arguments.FileName#" />
+		<cfset result = true />
 		
 		<cfcatch type="any">
 			<cfthrow type="FileSystem.delete" message="#cfcatch.message#" />
 		</cfcatch>
 	</cftry>
 
+	<cfreturn result />
+</cffunction>
+
+
+
+
+<!---
+Recursively delete a directory.
+
+@param directory      The directory to delete. (Required)
+@param recurse      Whether or not the UDF should recurse. Defaults to false. (Optional)
+@return Return a boolean. 
+@author Rick Root (rick@webworksllc.com) 
+@version 1, July 28, 2005 
+--->
+<cffunction name="deleteDirectory" returntype="boolean" output="false">
+    <cfargument name="directory" type="string" required="yes" >
+    <cfargument name="recurse" type="boolean" required="no" default="false">
+    
+    <cfset var myDirectory = "">
+    <cfset var count = 0>
+
+    <cfif right(arguments.directory, 1) is not "/">
+        <cfset arguments.directory = arguments.directory & "/">
+    </cfif>
+    
+    <cfdirectory action="list" directory="#arguments.directory#" name="myDirectory">
+
+    <cfloop query="myDirectory">
+        <cfif myDirectory.name is not "." AND myDirectory.name is not "..">
+            <cfset count = count + 1><cfdump var="#myDirectory#">
+            <cfswitch expression="#myDirectory.type#">
+            
+                <cfcase value="dir">
+                    <!--- If recurse is on, move down to next level --->
+                    <cfif arguments.recurse>
+                        <cfset deleteDirectory(
+                            arguments.directory & myDirectory.name,
+                            arguments.recurse )>
+                    </cfif>
+                </cfcase>
+                
+                <cfcase value="file">
+                    <!--- delete file --->
+                    <cfif arguments.recurse>
+                        <cffile action="delete" file="#arguments.directory##myDirectory.name#">
+                    </cfif>
+                </cfcase>            
+            </cfswitch>
+        </cfif>
+    </cfloop>
+    <cfif count is 0 or arguments.recurse>
+        <cfdirectory action="delete" directory="#arguments.directory#">
+    </cfif>
+    <cfreturn true>
 </cffunction>
 
 

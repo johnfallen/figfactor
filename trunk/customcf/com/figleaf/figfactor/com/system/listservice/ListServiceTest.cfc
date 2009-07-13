@@ -3,7 +3,6 @@
 	output="false" 
 	extends="mxunit.framework.TestCase">
 
-
 <cfset variables.ls = application.FigFactor.getBean("ListService") />
 
 <!--- testSetAndGetList --->
@@ -12,10 +11,33 @@
 	<cfset var ls = variables.ls />
 	<cfset var testList = "this,is,a,test,list">
 	
+	<cfset ls.removeList("testList") />
 	<cfset ls.setList("testList", testList) />
 	
 	<cfset assertEquals(testList, ls.getList("testList"), "Nope they are not the same") />
+</cffunction>
+
+
+
+<!--- testAddListTwiceThrowsError --->
+<cffunction name="testAddListTwiceThrowsError" output="false">
 	
+	<cfset var ls = variables.ls />
+	<cfset var testList = "this,is,a,test,list" />
+	<cfset var result = false />
+	
+	<cfset ls.removeList("testList") />
+	
+	<cfset assertTrue(ls.removeList("testList"), "the list was not removed from the mapcollection") />
+	
+	<cfset ls.setList("testList", testList) />
+	
+	<cftry>
+		<cfset ls.setList("testList", testList) />
+		<cfcatch><cfset result = true /></cfcatch>
+	</cftry>
+	
+	<cfset assertTrue(result, "NO! the value got set twice!") />
 </cffunction>
 
 

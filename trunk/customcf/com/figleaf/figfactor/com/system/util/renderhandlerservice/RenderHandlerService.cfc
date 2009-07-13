@@ -25,6 +25,7 @@ John Allen		03/22/2008		Var scoped several local variables that needed it.
 <!--- init --->
 <cffunction name="init" access="public" hint="I initalize this CFC. Element Infomations is a required argument." 
 	displayname="init" output="false" returntype="RenderHandlerService">
+	
 	<cfreturn this />
 </cffunction>
 
@@ -33,12 +34,17 @@ John Allen		03/22/2008		Var scoped several local variables that needed it.
 <!--- load --->
 <cffunction name="Load" access="public" output="true" 
 	description="Load" displayname="Load" returntype="any"
-	hint="I load data for this CFC. Element Infomations is a required argument." >
-	<cfargument name="elementInfo" required="true" type="struct" hint="I am a structure of an elements information.<br />I am required.">
-	<!--- place the element infor into the requst scope for ease of use --->
+	hint="I load data for this CFC. ElementInfo is a required argument." >
+	
+	<cfargument name="elementInfo" required="true" type="struct"
+		hint="I am a structure of an elements information.<br />I am required.">
+	
+	<!--- place the element info into the requst scope for ease of use --->
 	<cfset request.elementInfo = arguments.elementInfo />
+	
 	<cfreturn this />
 </cffunction>
+
 
 
 <!--- getElementData --->
