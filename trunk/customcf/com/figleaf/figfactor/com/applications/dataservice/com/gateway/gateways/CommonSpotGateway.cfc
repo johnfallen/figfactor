@@ -30,7 +30,7 @@ John Allen	 07/06/2008	 Created
 	displayname="Get Releated Pages" hint="I return a query of related pages for a given page."
 	description="I return a query of releated pages for a given page by calling several sub components to do the heavy lifting." >
 	
-	<cfargument name="Event" required="true" />
+	<cfargument name="PageEvent" required="true" />
 	<cfargument name="BeanFactory" required="false" default="" />
 	<cfargument name="Helpers" required="false"  />
 	<cfargument name="returnIDsOnly" required="false" default="false" hint="Should I only return teh values from getReleatedPages() value?" />
@@ -72,7 +72,7 @@ John Allen	 07/06/2008	 Created
 
 	<cfargument name="pageTypes" default=""
 		hint="I am a list of PageTypes to get.<br />I defalult to an empty string ''." />
-	<cfargument name="Event" 
+	<cfargument name="pageEvent" 
 		hint="I am the PageEvent Object.<br />I am required." />
 	
 	<cfset var config = arguments.beanfactory.getBean("ConfigBean") />
@@ -171,102 +171,183 @@ John Allen	 07/06/2008	 Created
 </cffunction>
 
 
-<!--- getPageList
-<cffunction name="getPageList" returntype="any" access="public" output="false"
-	displayname="Get Page List" hint="I return a query of pages by Meta-data ID and subsite."
-	description="I return a query of pages by Meta-data ID and subsite.">
 
-	<cfargument name="pageTypes" default=""
-		hint="I am a list of PageTypes to get.<br />I defalult to an empty string ''." />
-	<cfargument name="pageEvent" 
-		hint="I am the PageEvent Object.<br />I am required." />
-	<cfargument name="beanfactory" 
-		hint="I am the PageEvent Object.<br />I am required." />
+
+<!--- getNewsAndEvents --->
+<cffunction name="getNewsAndEvents"  output="false" access="public"
+	displayname="Get OU Data" hint="I return a structure of queries with News & Event data."
+	description="I return a structure of queries with News and Event data. I use the cfqueries to get my data.">
 	
-	<cfset var PageID = arguments.pageEvent.getPageID() />
+	<cfargument name="dsn" default="#variables.GatewayConfigBean.getCommonSpotDSN()#" 
+		hint="I am the datasource. I defalut to a configuration setting.<br />I am required." />
+
+	<cfset var bodyArray = arrayNew(1) />
+	<cfset var thumbArray = arrayNew(1) />
+	<cfset var eventStartDateArray = arrayNew(1) />
+	<cfset var sortDateArray = arrayNew(1) />
+	<cfset var newsAndEvents = "" />
 	<cfset var SubSiteIDs = request.subsite.id & "," & request.subsite.CHILDLIST />
-	<cfset var pages = 0 />
 	<cfset var theval = 0 />
-	<cfset var metaDataPagesIDs = 0 />
-	<cfset var config = arguments.beanfactory.getBean("ConfigBean") />
-	<cfset var finalPages = 0 />
-	<cfset var customelement = arguments.pageEvent.getValue("customelement") />
-	<cfset var fleetDsn = config.getCommonSpotSupportDSN() />
-	<cfset var dsn = config.getCommonSpotDSN() />
-	<cfset var sortOrder = "" />
-	<cfset var lastFilterQuery = "" />
-	
-	
-	<cfdump var="#arguments.pageEvent.getAllValues()#">
-	<cfabort />
-	
-	<cfif structKeyExists(customelement, "page_list_taged_terms") 
-			and listLen(arguments.pageEvent.getValue("customelement").page_list_taged_terms) gt 0>
-		
-		<!--- set the metadata ids return from FLEET --->
-		<cfset metaDataPagesIDs = arguments.pageEvent.getValue("customelement").page_list_taged_terms />
-			
-		<!--- get releated pageID's from the ReleatedLinks.cfc --->
-		<cfset metaDataPagesIDs = variables.releatedLinks.getReleatedPages(
-			datasource = fleetDsn, 
-			lmetadataids = "#metaDataPagesIDs#") />
-	</cfif>
+	<cfset var getNewsBody = 0 />
+	<cfset var getNewsDate = 0 />
+	<cfset var getEventBody = 0 />
+	<cfset var getEventDate = 0 />
+	<cfset var finalDateSortedQuery = 0 />
 
-	<!--- if we got a result with ID's query the commonspot db --->
-	<cfif listLen(metaDataPagesIDs)>
+	<!--- Get News and Event Pages for an OU --->
+	<cfquery name="newsAndEvents" datasource="#arguments.dsn#" result="theval">
+		select  distinct
+			p.filename, p.caption,  p.title,  p.description,  p.ID as PageID,
+			
+			d.DateApproved,  d.FieldValue, d.FormID, d.FieldID, d.DateAdded,
+			
+			s.ID as subsiteID, s.subsiteurl, s.imagesurl, s.imagesdir
+
+		from Data_FieldValue d
 		
-		<!--- now query to get the releated pages ONLY from the children subsites --->
-		<cfquery name="pages" datasource="#dsn#" result="theval">
-			select  distinct
-				p.filename, p.caption,  p.title,  p.description, p.ID as PageID,
-				
-				d.DateApproved,  d.FieldValue, d.FormID, d.FieldID, d.DateAdded,
-				
-				s.ID as subsiteID, s.subsiteurl, s.imagesurl, s.imagesdir
-	
-			from Data_FieldValue d
-			
-			join SitePages p on d.PageID = p.ID
-			join SubSites s on p.SubSiteID = s.ID
-			join FormControl f on d.FormID = f.ID
-			join FormInputControl i on d.FieldID = i.ID
-			
-			where subsiteID in (<cfqueryparam value="#SubSiteIDs#" cfsqltype="cf_sql_integer" list="true" />)
-			and pageID in (<cfqueryparam value="#metaDataPagesIDs#" cfsqltype="cf_sql_integer" list="true" />)
-			and d.versionState = 2
-			
-			order by d.DateAdded desc
-		</cfquery>
+		join SitePages p on d.PageID = p.ID
+		join SubSites s on p.SubSiteID = s.ID
+		join FormControl f on d.FormID = f.ID
+		join FormInputControl i on d.FieldID = i.ID
 		
-		<!--- make a filtered query --->
-		<cfquery dbtype="query" name="finalPages">
-			SELECT distinct pageID, filename, subsiteurl, title, dateApproved, caption
-			FROM pages
-			where pageID in (#metaDataPagesIDs#)
-		</cfquery>
+		where s.id in (<cfqueryparam value="#SubSiteIDs#" cfsqltype="cf_sql_integer" list="true" />)
+		
+		and d.versionState = 2
+		and d.fieldValue IN ('News Item', 'event')
+		and f.FormName = 'PageType'
+		and i.FieldName = 'FIC_pageType'
+		
+		order by d.DateApproved desc
+	</cfquery>
 	
-		<!--- now filter out by distinct again --->
-		<cfquery name="lastFilterQuery" dbtype="query">
-			SELECT distinct pageID, filename, subsiteurl, title
-				FROM finalPages
-				where pageID in (#metaDataPagesIDs#)
+	<!--- add the 'body' and thumbnail columns to the return query --->
+	<cfset QueryAddColumn(newsAndEvents, "body", "VarChar", bodyArray)>
+	<cfset QueryAddColumn(newsAndEvents, "thumbnail", "VarChar", thumbArray)>
+	<cfset QueryAddColumn(newsAndEvents, "eventStartDate", "Integer", eventStartDateArray)>
+	<cfset QueryAddColumn(newsAndEvents, "sortDate", "Integer", sortDateArray)>
+	
+	<!--- 
+		get the body tex for events and news items, turn the "content" into an 
+		array add it to the newsAndEvents qeury.
+	 --->
+	<cfif newsAndEvents.recordcount>
+	
+		<cfquery name="getNewsBody" datasource="#arguments.dsn#">
+				select
 				
-				<!--- figure out the order to return --->
-				<cfif structKeyExists(arguments.pageEvent.getAllValues().customelement, "page_list_order")>
-					<cfset sortOrder = arguments.pageEvent.getAllValues().customelement.page_list_order />
-					<cfif sortOrder eq "alpha">
-						ORDER BY title asc
-						
-					<cfelseif sortOrder eq "Last Modifyed">
-						ORDER BY dateApproved desc
-					</cfif>
+					p.ID as PageID,
+				case
+				      when 
+				      	d.memoValue is not null 
+				      	and 
+				      	ltrim(rtrim( convert(varchar(100),d.memoValue) )) != '' then d.memoValue
+				      else 
+				      	d.fieldValue
+				end 
+					
+				from Data_FieldValue d
+				
+				join SitePages p on d.PageID = p.ID
+				join SubSites s on p.SubSiteID = s.ID
+				join FormControl f on d.FormID = f.ID
+				join FormInputControl i on d.FieldID = i.ID
+				
+				where 
+					PageID IN (<cfqueryparam value="#valueList(newsAndEvents.PageID)#" cfsqltype="cf_sql_integer" list="true" />)
+				and d.versionState = 2
+				and i.FieldName = 'FIC_news_item_body'
+				order by d.DateApproved desc
+		</cfquery>
+
+
+		<!--- query for news date --->
+		<cfquery name="getNewsDate" datasource="#arguments.dsn#">
+				select
+				
+					p.ID as PageID,
+				case
+				      when d.memoValue is not null and ltrim(rtrim(convert(varchar(100),d.memoValue))) != '' then d.memoValue
+				      else d.fieldValue
+				end 
+					
+				from Data_FieldValue d
+				
+				join SitePages p on d.PageID = p.ID
+				join SubSites s on p.SubSiteID = s.ID
+				join FormControl f on d.FormID = f.ID
+				join FormInputControl i on d.FieldID = i.ID
+				
+				where 
+					PageID IN (<cfqueryparam value="#valueList(newsAndEvents.PageID)#" cfsqltype="cf_sql_integer" list="true" />)
+				and d.versionState = 2
+				and i.FieldName = 'FIC_news_item_release_date'
+				order by d.DateApproved desc
+		</cfquery>
+
+		
+		<!--- query for images --->
+		<cfquery name="getNewsImage" datasource="#arguments.dsn#">
+				select
+				
+					p.ID as PageID,
+				case
+				      when d.memoValue is not null and ltrim(rtrim(convert(varchar(100),d.memoValue))) != '' then d.memoValue
+				      else d.fieldValue
+				end 
+					
+				from Data_FieldValue d
+				
+				join SitePages p on d.PageID = p.ID
+				join SubSites s on p.SubSiteID = s.ID
+				join FormControl f on d.FormID = f.ID
+				join FormInputControl i on d.FieldID = i.ID
+				
+				where 
+					PageID IN (<cfqueryparam value="#valueList(newsAndEvents.PageID)#" cfsqltype="cf_sql_integer" list="true" />)
+				and d.versionState = 2
+				and i.FieldName = 'FIC_news_item_thumbnail'
+				order by d.DateApproved desc
+		</cfquery>
+
+
+		<cfloop query="newsAndEvents">
+			
+			<cfloop query="getNewsBody">
+				<cfif newsAndEvents.pageID eq getNewsBody.pageID>
+					<cfset newsAndEvents.body = getNewsBody.COMPUTED_COLUMN_2 />
 				</cfif>
-		</cfquery>
+			</cfloop>
+			
+			<cfloop query="getNewsDate">
+				<cfif newsAndEvents.pageID eq getNewsDate.pageID>
+					<cfset newsAndEvents.sortDate = getNewsDate.COMPUTED_COLUMN_2 />
+				</cfif>
+			</cfloop>
+			
+			<cfloop query="getNewsImage">
+				<cfif newsAndEvents.pageID eq getNewsImage.pageID>
+					<cfset newsAndEvents.thumbnail = getNewsImage.COMPUTED_COLUMN_2 />
+				</cfif>
+			</cfloop>
+			
+		</cfloop>
 	</cfif>
 
-	<cfreturn lastFilterQuery />
+
+	<cfquery dbtype="query" name="finalDateSortedQuery" maxrows="3">
+		SELECT *
+		FROM newsAndEvents
+		ORDER by sortDate desc
+	</cfquery>
+
+
+	<cfif isDefined("url.jfa")>
+		<cfdump var="#finalDateSortedQuery#">
+		<cfabort />
+	</cfif>
+
+	<cfreturn finalDateSortedQuery />
 </cffunction>
- --->
 <!--- *********** Package *********** --->
 <!--- *********** Private *********** --->
 </cfcomponent>

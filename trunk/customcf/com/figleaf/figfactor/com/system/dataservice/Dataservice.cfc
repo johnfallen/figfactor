@@ -1,23 +1,28 @@
 <!--- Document Information -----------------------------------------------------
-Build:      			@@@revision-number@@@
-Title:      			DataService.cfc
-Author:     			John Allen
-Email:      			jallen@figleaf.com
+Build:      		@@@revision-number@@@
+Title:      		DataService.cfc
+Author:     		John Allen
+Email:      		jallen@figleaf.com
 Company:			@@@company-name@@@
 Website:			@@@web-site@@@
-Purpose:    		I am the API of the DataService, a "tool kit" for getting 
-						queries from CommonSpot. I add structures of queries 
-						to the PageEvents EventCollection.
+Purpose:    		I am the API of the DataService, a "tool kit" for adding 
+					data returned from methods in CFC's located in the 
+					figfactor/site/model/gateways direcotory.
 
-Usage:				setPageEventQueries(
+Usage:				setEventConfiguredMethodData
+						(
 							PageEvent : requried
-							recache : defaults to 'false')
+							recache : defaults to 'false'
+						)
 
 Modification Log:
-Name	 		Date	 			Description
+Name	 		Date	 Description
 ================================================================================
 John Allen	 07/06/2008	 Created
 John Allen	 04/06/2009	 Refactored for v2 exactly one year later!
+John Allen	 07/32/2009	 Finally removed the requirement that injecte methods
+						 only return cf query objects!
+						 Updated all code comments. They still suck.
 ------------------------------------------------------------------------------->
 <cfcomponent displayname="Data Service"  output="false"
 	hint="I am the API of the DataService, a toolkit for getting queries from CommonSpot.">
@@ -53,8 +58,10 @@ John Allen	 04/06/2009	 Refactored for v2 exactly one year later!
 	<cfset variables.version = variables.ConfigBean.getDataserviceVersion() />
 	<cfset variables.notFound = variables.ConfigBean.getConstants().DATANOTFOUND />
 
-	<cfset variables.FileIO = createObject("component", "com.xmldata.FileIO").init() />
-	<cfset variables.Gateway = createObject("component", "com.gateway.AbstractGateway").init(argumentCollection = arguments) />
+	<cfset variables.FileIO = 
+		createObject("component", "com.xmldata.FileIO").init() />
+	<cfset variables.Gateway = 
+		createObject("component", "com.gateway.AbstractGateway").init(argumentCollection = arguments) />
 
 	<cfreturn this />
 </cffunction>
@@ -66,17 +73,16 @@ John Allen	 04/06/2009	 Refactored for v2 exactly one year later!
 	displayname="Set Event Configured Method Data" 
 	hint="I call methods configured in the xml and add them to the Page Event." 
 	description="
-		I add values to the Event EventCollection. The data is always pulled 
-		from the cache.<br /><br />
-		The values I add are:<br />
+		I add a structure to the Events EventCollection called 
+		'dataServiceResult' with keys called:<br /><br />
 		CacheKey = the Pages unique key.<br />
-		Data = The data from the cache<br />
+		dataServiceResult = The data from the cache<br />
 		CacheStatus = wheather or not the data was retrieved from the cache.">
 	
 	<cfargument name="Event" required="true" 
 		hint="I am the frameworks Event object. I am required." />
 	<cfargument name="recache" default="false" 
-		hint="I am a flag. I tell the method to run the Event queries regardless of any other logic. I default to false." />
+		hint="I am a flag to call my configured methods on the AbstractGateway. I default to false." />
 	
 	<cfset var dataServiceResult = 0 />
 	<cfset var dynamicMethodResults = structNew() />
@@ -97,18 +103,18 @@ John Allen	 04/06/2009	 Refactored for v2 exactly one year later!
 	<cfset arguments.event.setValue(name = "cacheKey", value = CacheKey) />
 
 	<!--- 
-	If the data data is not in the cache, get it from the gateway and then 
-	put it in the cache. At the end of the method get the cached data and set it
-	using the Event's EventCollention with setValue(). This way data is always 
-	pulled from the cache.
-	
-	The check below creates 2 different senerios: 
-		1. the event is configured to never cache anything
-		2. the data is not in the cache
+		Check if the key for the data is already in the cache. If so, say so
+		by keeping cacheCheck eq to true. 
 	--->
-	
-	<cfset cacheCheck = variables.cache.get(key = arguments.event.getValue("cacheKey"), KeyExistsCheck = 1) />
+	<cfset cacheCheck = variables.cache.get(
+			key = arguments.event.getValue("cacheKey"), 
+			KeyExistsCheck = 1) />
 
+	<!--- 
+		Now check if its configured to run every time OR if the Input from the
+		Event (for http a URL variable) explicitly requested it be run for this
+		specific request.
+	 --->
 	<cfif arguments.event.getPageTypeDefinitions().useCache eq false 
 		or 
 		(
@@ -117,24 +123,24 @@ John Allen	 04/06/2009	 Refactored for v2 exactly one year later!
 			(comparenocase(arguments.recache, "false"))
 		)>
 	
-	
 		<!--- arguments for the dynamic method call--->
 		<cfset args.Event = arguments.Event />
 		<cfset args.BeanFactory = application.FigFactor.getFactory() />
 	
+		<!--- 
+			Loop over the configured methods and call them on the 
+			AbstractGateway.cfc which will the methods from any CFC sitting in 
+			the site/model/gateway directory injected into it.
+		--->
 		<cfloop from="1" to="#arraylen(methods)#" index="x">
 			
-			<!--- the dynamic method call on the users cfc --->
 			<cfinvoke 
 				component="#variables.Gateway#" 
 				method="#methods[x].method#" 
 				returnvariable="dataServiceResult" 
 				argumentcollection="#args#" />
 
-			<!--- 
-				Add the returned data to the cach, for the rest of the method
-				just ALWAYS get the data from the cache.
-			 --->
+			<!--- add the returned data to the results struct then to the cache --->
 			<cfset dynamicMethodResults[methods[x].resultName] = duplicate(dataServiceResult) />
 			<cfset variables.cache.put(
 					key = arguments.Event.getValue("cacheKey"), 
@@ -142,28 +148,31 @@ John Allen	 04/06/2009	 Refactored for v2 exactly one year later!
 
 		</cfloop>
 	
-		<!--- add the cached data to event and set its status --->
-		<cfset arguments.Event.setValue(name = "dataServiceResult", value = variables.cache.get(arguments.Event.getValue("cacheKey"))) />
+		<!--- 
+			Set the data and status of how we got the data.
+		--->
+		<cfset arguments.Event.setValue(
+				name = "dataServiceResult", 
+				value = variables.cache.get(arguments.Event.getValue("cacheKey"))) />
 		<cfset arguments.Event.setValue(name="cacheStatus", value = 0) />
 		<cfset arguments.Event.setValue(name="ranQueries", value = "YES") />
-		
-		<!--- if configured, write the xml file --->
-		<!--- TODO: do we really need this feature? I say kill --->
-		<!--- 
-		<cfif variables.writeXMLFileData eq true>
-			<cfset variables.FileIO.writeXMLFile(key = arguments.Event.getValue("cacheKey"), value = arguments.Event.getValue("queries")) />
-		</cfif>
-		 --->
-		
+
 	<cfelse>
 	
-		<!--- pull from the cache, add to the event, and set its status --->
-		<cfset arguments.Event.setValue(name = "dataServiceResult", value = variables.cache.get(arguments.Event.getValue("cacheKey"))) />
+		<!--- 
+			Set the data and status of how we got the data.
+		--->
+		<cfset arguments.Event.setValue(
+				name = "dataServiceResult", 
+				value = variables.cache.get(arguments.Event.getValue("cacheKey"))) />
 		<cfset arguments.Event.setValue(name="cacheStatus", value = 1) />
 		<cfset arguments.Event.setValue(name="ranQueries", value = "NO") />
 	</cfif>
 	
-	<!--- Normalize the EventCollecitons 'queries' value to always return a structure --->
+	<!--- 
+		Be cool and kind ... normalize so the event always has this structure
+		in the Event objects EventCollection
+	--->
 	<cfif not isStruct(arguments.Event.getValue("dataServiceResult"))>
 		<cfset arguments.Event.setValue(name = "dataServiceResult", value = structNew()) />
 		<cfset arguments.Event.setValue(name= "cacheStatus", value = 2) />
@@ -172,6 +181,7 @@ John Allen	 04/06/2009	 Refactored for v2 exactly one year later!
 	
 	<cfreturn arguments.Event />
 </cffunction>
+
 
 
 <!--- getCache --->

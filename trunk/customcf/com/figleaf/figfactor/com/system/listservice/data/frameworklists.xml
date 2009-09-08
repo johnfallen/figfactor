@@ -1,5 +1,14 @@
 <lists>
 	
+	<list name="campus">
+		<item>Boulder</item>
+		<item>Gaithersburg</item>
+		<item>HML</item>
+		<item>JILA</item>
+		<item>JQI</item>
+		<item>CARB/UMBI</item>
+	</list>
+	
 	<list name="subSites">
 		<item>foo</item>
 		<item>bar</item>

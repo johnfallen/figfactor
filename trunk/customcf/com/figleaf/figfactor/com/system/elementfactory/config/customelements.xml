@@ -4,21 +4,14 @@
 
 		<!-- Blank Page -->
 		<customelement name="Blank Page" useDataService="true" useCache="true" CSSClass="blank-page">
-			<method name="getReleatedPages" resultName="ReleatedPages" />
-			<method name="getRemoteData" resultName="RemoteData" />
-			<method name="getFakeMetaData" resultName="FakeMetaData" />
+			<method name="getNewsAndEvents" resultName="newsAndEvents" />
 		</customelement>
 
 		<!-- News Item -->
-		<customelement name="News Item" useDataService="true" useCache="true" CSSClass="news-item">
-			<method name="getRemoteData" resultName="RemoteData" />
-		</customelement>	
+		<customelement name="News Item" useDataService="true" useCache="true" CSSClass="news-item" />
 		
-		<!-- Page List -->
-		<customelement name="Page List" useDataService="true" useCache="true" CSSClass="page-list">
-			<method name="getPageList" resultName="pageList" />
-		</customelement>	
+		<!-- Faq Page -->
+		<customelement name="FAQ Page" useDataService="false" useCache="false" CSSClass="faq-page" />
 		
-		<customelement name="Test Element" useDataService="true" useCache="true" CSSClass="news-item" />
 	</customelements>
 </definitions>

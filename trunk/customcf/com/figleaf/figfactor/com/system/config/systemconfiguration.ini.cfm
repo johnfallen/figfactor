@@ -1,16 +1,15 @@
 <cfabort />
 [system]
 system_mode=production
-commonspot_dsn=commonspot-site-viewframework
-commonspot_sites_dsn=commonspot-sites
+commonspot_dsn=commonspot-site-otp-gov
 reload=false
 url_reload_key=init
 url_reload_key_value=true
 page_type_metadata_form_name=Page-Type
 page_type_metadata_form_field_name=page_type
 production_server_ip_list=129.34.123.4,168.111.12.166,168.111.12.167
-administrator_email=pcorey@nist.gov
-webmaster_email=pcorey@nist.gov,john.allen@nist.gov
+administrator_email=john.allen@nist.gov
+webmaster_email=john.allen@nist.gov
 developer_email=john.allen@nist.gov,jallen@figleaf.com,johnfallen@gmail.com
 mail_server=localhost
 mail_username=
@@ -22,11 +21,11 @@ fig_leaf_system_version=RCV2 0.5
 [ui]
 default_css=home
 default_css_class=home
-web_path_to_admin=/viewframework/customcf/com/figleaf/figfactor/admin/
+web_path_to_admin=/customcf/com/figleaf/figfactor/admin/
 
 [logger]
 enable_external_logger=true
-commonspot_path=C:\Inetpub\wwwroot\commonspot\
+commonspot_path=E:/WebSites/Shared/commonspot/
 
 [cacheService]
 default_cache=softcache
@@ -39,7 +38,7 @@ url_cache_reload_value=true
 
 
 [fleet]
-commonspot_support_dsn=ViewFramework_Fleet
+commonspot_support_dsn=commonspot-otp-custom
 fleet_meta_data_field_name=fic_page_meta_data
 fleet_Controll_ID=0
 
@@ -65,12 +64,12 @@ dataservice_version=1.0
 force_pass=true
 
 [authentication]
-enable_authentication=false
+enable_authentication=true
 realm=GENA
 authentication_url=https://webapp01.nist.gov:7101/axis/services/AuthWSv1?wsdl
 authentication_test_url=https://webapp03.nist.gov:7101/axis/services/AuthWSv1?wsdl
-authentication_mode=test
-authentication_force_pass=true
+authentication_mode=production
+authentication_force_pass=false
 authentication_version=alpha
 
 
@@ -92,7 +91,7 @@ google_proxyreload=1
 google_display_sort_options=true
 google_display_numbers=true
 google_output_format=HTML
-search_form_action=http://localhost/viewframework/search-results.cfm
+search_form_action=http://otp-d.nist.gov/search-results.cfm
 search_form_break_button=false
 search_form_class=GoogleSearchFromClass
 search_form_id=GoogleSearchFromID
@@ -100,13 +99,13 @@ search_form_name=GoogleSearchForm
 search_mode=production
 
 [multimedia]
-enable_multimedia=true
+enable_multimedia=false
 media_management_group_id=20
 video_platfrom=external
 video_platform_service=youtube
 
 [validator]
-enable_validator=true
+enable_validator=false
 
 [framework_deployment_security]
 destroy_admin=false

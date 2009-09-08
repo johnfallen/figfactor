@@ -1,7 +1,7 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd" [
 	
 	<!-- modify this if the FigFactor changes -->
-	<!ENTITY figFactorContext "viewframework.">
+	<!ENTITY figFactorContext "">
 	
 	<!ENTITY figFactorMapping "&figFactorContext;customcf.com.figleaf.figfactor.">
 	<!ENTITY applicationMapping "&figFactorMapping;com.applications.">
@@ -59,7 +59,8 @@
 	</constructor-arg>
 </bean>
 
-<bean id="DataService" class="&systemMapping;dataservice.Dataservice" singleton="true">
+
+<bean id="DataService" class="&systemMapping;dataservice.DataService" singleton="true">
 	<constructor-arg name="ElementFactory">
 		<ref bean="ElementFactory" />
 	</constructor-arg>
@@ -99,6 +100,8 @@
 	</constructor-arg>
 </bean>
 
+<bean id="VersionAdaptor" class="&systemMapping;versionadaptor.BaseVersionAdaptor" singleton="true" />	
+
 <bean id="Legacy" class="&systemMapping;legacy.Legacy" singleton="true" />
 
 <bean id="MessageService" class="&systemMapping;message.MessageService" singleton="true">
@@ -106,11 +109,10 @@
 		<ref bean="Config" />
 	</constructor-arg>
 </bean>
+		
 
 
-
-
-<!-- *************************** Transients *************************** -->
+<!-- *************************** Non Singletons *************************** -->
 <bean id="MapCollection" class="&utilMapping;collections.MapCollection" singleton="false" />
 
 <bean id="AdobeColdFusionSessionFacade" class="&utilMapping;collections.AdobeColdFusionSessionFacade" singleton="false" />

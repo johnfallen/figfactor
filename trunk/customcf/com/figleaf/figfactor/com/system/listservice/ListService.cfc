@@ -103,7 +103,7 @@ John Allen 		28/03/2009			Created
 </cffunction>
 
 
-
+<!--- removeList --->
 <cffunction name="removeList" returntype="boolean" access="public" output="false"
 	displayname="Remove List" hint="I remove a list from my collection"
 	description="I remove a list by name from my collection of strored lists.">

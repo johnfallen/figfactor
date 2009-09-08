@@ -43,6 +43,7 @@
 		</cfcatch>
 	</cftry>
 	
+	<!--- NOTE: this is crappy but really tests it. --->
 	<!--- NOTE: always check what CS or the underlying IOCs string return is if this fails --->
 	<cfif test.Detail eq "Bean definition for bean named: foo could not be found.">
 		<cfset test = false />
@@ -135,13 +136,8 @@
 <cffunction name="testGetFrameworkPath" output="false">
 	
 	<cfset var ff = variables.FigFactor />
-	<cfset var test = false />
-	
-	<cfif len(ff.GetFrameworkPath())>
-		<cfset test = true />
-	</cfif>
-	
-	<cfset assertTrue(test, "The lenght of the framework path is null!") />
+
+	<cfset assertTrue(len(ff.GetFrameworkPath()) gt 0, "The lenght of the framework path is null!") />
 	
 </cffunction>
 

@@ -49,9 +49,11 @@ John Allen 		19/09/2008			Created
 	<!--- prevent cross-site scripting --->
 	<cfset var cleanLogin =  rereplace(trim(arguments.login),"<[^>]*>","","ALL") />
 	<cfset var cleanPassword =  rereplace(trim(arguments.password),"<[^>]*>","","ALL") />
+	 
 	<cfset var _URL = variables._URL />
 	<cfset var authenticate = false />
 	<cfset var result = false />
+
 
 	<cfif arguments.forcePass neq true>
 		
@@ -90,7 +92,7 @@ John Allen 		19/09/2008			Created
 	<cfargument name="URL" type="string" required="false" hint="I am the URL authenticate make a web service call to." />
 
 	<cfset var authenticateResponse = 0 />
-	<cfset var wrapper = structNew() />
+	<cfset var args = structNew() />
 	<cfset var result =  "false" />
 	<cfset var message = "" />
 	
@@ -99,9 +101,9 @@ John Allen 		19/09/2008			Created
 	
 	<cfif len(arguments.login) gt 0 and len(arguments.password) gt 0>
 	
-		<cfset wrapper.authenticateElement.Realm = "#arguments.Realm#" />
-		<cfset wrapper.authenticateElement.username = "#arguments.login#" />
-		<cfset wrapper.authenticateElement.Password = "#arguments.password#" />
+		<cfset args.authenticateElement.Realm = "#arguments.Realm#" />
+		<cfset args.authenticateElement.username = "#arguments.login#" />
+		<cfset args.authenticateElement.Password = "#arguments.password#" />
 		 
 		<!--- Try, in case the web service is down.--->
 		<cftry> 
@@ -109,7 +111,7 @@ John Allen 		19/09/2008			Created
 			<cfinvoke 
 				webservice="#arguments.url#" 
 				method="authenticate" 
-				argumentcollection="#wrapper#" 
+				argumentcollection="#args#" 
 				returnvariable="authenticateResponse">
 			</cfinvoke>
 			
@@ -117,6 +119,11 @@ John Allen 		19/09/2008			Created
 				<cfthrow message="The Remote Authentication Service is Unavaiable. Technical Support has been notified.">
 			</cfcatch>
 		</cftry>
+		
+		<cfdump var="#args#">
+		<cfdump var="#authenticateResponse#">
+		<cfabort>
+		
 		
 		<!--- Pass/fail check of the web service call --->
 		<cfif authenticateResponse.getResult() is "YES">

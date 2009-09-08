@@ -1,13 +1,13 @@
 <modelglue>
+	
 	<controllers>
-		<controller name="figFactorAdminController" type="viewframework.customcf.com.figleaf.figfactor.admin.controller.Controller">
+		<controller name="figFactorAdminController" type="customcf.com.figleaf.figfactor.admin.controller.Controller">
 			<message-listener message="OnRequestStart" function="OnRequestStart" />
 			<message-listener message="OnQueueComplete" function="OnQueueComplete" />
 			<message-listener message="getCustomElementXML" function="getCustomElementXML" />
 			<message-listener message="getFileMappings" function="getFileMappings" />
 			<message-listener message="loadFileMapping" function="loadFileMapping" />
 			<message-listener message="getLog" function="getLog" />
-			<message-listener message="getCommonspotQueries" function="getCommonspotQueries" />
 			<message-listener message="doLogin" function="doLogin" />
 			<message-listener message="doLogout" function="doLogout" />
 			<message-listener message="addUser" function="addUser" />
@@ -140,7 +140,7 @@
 			</results>
 			<views>
 				<include name="body" template="pages/dspLogReader.cfm">
-						<value name="xe.log.reader" value="log.reader" />
+					<value name="xe.log.reader" value="log.reader" />
 				</include>
 			</views>
 		</event-handler>
@@ -252,29 +252,6 @@
 			</views>
 		</event-handler>
 
-		
-		
-		
-		<!--
-			commonspot
-		-->
-		
-		<event-handler name="inspet.commonspot">
-			<broadcasts>
-				<message name="getCommonspotQueries" />
-			</broadcasts>
-			<results>
-				<result do="view.template" />
-			</results>
-			<views>
-				<include name="body" template="pages/dspCommonSpotInspection.cfm">
-					<value name="xe.loadBeanByName" value="load.bean.by.name" />
-				</include>
-			</views>
-		</event-handler>
-
-
-
 
 
 		<!--
@@ -295,7 +272,6 @@
 					<value name="xe.userManagement" value="user.management" />
 					<value name="xe.doLogout" value="do.logout" />
 					<value name="xe.browseFileSystem" value="browse.file.system" />
-					<value name="xe.inspectCommonspot" value="inspet.commonspot" />
 				</include>
 				<include name="template" template="templates/dspTemplate.cfm" />
 			</views>
