@@ -9,12 +9,16 @@
 <cffunction name="testSetAndGetList" output="false">
 	
 	<cfset var ls = variables.ls />
-	<cfset var testList = "this,is,a,test,list">
+	<cfset var testList = "this,is,a,test,list" />
 	
 	<cfset ls.removeList("testList") />
 	<cfset ls.setList("testList", testList) />
 	
 	<cfset assertEquals(testList, ls.getList("testList"), "Nope they are not the same") />
+	
+	<!--- clean up --->
+	<cfset ls.removeList("testList") />
+	
 </cffunction>
 
 
@@ -56,18 +60,15 @@
 <!--- testGetListBadValuePassed --->
 <cffunction name="testGetListBadValuePassed" output="false">
 	
-	<cfset var ls = variables.ls />
-	
-	<cfset assertEquals(listLen(ls.getList("foo")), 0, "Something came back for a requested list called foo.")>
+	<cfset assertEquals(listLen(variables.ls.getList("foo")), 0, 
+		"Something came back for a requested list called foo.") />
 </cffunction>
 
 
 
 <!--- testGetAllLists --->
 <cffunction name="testGetAllLists" output="false">
-	<cfset var result = variables.ls.getAllLists() />
-	
-	<cfset assertIsStruct(result, "GetAllLists didnt return a named struct of lists!")>
+	<cfset assertIsStruct(variables.ls.getAllLists(), "GetAllLists didnt return a named struct of lists!")>
 </cffunction>
 
 
@@ -77,5 +78,21 @@
 
 	<cfset assertIsStruct(variables.ls.getInstance(), "GetAllLists didnt return a named struct of lists!") />
 	
+</cffunction>
+
+
+
+<!--- testRemoveList --->
+<cffunction name="testRemoveList" output="false">
+	
+	<cfset var ls = variables.ls />
+	<cfset var testListName = "RandomTestListNameThatShouldBeUnique#createUUID()#" />
+	<cfset var testListWhichShouldBeUnique = "this,ohhh,please,be,unique,#createUUID()#,is,a,test,list" />
+	<cfset var theTest = false />
+	
+	<cfset ls.setList("#testListName#", testListWhichShouldBeUnique) />
+	
+	<cfset assertTrue(ls.removeList("#testListName#"), "The randomly added list by was NOT removed!") />
+
 </cffunction>
 </cfcomponent>

@@ -81,6 +81,8 @@ John Allen 		10/12/2008			Created
 		</cfif>
 	</cfloop>
 
+	<cfdump var="#this#">
+	<cfabort>
 </cffunction>
 
 

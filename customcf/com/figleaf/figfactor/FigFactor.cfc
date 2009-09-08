@@ -201,7 +201,8 @@ John Allen 		20/03/2009			Created
 	<cfset variables.private.ListService = getFactory().getBean("ListService") />
 	<cfset variables.private.Config = getFactory().getBean("Config") />
 	<cfset variables.private.FileMapper = getFactory().getBean("FileMapper") />
-	<cfset variables.private.RenderHandlerService = getFactory().getBean("RenderHandlerService") />
+	<!--- this should never be returned from coldspring because of the HIT from the CS look up. --->
+	<!--- <cfset variables.private.RenderHandlerService = getFactory().getBean("RenderHandlerService") /> --->
 	<cfset variables.private.MessageService = getFactory().getBean("MessageService") />
 	<cfset variables.private.Logger = getFactory().getBean("Logger") />
 	<cfset variables.private.Google = getFactory().getBean("Google") />
@@ -273,9 +274,13 @@ John Allen 		20/03/2009			Created
 	
 	<cfargument name="elementInfo" hint="I am the CommonSpot elements elementInfo structure. I am required. Type: Struct" />
 	<cfargument name="elementType" hint="I am a string that should match a CommonSpots element type.  I am required. Type: String." />
-
-	<cfset var RenderHandlerService = variables.private.RenderHandlerService.init(arguments.elementInfo) />
-	<cfset var elementData = RenderHandlerService.getElementData(arguments.elementType) />
+	
+	<!--- dont want to get this from ColdSpring --->
+	<cfset var RenderHandlerService = createObject("component", "com.system.util.renderhandlerservice.RenderHandlerService").init() />
+	<cfset var elementData = structNew() />
+	
+	<cfset RenderHandlerService.Load(arguments.elementInfo) />
+	<cfset elementData = RenderHandlerService.getElementData(arguments.elementType) />
 	
 	<!--- 
 		TODO: Need to add the other element types that we always want to be an array.
@@ -283,7 +288,7 @@ John Allen 		20/03/2009			Created
 	<!--- 
 		Always return an array if a linkBar, else check if it's just an array 
 		with 1 index, and if it is, just return the data of index 1. Makes 
-		things a whole lot easer for view to work with.
+		things a whole lot easer for views to work with.
 	--->
 	<cfif elementType neq "linkBar" and isArray(elementData) and arrayLen(elementData) eq 1>
 		<cfset elementData = elementData[1] />
@@ -299,7 +304,7 @@ John Allen 		20/03/2009			Created
 	displayname="Get Event" hint="I return the requests Event object. Return Type: component."
 	description="I act as a proxy for the EventService.cfc to get an Event object. Return Type: component.">
 
-	<cfreturn variables.private.EventService.getEvent() />
+	<cfreturn variables.private.EventService.getEvent(argumentCollection = arguments) />
 </cffunction>
 
 

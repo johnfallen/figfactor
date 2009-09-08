@@ -40,6 +40,10 @@ John Allen		03/04/2008		Created
 	<!--- needed, old code gets the udf from here --->
 	<cfset setUDFs(arguments.UDF) />
 	
+	
+	<cfset setRenderHandlerService(createObject("component", "RenderHandlerService").init()) />
+	<cfset setCustomElementData() />
+	
 	<!--- the logic to populate the event  --->
 	<cfset initalizeEvent() />
 	
@@ -212,7 +216,8 @@ John Allen		03/04/2008		Created
 	<cfset var CEQuery =  0 />
 	<cfset var results = structNew() />
 	<cfset var x = 0 />
-
+	<cfset var temp = "" />
+	
 	<cfquery name="CEQuery" datasource="#arguments.dsn#">
 		select 
 			replace(f.fieldName,'FIC_','') as fieldName, 
@@ -234,41 +239,127 @@ John Allen		03/04/2008		Created
 			where d.pageID = <cfqueryparam cfsqltype="cf_sql_integer" value="#pageID#">
 			and 
 			d.versionState = 2
-			<!--- 
-				ADDED by JFA 0062009. 
-				Seems to pick up the total custom element even if the page has
-				NOT been approved. After FigFactor 2.0 if a page had not been
-				approved the custome element form field data woulnt be picked
-				up. weird. I HAVE to become a SQL master.
-			 --->
-			or
-			(d.versionState > 2 and d.pageID = <cfqueryparam cfsqltype="cf_sql_integer" value="#pageID#">)
 	</cfquery>
 
 	<!--- morph the query to a structure --->
 	<cfloop query="CEQuery">
-		<!--- ALSO ADDED WITH THE ABOVE QUERY CHANGE. THIS MIGHT SUCK.
-			I could be possiable that an older of data hits here. IF so
-			revisit this and maybe add a check on the pages "what ever state"
-			and only modify the above query if it is in this new state.
-		 --->
 		<cfif not structKeyExists(results, CEQuery.fieldname)>
-			<cfset structInsert(results, CEQuery.fieldname, CEQuery.fieldvalue) />
+			
+			<cfset temp = CEQuery.fieldvalue />
+			
+			<!--- 
+				Clean up the way CS stores the data in the db. When commonspot
+				dose its own thing via the RenderHandlerService it calls some
+				other module to do this stuff. We only put this here to make
+				the raw return of this query easer to work with. 
+			--->
+			<cfset temp = replace(temp, "&quot;", """", "all") />
+			<cfset temp = replace(temp, "&##124;", "|", "all") />
+			
+			<cfset structInsert(results, CEQuery.fieldname, temp) />
 		</cfif>
 	</cfloop>
 	
-	<cfset setCustomElementData(results) />
-	<cfset setValue("customelement", getCustomElementData())>
+	<cfset results.dataISFromRawCustomElementNotFromRenderHandlerService = true />
+
+	<cfset setRawCustomElementData(results) />
 
 </cffunction>
 
 
 
+<!--- getCustomElementData --->
+<cffunction name="getCustomElementData" output="false" 
+	hint="I return a Array or Structure of containing a CommonSpot Element data.">
+	
+	<cfargument name="elementInfo" required="false" default=""
+		hint="I am the CommonSpots elementInfo data structure." />
+	
+	
+	<cfset var rh = getRenderHandlerService() />
+	<cfset var fieldName = variables.Config.getPageTypeMetaDataFormFieldName() />
+	
+	<!--- 
+		if this method is called before the renderhandler has called it, we want
+		to return something so code before the renderHandler can still access 
+		AT LEAST the raw queried custom element data, so return the raw custom
+		elements data.
+	--->
+	<cfif isNumeric(request.transient.FigFactor.eventObject.CustomElementData)
+			and not 
+			isStruct(arguments.elementInfo)>
+		<cfreturn getRawCustomElementData() />
+	</cfif>
+	
+	<!--- 
+		This code will fire when the method is called any time after the custom
+		render handler code has already caled this method. Return the request
+		scoped structure of data.
+	 --->
+	<cfif isStruct(request.transient.FigFactor.eventObject.CustomElementData)>
+		<cfreturn request.transient.FigFactor.eventObject.CustomElementData />
+	</cfif>
+	
+	<!--- 
+		This will fire when the method is called from within the context of the
+		page types (events) custom render handler. So here we want to use the
+		render handler service object to get the data all nice and pretty.
+	 --->
+	<cfif isStruct(arguments.elementInfo)>
+		
+		<cfset rh.load(arguments.elementInfo) />
+		
+		<cfset customElementData = rh.getElementData("custom") />
+		
+		<cftry>
+			<cfset customElementData = customElementData[1].fields />
+			<cfcatch>
+				<cfthrow 
+					type="figfactor.com.system.event.Event" 
+					message="The data returned from the render handler service was NOT an array. line 318">
+			</cfcatch>
+		</cftry>
 
+		<cfloop collection="#customElementData#" item="x">
+			<cfset customElementData[x] = customElementData[x].value />
+		</cfloop>
+		<cfset setCustomElementData(customElementData) />
+		
+		<cftry>
+			<cfset request.transient.FigFactor.eventObject.CustomElementData[fieldName] = getRawCustomElementData().page_meta_data />
+			<cfcatch>
+			</cfcatch>
+		</cftry>
+		
+		<cfreturn request.transient.FigFactor.eventObject.CustomElementData />
+	</cfif>
+
+</cffunction>
+
+
+
+<!--- CustomElementData --->
+<cffunction name="setCustomElementData" output="false" hint="I set and persist data for a CommonSpot Element.">
+	<cfargument name="CustomElementData" default="0" />
+	<cfset request.transient.FigFactor.eventObject.CustomElementData = arguments.CustomElementData />
+</cffunction>
 
 
 
 <!--- ************************* Accessors/Muators ************************* --->
+
+
+<!--- RawCustomElementData --->
+<cffunction name="setRawCustomElementData" output="false" access="public" hint="I set the SubSiteID property.">
+	<cfargument name="RawCustomElementData" type="any" />
+	<cfset variables.instance.RawCustomElementData = arguments.RawCustomElementData />
+</cffunction>
+<cffunction name="getRawCustomElementData" output="false" access="public" hint="I return the Raw Custom Element Data queried from the database.">
+	<cfreturn variables.instance.RawCustomElementData />
+</cffunction>
+
+
+
 
 <!--- SubSiteID --->
 <cffunction name="setSubSiteID" output="false" access="public" hint="I set the SubSiteID property.">
@@ -301,15 +392,6 @@ John Allen		03/04/2008		Created
 </cffunction>
 <cffunction name="getCSSClass" output="false" hint="I return main CSS ID selector for a pageType.">
 	<cfreturn variables.instance.CSSClass />
-</cffunction>
-<!--- CustomElementData --->
-<cffunction name="setCustomElementData" output="false" hint="I set and persist data for a CommonSpot Element.">
-	<cfargument name="CustomElementData" />
-	<cfset variables.instance.CustomElementData = arguments.CustomElementData />
-</cffunction>
-<cffunction name="getCustomElementData" output="false" 
-	hint="I return a Array or Structure of containing a CommonSpot Element data.">
-	<cfreturn variables.instance.CustomElementData />
 </cffunction>
 <!--- CustomElementName --->
 <cffunction name="setCustomElementName" output="false" hint="I set the name of an events custom elemnet.">
@@ -466,6 +548,20 @@ John Allen		03/04/2008		Created
 	<cfargument name="RenderHandlerDirectory" type="string" required="true"
 		hint="I am the RenderHandlerDirectory property. I am required."/>
 	<cfset variables.instance.RenderHandlerDirectory = arguments.RenderHandlerDirectory />
+</cffunction>
+<!--- getRenderHandlerService --->
+<cffunction name="getRenderHandlerService" access="public" output="false" returntype="any"
+	displayname="Get RenderHandlerService" hint="I return the RenderHandlerDirectory property." 
+	description="I return the RenderHandlerService property of my internal instance structure.">
+	<cfreturn variables.instance.RenderHandlerService />
+</cffunction>
+<!--- setRenderHandlerService --->
+<cffunction name="setRenderHandlerService" access="public" output="false" returntype="void"
+	displayname="Set RenderHandlerService" hint="I set the RenderHandlerDirectory property." 
+	description="I set the RenderHandlerService property to my internal instance structure.">
+	<cfargument name="RenderHandlerService" type="any" required="true"
+		hint="I am the RenderHandlerService component. I am required."/>
+	<cfset variables.instance.RenderHandlerService = arguments.RenderHandlerService />
 </cffunction>
 
 

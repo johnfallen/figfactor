@@ -144,7 +144,7 @@ John Allen		08/16/20008		Massive re-factoring. Changed the concept to become
 	<cfset var qresults = "" />
 	<cfset var aresults = arraynew(1) />
 
-	<cfstoredproc datasource="#variables.supportDSN#" procedure="metadatakeyword_getByMetadatatreeid">
+	<cfstoredproc datasource="commonspot-standards-custom" procedure="metadatakeyword_getByMetadatatreeid">
 		<cfprocparam dbvarname="MetaDataTreeID" type="in" cfsqltype="cf_sql_numeric" value="#arguments.MetaDataTreeID#" />
 		<cfprocresult resultset="1" name="qresults" />
 	</cfstoredproc>

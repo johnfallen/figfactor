@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<navigation>
+	<subsite name="standards">
+		<nav name="Standards" url="standards.cfm"/>
+	</subsite>
+	<subsite name="regulations">
+		<nav name="Regulations" url="regulations.cfm"/>
+	</subsite>
+	<subsite name="federalAgencyInformation">
+		<nav name="Federal Agency Information" url="federal-agency-information.cfm"/>
+	</subsite>
+	<subsite name="educationAndTraining">
+		<nav name="Education &amp;  Training" url="education-and-training.cfm"/>
+	</subsite>
+	<subsite name="library">
+		<nav name="Library" url="library.cfm"/>
+	</subsite>
+	<subsite name="assistiveTechnology">
+		<nav name="Assistive Technology" url="assistive-technology.cfm"/>
+	</subsite>
+	<subsite name="stateRegInfo">
+		<nav name="State &amp; Local Government" url="state-reginfo.cfm"/>
+	</subsite>
+	<subsite name="e-gov">
+		<nav name="NIST E-Gov Standards Activities" url="/e-gov/">
+			<nav name="About Us" url="aboutus.cfm" />
+			<nav name="General Info on E-Gov" url="general-info-egov.cfm" />
+			<nav name="E-Gov Standards Validation" url="egov-standards-validation.cfm" />
+			<nav name="General Info on Standards" url="general-info-standards.cfm" />
+			<nav name="Comments" url="comments.cfm" />
+		</nav>
+	</subsite>
+	<subsite name="aboutUs">
+		<nav name="About Us" url="about-us.cfm"/>
+	</subsite>						
+</navigation>

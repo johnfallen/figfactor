@@ -41,7 +41,7 @@
 	<mapping>
 		<name>gateways</name>
 		<source>&sitePath;model/dataservice</source>
-		<destination>&systemPath;dataservice/com/gateway/gateways</destination>
+		<destination>&applicationPath;dataservice/com/gateway/gateways</destination>
 		<recursive>false</recursive>
 		<file></file>
 		<allowedExtensions>cfc</allowedExtensions>
@@ -74,7 +74,7 @@
 		<nameconflict>overwrite</nameconflict>
 	</mapping>
 	
-	<!-- UI Directory 
+	<!-- UI Directory -->
 	<mapping>
 		<name>ui</name>
 		<source>&sitePath;wwwroot/ui</source>
@@ -84,7 +84,7 @@
 		<allowedExtensions></allowedExtensions>
 		<nameconflict>overwrite</nameconflict>
 	</mapping>
-	-->
+	
 	
 	<!-- Custom Fields -->
 	<mapping>

@@ -12,11 +12,18 @@
 <cfset variables.testTempDirPath = variables.testPath & variables.testTempDir />
 
 
-
-<!--- createFileSystem --->
+<!--- createFileSystemNoInit --->
 <cffunction name="createFileSystemNoInit" access="private"
 	hint="I create a FileSystem object with out calling the init for testing.">
 	<cfreturn createObject("component", "FileSystem") />
+</cffunction>
+
+
+
+<!--- createFileSystem --->
+<cffunction name="createFileSystem" access="private"
+	hint="I create a FileSystem object.">
+	<cfreturn createObject("component", "FileSystem").init() />
 </cffunction>
 
 
@@ -48,14 +55,6 @@
 	<!--- check its not there --->	
 	<cfset assertEquals(newDir.recordcount, 0, "The directory Delete function failed!.") />
 	
-</cffunction>
-
-
-
-<!--- createFileSystem --->
-<cffunction name="createFileSystem" access="private"
-	hint="I create a FileSystem object.">
-	<cfreturn createObject("component", "FileSystem").init() />
 </cffunction>
 
 
@@ -129,6 +128,25 @@
 	
 	<cfset assertEquals(expectedContent, trim(content), "NO! They were different. Should be FOO.") />
 	
+</cffunction>
+
+
+
+<!--- testFixDestination --->
+<cffunction name="testFixDestination" access="public" output="false">
+	
+	<cfset var fs = createFileSystem() />
+	<cfset var d = variables.testPath & "theFooBarDirForTestingThisStringShouldBeUnique" />
+	<cfset var fixedD = fs.fixDestination(d) />
+	<cfset var dirList = fs.listDirectory(fixedD) />
+	<cfset var amount = dirList.recordcount />
+
+	<cfset assertIsQuery(dirList, "Your test code or the FileSystem is all messed up.") />
+	<cfset assertTrue(amount eq 0, "For some reason the temp dir has files in it. This meas that we are ALLLL screwed up.") />
+	
+	<!--- clean up --->
+	<cfset fs.deleteDirectory(directory = fixedD) />
+
 </cffunction>
 
 
