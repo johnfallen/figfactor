@@ -1,0 +1,1 @@
+I am a framework used for CommonSpot development. I provide a "view" pattern, database access abstraction, security and a multimedia custom application.
